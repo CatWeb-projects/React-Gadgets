@@ -20,7 +20,18 @@ const gadgets = [
     manufacturer: 'Samsung',
     imageUrl:
       'https://darwin.md/images/product/2020/11/samsung_galaxy_a51_black_1.webp'
+  },
+  {
+    id: 3,
+    name: 'Samsung Galaxy A71 6/128GB (A715F), Black',
+    price: 6199,
+    model: 'Galaxy A71',
+    color: 'Black',
+    weight: 172,
+    manufacturer: 'Samsung',
+    imageUrl:
+      'https://darwin.md/images/product/2020/11/galaxy_a715_black_1.webp'
   }
 ];
 
-module.exports = gadgets;
+module.exports.gadgets = gadgets;
