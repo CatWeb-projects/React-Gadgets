@@ -24,13 +24,24 @@ const gadgets = [
   {
     id: 3,
     name: 'Samsung Galaxy A71 6/128GB (A715F), Black',
-    price: 6199,
+    price: 8499,
     model: 'Galaxy A71',
     color: 'Black',
-    weight: 172,
+    weight: 179,
     manufacturer: 'Samsung',
     imageUrl:
       'https://darwin.md/images/product/2020/11/galaxy_a715_black_1.webp'
+  },
+  {
+    id: 4,
+    name: 'Samsung Galaxy S21 Ultra 16/512GB (G998), Phantom Black',
+    price: 31999,
+    model: 'Galaxy S21 Ultra',
+    color: 'Phantom Black',
+    weight: 228,
+    manufacturer: 'Samsung',
+    imageUrl:
+      'https://darwin.md/images/product/2021/01/samsung_g998_galaxy_s21_ultra_black_1-210113020726-darwin.webp'
   }
 ];
 
