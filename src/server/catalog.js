@@ -8,7 +8,8 @@ const gadgets = [
     weight: 209,
     manufacturer: 'Xiaomi',
     imageUrl:
-      'https://darwin.md/images/product/2020/06/redmi_note_9_pro_gray_1-200605035404-darwin.webp'
+      'https://darwin.md/images/product/2020/06/redmi_note_9_pro_gray_1-200605035404-darwin.webp',
+    type: 'smartphones'
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ const gadgets = [
     weight: 172,
     manufacturer: 'Samsung',
     imageUrl:
-      'https://darwin.md/images/product/2020/11/samsung_galaxy_a51_black_1.webp'
+      'https://darwin.md/images/product/2020/11/samsung_galaxy_a51_black_1.webp',
+    type: 'smartphones'
   },
   {
     id: 3,
@@ -30,7 +32,8 @@ const gadgets = [
     weight: 179,
     manufacturer: 'Samsung',
     imageUrl:
-      'https://darwin.md/images/product/2020/11/galaxy_a715_black_1.webp'
+      'https://darwin.md/images/product/2020/11/galaxy_a715_black_1.webp',
+    type: 'smartphones'
   },
   {
     id: 4,
@@ -41,7 +44,8 @@ const gadgets = [
     weight: 228,
     manufacturer: 'Samsung',
     imageUrl:
-      'https://darwin.md/images/product/2021/01/samsung_g998_galaxy_s21_ultra_black_1-210113020726-darwin.webp'
+      'https://darwin.md/images/product/2021/01/samsung_g998_galaxy_s21_ultra_black_1-210113020726-darwin.webp',
+    type: 'smartphones'
   }
 ];
 
