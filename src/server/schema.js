@@ -6,23 +6,24 @@ const {
   GraphQLString,
   GraphQLInt,
   GraphQLID,
-  GraphQLSchema
+  GraphQLSchema,
+  GraphQLNonNull
 } = graphql;
 
-const GadgetType = new GraphQLObjectType({
-  name: 'Gadget',
+const GadgetsType = new GraphQLObjectType({
+  name: 'Gadgets',
   fields: () => ({
     id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    price: { type: GraphQLInt }
+    name: { type: GraphQLNonNull(GraphQLString) },
+    price: { type: GraphQLNonNull(GraphQLInt) }
   })
 });
 
 const Query = new GraphQLObjectType({
   name: 'Query',
   fields: {
-    gadget: {
-      type: GadgetType,
+    gadgets: {
+      type: GadgetsType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return catalog.gadgets.find((gadget) => gadget.id === args.id);

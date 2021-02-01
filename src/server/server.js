@@ -10,7 +10,7 @@ const port = 3005;
 server.use(
   '/graphql',
   graphqlHTTP({
-    schema,
+    schema: schema,
     graphiql: true
   })
 );
@@ -19,13 +19,12 @@ server.get('/catalog', (request, response) => {
   response.json(catalog);
 });
 
-// server.get('/catalog/:id', (request, response) => {
-//   const { id } = request.params;
-//   const product = catalog.filter((item) => item.id === +id);
-//   console.log(catalog);
-//   response.json(product);
-// });
+server.get('/catalog/:id', (request, response) => {
+  const { id } = request.params;
+  const product = catalog.gadgets.filter((item) => item.id === +id);
+  response.json(product);
+});
 
 server.listen(port, (error) => {
-  error ? console.log(error) : console.log('Server is running');
+  error ? console.log(error) : console.log(`Server is running on port ${port}`);
 });
