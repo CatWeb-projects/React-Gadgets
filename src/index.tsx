@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './App';
+import { CreateRouter } from 'estafette-router';
+import { routes } from 'routes';
+
+import 'styles/styles.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CreateRouter routes={routes} />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,0 +1,83 @@
+@import '~styles/mixins';
+@import '~styles/media-queries';
+
+.header {
+  padding-top: rem(46px);
+
+  &__logo {
+    padding-left: rem(16px);
+
+    svg {
+      font-size: rem(48px);
+    }
+  }
+
+  &__menu {
+    color: #a0a0a0;
+    padding: rem(18px 38px);
+    display: flex;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: rem(18px);
+
+    svg {
+      fill: #fff;
+      margin-right: rem(10px);
+      font-size: rem(18px);
+    }
+  }
+
+  &__search {
+    width: 100%;
+    position: relative;
+    margin-left: rem(20px);
+
+    input {
+      width: 100%;
+      height: rem(48px);
+      border-width: 0;
+      outline: 0;
+      background: #262626;
+      border-radius: rem(8px);
+      white-space: nowrap;
+      color: #fff;
+      font-size: rem(18px);
+      padding-left: rem(20px);
+
+      &::placeholder {
+        color: #626a71;
+        font-size: rem(16px);
+      }
+    }
+
+    button {
+      position: absolute;
+      right: rem(5px);
+      top: 50%;
+      transform: translate(0, -50%);
+      background: #101010;
+      border-radius: 8px;
+      border-width: 0;
+      outline: 0;
+      width: rem(40px);
+      height: rem(40px);
+      cursor: pointer;
+    }
+
+    svg {
+      fill: #a0a0a0;
+      font-size: rem(18px);
+    }
+  }
+}
+
+.header-container {
+  max-width: rem(1140px);
+  margin: 0 auto;
+  background-color: #101010;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: rem(72px);
+  border-radius: rem(16px);
+}
