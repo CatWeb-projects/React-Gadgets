@@ -105,20 +105,25 @@
     margin-left: rem(38px);
   }
 
-  &__languages {
-    margin-right: rem(16px);
+  &__languages,
+  &__user {
     background-color: #333333;
     border-radius: rem(8px);
     transition: all 0.3s;
+    height: rem(48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  &__languages {
     a {
       display: flex;
       color: #a0a0a0;
-      padding: (10px);
     }
 
     h5 {
-      margin-left: rem(16px);
+      margin-left: rem(8px);
     }
 
     &:hover {
@@ -128,6 +133,24 @@
 
       svg {
         fill: #fff;
+      }
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-right: rem(16px);
+
+    span {
+      margin-left: rem(8px);
+      color: #a0a0a0;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      span {
+        color: #fff;
       }
     }
   }

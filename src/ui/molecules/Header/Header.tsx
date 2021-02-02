@@ -46,7 +46,12 @@ export const Header = () => {
             </a>
           </div>
 
-          <div className="header__user"></div>
+          <div className="header__user">
+            <Link to="/">
+              <Icon type="user" />
+              <span>My Account</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
