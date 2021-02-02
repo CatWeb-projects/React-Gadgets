@@ -10,29 +10,48 @@ export const Header = () => {
       <div className="header-container">
         <div className="header__logo">
           <Link to="/">
-            <Icon type="music" />
+            <Icon type="play" />
           </Link>
         </div>
+
         <div className="header__menu">
           <Icon type="menu" />
           All Categories
         </div>
+
         <div className="header__search">
           <input type="text" placeholder="find over 100 products" />
           <Button>
             <Icon type="zoom" />
           </Button>
         </div>
-        <div className="header__favorites">
-          <Button>
-            <Icon type="heart" />
-          </Button>
-        </div>
-        <div className="header__languages">
-          <a href="#change-language">
-            <Icon type="languages" />
-            en
-          </a>
+
+        <div className="header__main-menu">
+          <div className="header__favorites">
+            <Link to="/">
+              <Icon type="heart" />
+            </Link>
+          </div>
+
+          <div className="header__cart">
+            <Link to="/">
+              <Icon type="shopping-cart" />
+            </Link>
+          </div>
+
+          <div className="header__languages">
+            <a href="#change-language">
+              <Icon type="languages" />
+              <h5>en</h5>
+            </a>
+          </div>
+
+          <div className="header__user">
+            <Link to="/">
+              <Icon type="user" />
+              <span>My Account</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
