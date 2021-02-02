@@ -30,7 +30,7 @@
   &__search {
     width: 100%;
     position: relative;
-    margin-left: rem(20px);
+    margin: rem(0 20px);
 
     input {
       width: 100%;
@@ -67,6 +67,68 @@
     svg {
       fill: #a0a0a0;
       font-size: rem(18px);
+    }
+  }
+
+  &__main-menu {
+    display: flex;
+    align-items: center;
+
+    > div {
+      margin-left: rem(16px);
+      transition: all 0.3s;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: rem(12px);
+      }
+
+      &:hover {
+        background-color: #262626;
+        border-radius: rem(8px);
+
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+
+    svg {
+      font-size: rem(24px);
+      fill: #a0a0a0;
+    }
+  }
+
+  &__favorites {
+    margin-left: rem(38px);
+  }
+
+  &__languages {
+    margin-right: rem(16px);
+    background-color: #333333;
+    border-radius: rem(8px);
+    transition: all 0.3s;
+
+    a {
+      display: flex;
+      color: #a0a0a0;
+      padding: (10px);
+    }
+
+    h5 {
+      margin-left: rem(16px);
+    }
+
+    &:hover {
+      a {
+        color: #fff;
+      }
+
+      svg {
+        fill: #fff;
+      }
     }
   }
 }
