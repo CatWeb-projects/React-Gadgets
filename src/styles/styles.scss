@@ -1,0 +1,81 @@
+@import 'media-queries';
+@import 'mixins';
+
+/* prettier-ignore */
+@import url(//db.onlinewebfonts.com/c/478e653b5b1afb91b0d06091ed542563?family=Futura+New+Book);
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-size: rem(16px);
+  font-family: 'Futura New Book', sans-serif;
+  font-style: normal;
+
+  @include mq($until: wide) {
+    font-size: rem(15px);
+  }
+
+  @include mq($until: desktop) {
+    font-size: rem(14px);
+  }
+
+  @include mq($until: small-desktop) {
+    font-size: rem(13px);
+  }
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+
+  &.link-disabled {
+    cursor: not-allowed;
+    color: #afb6cd;
+
+    &:hover {
+      color: #afb6cd;
+    }
+  }
+}
+a:hover {
+  text-decoration: none;
+  color: #bce;
+}
+h1 {
+  font-size: rem(56px);
+  font-weight: bold;
+}
+h2 {
+  font-size: rem(48px);
+  font-weight: bold;
+}
+h3 {
+  font-size: rem(40px);
+  font-weight: bold;
+}
+h4 {
+  font-size: rem(32px);
+  font-weight: bold;
+}
+h5 {
+  font-size: rem(24px);
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
