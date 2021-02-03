@@ -1,0 +1,20 @@
+@import '~styles/mixins';
+@import '~styles/media-queries';
+
+.swiper-container {
+  max-width: rem(1400px);
+  margin: 0 auto;
+  border-radius: rem(16px);
+  margin-top: rem(16px);
+
+  img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    min-width: 100%;
+    min-height: auto;
+    max-height: rem(520px);
+    border-radius: rem(16px);
+    object-fit: cover;
+  }
+}

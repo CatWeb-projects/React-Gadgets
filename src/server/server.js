@@ -3,6 +3,7 @@ const { graphqlHTTP } = require('express-graphql');
 const cors = require('cors');
 const schema = require('./schema');
 const catalog = require('./catalog');
+const sliderImages = require('./sliderImages');
 const graphql = require('graphql');
 
 const server = express();
@@ -25,6 +26,10 @@ server.get('/catalog/:id', (request, response) => {
   const { id } = request.params;
   const product = catalog.gadgets.filter((item) => item.id === +id);
   response.json(product);
+});
+
+server.get('/slider', (request, response) => {
+  response.json(sliderImages);
 });
 
 server.listen(port, (error) => {
