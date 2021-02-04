@@ -39,7 +39,6 @@ export const SlickSlider = () => {
           data.map((image: any, key: number) => (
             <Link to={image.link} key={key}>
               <img
-                className="swiper-lazy"
                 data-lazy={image.imgUrl}
                 src={image.imgUrl}
                 alt={image.altName}
