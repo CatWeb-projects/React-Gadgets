@@ -4,7 +4,7 @@ const cors = require('cors');
 const schema = require('./schema');
 const catalog = require('./catalog');
 const sliderImages = require('./sliderImages');
-const graphql = require('graphql');
+const tags = require('./tags');
 
 const server = express();
 const port = 3005;
@@ -30,6 +30,10 @@ server.get('/catalog/:id', (request, response) => {
 
 server.get('/slider', (request, response) => {
   response.json(sliderImages);
+});
+
+server.get('/tags', (request, response) => {
+  response.json(tags);
 });
 
 server.listen(port, (error) => {
