@@ -1,7 +1,7 @@
 @import '~styles/mixins';
 @import '~styles/media-queries';
 
-.swiper-container {
+.slick-wrapper {
   max-width: rem(1400px);
   margin: 0 auto;
   border-radius: rem(16px);
@@ -16,5 +16,16 @@
     max-height: rem(520px);
     border-radius: rem(16px);
     object-fit: cover;
+  }
+}
+
+.slick-dots {
+  bottom: 0;
+  display: flex !important;
+  padding: rem(16px);
+
+  li button:before {
+    font-size: rem(16px);
+    color: #00bcd4;
   }
 }

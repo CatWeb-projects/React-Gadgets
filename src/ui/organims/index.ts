@@ -1,1 +1,1 @@
-export { SwiperCarousel } from './SwiperCarousel/SwiperCarousel';
+export { SlickSlider } from './SlickSlider/SlickSlider';

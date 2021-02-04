@@ -5,7 +5,7 @@ const { CancelToken } = axios;
 const baseUrl = 'http://localhost:3005';
 
 export const slider = {
-  action: (): Promise<{ data: string[] }> =>
+  action: (): Promise<{ data: any }> =>
     axios.get(`${baseUrl}/slider`, {
       cancelToken: new CancelToken((c: Canceler) => (slider.cancel = c))
     }),
