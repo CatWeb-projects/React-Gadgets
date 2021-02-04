@@ -2,14 +2,14 @@ import React from 'react';
 import { useRequest } from 'estafette';
 import { Link } from 'estafette-router';
 import Slider from 'react-slick';
-import { slider } from 'libs/http/api';
+import { slider, SliderProps } from 'libs/http/api';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './SlickSlider.scss';
 
 export const SlickSlider = () => {
-  const { request, data } = useRequest<any>();
+  const { request, data } = useRequest<SliderProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -19,9 +19,9 @@ export const SlickSlider = () => {
     };
   }, []);
 
-  const onFetch = (): Promise<any> => request(slider.action());
+  const onFetch = (): Promise<SliderProps[]> => request(slider.action());
 
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -36,7 +36,7 @@ export const SlickSlider = () => {
     <div className="slick-wrapper">
       <Slider {...settings}>
         {data &&
-          data.map((image: any, key: number) => (
+          data.map((image, key) => (
             <Link to={image.link} key={key}>
               <img
                 data-lazy={image.imgUrl}
