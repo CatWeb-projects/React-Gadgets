@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'estafette-router';
+import { useIntl } from 'estafette-intl';
 import { Button, Icon } from 'ui/atoms';
 
 import './Header.scss';
 
 export const Header = () => {
+  const { t, locale, setLocale } = useIntl();
+
+  const onChangeLanguage = (value: string) => {
+    setLocale(value);
+  };
+
   return (
     <div className="header">
       <div className="header-container">
@@ -20,7 +27,7 @@ export const Header = () => {
         </div>
 
         <div className="header__search">
-          <input type="text" placeholder="find over 100 products" />
+          <input type="text" placeholder={t('search')} />
           <Button>
             <Icon type="zoom" />
           </Button>
@@ -40,16 +47,21 @@ export const Header = () => {
           </div>
 
           <div className="header__languages">
-            <a href="#change-language">
+            <div className="locale-language">
               <Icon type="languages" />
-              <h5>en</h5>
-            </a>
+              <h5>{locale}</h5>
+            </div>
+            <div className="header__languages-overlay lang-overlay">
+              <h5 onClick={() => onChangeLanguage('en')}>en</h5>
+              <h5 onClick={() => onChangeLanguage('ru')}>ru</h5>
+              <h5 onClick={() => onChangeLanguage('ro')}>ro</h5>
+            </div>
           </div>
 
           <div className="header__user">
             <Link to="/">
               <Icon type="user" />
-              <span>My Account</span>
+              <span>{t('account')}</span>
             </Link>
           </div>
         </div>

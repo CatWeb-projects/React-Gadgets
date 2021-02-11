@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "eslint-config-airbnb": "^18.2.1",
     "estafette": "^1.0.10",
+    "estafette-intl": "^1.0.2",
     "estafette-router": "^2.2.1",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",

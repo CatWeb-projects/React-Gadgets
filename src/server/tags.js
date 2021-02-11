@@ -8,7 +8,9 @@ const tags = [
   { id: 107, tagName: '#Apple Watch 2020', link: '/' },
   { id: 108, tagName: '#Asus ZenBook 14 (UM425IA)', link: '/' },
   { id: 109, tagName: '#Apple Watch 2020', link: '/' },
-  { id: 110, tagName: '#Macbook Pro', link: '/' }
+  { id: 110, tagName: '#Macbook Pro', link: '/' },
+  { id: 111, tagName: '#Macbook Air', link: '/' },
+  { id: 112, tagName: '#iPad Pro', link: '/' }
 ];
 
 module.exports = tags;
