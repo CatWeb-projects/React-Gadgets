@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { Button, Icon } from 'ui/atoms';
@@ -23,7 +23,7 @@ export const Header = () => {
 
         <div className="header__menu">
           <Icon type="menu" />
-          All Categories
+          {t('categories')}
         </div>
 
         <div className="header__search">

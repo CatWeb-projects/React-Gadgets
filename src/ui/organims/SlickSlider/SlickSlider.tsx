@@ -17,6 +17,7 @@ export const SlickSlider = () => {
     return () => {
       slider.cancel();
     };
+    // eslint-disable-next-line
   }, []);
 
   const onFetch = (): Promise<SliderProps[]> => request(slider.action());
@@ -35,8 +36,8 @@ export const SlickSlider = () => {
   return (
     <div className="slick-wrapper">
       <Slider {...settings}>
-        {data.map((image, key) => (
-          <Link to={image.link} key={key}>
+        {data.map((image) => (
+          <Link to={image.link} key={image.id}>
             <img
               data-lazy={image.imgUrl}
               src={image.imgUrl}
