@@ -3,6 +3,8 @@ import { useRequest } from 'estafette';
 import { useIntl } from 'estafette-intl';
 import { categoriesTypes } from 'libs/http/api';
 
+import './Categories.scss';
+
 export const Categories = () => {
   const { t } = useIntl();
   const { request, data } = useRequest<any>();
@@ -25,10 +27,15 @@ export const Categories = () => {
       {data &&
         data.map((cat: any) => (
           <a className="categories__card" href={cat.link} key={cat.id}>
-            <div>
-              <img src={cat.imgUrl} alt="" />
+            <div className="categories__img">
+              <img
+                src={cat.imgUrl}
+                alt={cat.name}
+                onMouseOver={(e) => (e.currentTarget.src = cat.imgHover)}
+                onMouseOut={(e) => (e.currentTarget.src = cat.imgUrl)}
+              />
             </div>
-            <div>
+            <div className="categories__title">
               <span>{t(`${cat.translate}`)}</span>
             </div>
           </a>

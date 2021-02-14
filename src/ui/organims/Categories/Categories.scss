@@ -1,0 +1,42 @@
+@import '~styles/mixins';
+@import '~styles/media-queries';
+
+.categories {
+  max-width: rem(1400px);
+  margin: rem(16px) auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 140px);
+  grid-template-rows: 1fr;
+  justify-items: center;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: rem(115px);
+    margin-right: rem(8px);
+    color: #fff;
+    font-size: rem(20px);
+    transition: all 0.3s;
+
+    &:hover {
+      color: #ff9800;
+    }
+  }
+
+  &__img {
+    width: rem(104px);
+    height: rem(104px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #101010;
+    border-radius: 50%;
+    margin-bottom: rem(4px);
+  }
+
+  &__title {
+    word-wrap: break-word;
+  }
+}
