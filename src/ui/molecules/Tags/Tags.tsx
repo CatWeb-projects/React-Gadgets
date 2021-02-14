@@ -17,6 +17,7 @@ export const Tags = () => {
     return () => {
       tags.cancel();
     };
+    // eslint-disable-next-line
   }, []);
 
   const onFetch = (): Promise<TagsProps[]> => request(tags.action());

@@ -5,6 +5,7 @@ const schema = require('./schema');
 const catalog = require('./catalog');
 const sliderImages = require('./sliderImages');
 const tags = require('./tags');
+const categoriesTypes = require('./categoriesTypes');
 
 const server = express();
 const port = 3005;
@@ -34,6 +35,10 @@ server.get('/slider', (request, response) => {
 
 server.get('/tags', (request, response) => {
   response.json(tags);
+});
+
+server.get('/categories-types', (request, response) => {
+  response.json(categoriesTypes);
 });
 
 server.listen(port, (error) => {

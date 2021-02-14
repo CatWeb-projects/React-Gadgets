@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './SlickSlider.scss';
 
 export const SlickSlider = () => {
-  const { request, data } = useRequest<SliderProps[]>();
+  const { request, data } = useRequest<SliderProps[]>({ data: [] });
 
   React.useEffect(() => {
     onFetch();
@@ -17,6 +17,7 @@ export const SlickSlider = () => {
     return () => {
       slider.cancel();
     };
+    // eslint-disable-next-line
   }, []);
 
   const onFetch = (): Promise<SliderProps[]> => request(slider.action());
@@ -35,17 +36,16 @@ export const SlickSlider = () => {
   return (
     <div className="slick-wrapper">
       <Slider {...settings}>
-        {data &&
-          data.map((image, key) => (
-            <Link to={image.link} key={key}>
-              <img
-                data-lazy={image.imgUrl}
-                src={image.imgUrl}
-                alt={image.altName}
-                // src="/images/loader.gif"
-              />
-            </Link>
-          ))}
+        {data.map((image) => (
+          <Link to={image.link} key={image.id}>
+            <img
+              data-lazy={image.imgUrl}
+              src={image.imgUrl}
+              alt={image.altName}
+              // src="/images/loader.gif"
+            />
+          </Link>
+        ))}
       </Slider>
     </div>
   );

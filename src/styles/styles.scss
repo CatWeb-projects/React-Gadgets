@@ -30,11 +30,13 @@ html {
 ::before {
   box-sizing: border-box;
 }
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
 
@@ -47,26 +49,27 @@ a {
     }
   }
 }
-a:hover {
-  text-decoration: none;
-  color: #bce;
-}
+
 h1 {
   font-size: rem(56px);
   font-weight: bold;
 }
+
 h2 {
   font-size: rem(48px);
   font-weight: bold;
 }
+
 h3 {
   font-size: rem(40px);
   font-weight: bold;
 }
+
 h4 {
   font-size: rem(32px);
   font-weight: bold;
 }
+
 h5 {
   font-size: rem(24px);
   font-weight: bold;

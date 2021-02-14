@@ -11,7 +11,12 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint/praser", "no-loops", "prettier"],
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser",
+    "no-loops",
+    "prettier"
+  ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-uses-react": "error",
@@ -22,6 +27,8 @@
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off"
   }
 }
