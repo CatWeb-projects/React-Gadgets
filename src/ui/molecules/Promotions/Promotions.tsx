@@ -23,8 +23,6 @@ export const Promotions = () => {
 
   const promotionsData = React.useMemo(() => data, [data]);
 
-  console.log(data, 'promotions');
-
   return (
     <div className="promotions">
       <div className="promotions__wrapper">

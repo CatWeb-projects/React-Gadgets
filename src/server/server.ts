@@ -6,6 +6,7 @@ import { sliderImages } from './sliderImages';
 import { tags } from './tags';
 import { categoriesTypes } from './categoriesTypes';
 import { promotions } from './promotions';
+import { phonesCard } from './recommended';
 const schema = require('./schema');
 
 const server = express();
@@ -54,6 +55,10 @@ server.get('/categories-types', (request, response) => {
 
 server.get('/promotions', (request, response) => {
   response.json(promotions);
+});
+
+server.get('/phones-card', (request, response) => {
+  response.json(phonesCard);
 });
 
 server.listen(port, () => {

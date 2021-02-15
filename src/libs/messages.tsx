@@ -10,7 +10,7 @@ export const messages = createMessages([
   },
   {
     search: {
-      en: 'Find over 100 products',
+      en: 'Find over 15000 products',
       ru: 'Искать среди более 15 000 товаров',
       ro: 'Caută în peste 15 000 de produse'
     }
@@ -89,6 +89,35 @@ export const messages = createMessages([
       en: 'DISCOUNTS up to -50%!',
       ru: 'СКИДКИ до -50%!',
       ro: 'REDUCERI până la -50% !'
+    },
+    laptops_discounts_title: {
+      en: 'Discounts on Laptops',
+      ru: 'Скидки на Ноутбуки',
+      ro: 'Reduceri la Laptopuri'
+    },
+    laptops_discounts: {
+      en: 'Save up to 800$',
+      ru: 'Скидки до 60000 рублей',
+      ro: 'Reduceri până la 14000 lei'
+    }
+  },
+  {
+    phones: {
+      en: 'Phones',
+      ru: 'Телефоны',
+      ro: 'Telefoane'
+    }
+  },
+  {
+    lei: {
+      en: 'lei',
+      ru: 'лей',
+      ro: 'lei'
+    },
+    credit: {
+      en: 'lei monthly',
+      ru: 'лей/мес',
+      ro: 'lei lunar'
     }
   }
 ]);
