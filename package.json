@@ -8,6 +8,8 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-slick": "^0.23.4",
+    "@types/express": "^4.17.11",
+    "@types/cors": "^2.8.10",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "eslint-config-airbnb": "^18.2.1",
@@ -27,6 +29,7 @@
     "react-scripts": "^3.4.4",
     "react-slick": "^0.28.0",
     "slick-carousel": "^1.8.1",
+    "ts-node": "^9.1.1",
     "typescript": "^3.9.9",
     "vscode-eslint-debug": "^1.9.0"
   },
@@ -37,7 +40,7 @@
     "eject": "react-scripts eject",
     "lerna:lint:js": "lerna run lint:js:fix",
     "format": "npx prettier --write \"src/**/*.{js,jsx,ts,tsx,json,scss}\"",
-    "server": "nodemon src/server/server"
+    "server": "nodemon src/server/server.ts"
   },
   "eslintConfig": {
     "extends": "react-app",

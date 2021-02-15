@@ -20,7 +20,7 @@ export const SlickSlider = () => {
     // eslint-disable-next-line
   }, []);
 
-  const onFetch = (): Promise<SliderProps[]> => request(slider.action());
+  const onFetch = () => request(slider.action());
 
   const settings = {
     dots: true,

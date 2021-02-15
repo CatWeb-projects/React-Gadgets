@@ -1,8 +1,7 @@
 import axios, { Canceler } from 'axios';
+import { baseUrl } from '../baseUrl';
 
 const { CancelToken } = axios;
-
-const baseUrl = 'http://localhost:3005';
 
 export const gadgets = {
   action: (): Promise<{ data: any }> =>

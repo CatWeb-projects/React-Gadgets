@@ -73,5 +73,22 @@ export const messages = createMessages([
       ru: 'Бытовая техника',
       ro: 'Elelctrocasnice'
     }
+  },
+  {
+    promotions_link: {
+      en: 'All Promotions',
+      ru: 'Все Акции',
+      ro: 'Toate Promoțiile'
+    },
+    new_year: {
+      en: 'New Year',
+      ru: 'Новый Год',
+      ro: 'Anul Nou'
+    },
+    general_discounts: {
+      en: 'DISCOUNTS up to -50%!',
+      ru: 'СКИДКИ до -50%!',
+      ro: 'REDUCERI până la -50% !'
+    }
   }
 ]);

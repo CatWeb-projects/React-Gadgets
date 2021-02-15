@@ -1,6 +1,6 @@
 import React from 'react';
 import { SlickSlider, Header, Categories } from 'ui/organims';
-import { Tags } from 'ui/molecules';
+import { Promotions, Tags } from 'ui/molecules';
 
 import './MainLayout.scss';
 
@@ -11,6 +11,7 @@ export const MainLayout = () => {
       <Tags />
       <SlickSlider />
       <Categories />
+      <Promotions />
     </div>
   );
 };
