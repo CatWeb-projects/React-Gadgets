@@ -1,4 +1,4 @@
-const SliderImages = [
+export const sliderImages = [
   { id: 101, imgUrl: '/images/PC.jpg', link: '/', altName: 'PC' },
   { id: 102, imgUrl: '/images/car.jpeg', link: '/', altName: 'Car' },
   {
@@ -20,5 +20,3 @@ const SliderImages = [
     altName: 'Work Place'
   }
 ];
-
-module.exports = SliderImages;

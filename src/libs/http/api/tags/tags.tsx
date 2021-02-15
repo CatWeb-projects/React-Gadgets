@@ -1,9 +1,8 @@
 import axios, { Canceler } from 'axios';
+import { baseUrl } from '../baseUrl';
 import { TagsProps } from './tags.types';
 
 const { CancelToken } = axios;
-
-const baseUrl = 'http://localhost:3005';
 
 export const tags = {
   action: (): Promise<{ data: TagsProps[] }> =>

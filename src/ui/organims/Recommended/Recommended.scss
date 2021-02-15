@@ -1,0 +1,83 @@
+@import '~styles/mixins';
+@import '~styles/media-queries';
+
+.recommended {
+  max-width: rem(1400px);
+  margin: 0 auto;
+  padding: rem(16px);
+  display: flex;
+
+  > a {
+    width: 25%;
+  }
+
+  &__banner {
+    background-size: cover;
+    height: rem(520px);
+    text-align: center;
+    color: #ededed;
+    padding: rem(32px 8px);
+    margin-right: rem(16px);
+    border-radius: rem(16px);
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: rem(16px);
+    width: 75%;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transform: scale(0.95);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__item {
+    background-color: #101010;
+    border-radius: rem(16px);
+
+    > div {
+      padding: rem(8px 24px);
+      color: #939393;
+    }
+  }
+
+  &__title {
+    padding: rem(8px 24px);
+    color: #939393;
+    font-size: rem(18px);
+  }
+
+  &__price {
+    h5 {
+      margin: rem(8px 0);
+    }
+
+    span {
+      padding: rem(2px 10px);
+      display: block;
+      border-radius: rem(16px);
+      color: #fff;
+      background: #d7298f;
+      width: max-content;
+    }
+
+    span:first-child {
+      background: #5cba48;
+    }
+  }
+
+  &__price-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+}

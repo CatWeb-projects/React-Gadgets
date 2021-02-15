@@ -1,13 +1,13 @@
 import React from 'react';
 import { useRequest } from 'estafette';
 import { useIntl } from 'estafette-intl';
-import { categoriesTypes } from 'libs/http/api';
+import { categoriesTypes, CategoriesTypesProps } from 'libs/http/api';
 
 import './Categories.scss';
 
 export const Categories = () => {
   const { t } = useIntl();
-  const { request, data } = useRequest<any>();
+  const { request, data } = useRequest<CategoriesTypesProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -20,12 +20,10 @@ export const Categories = () => {
 
   const onFetch = () => request(categoriesTypes.action());
 
-  console.log(data, 'categories');
-
   return (
     <div className="categories">
       {data &&
-        data.map((cat: any) => (
+        data.map((cat) => (
           <a className="categories__card" href={cat.link} key={cat.id}>
             <div className="categories__img">
               <img

@@ -1,4 +1,4 @@
-const tags = [
+export const tags = [
   { id: 101, tagName: '#Credit 0%', link: '/' },
   { id: 102, tagName: '#iPhone 12', link: '/' },
   { id: 103, tagName: '#Galaxy S21', link: '/' },
@@ -12,5 +12,3 @@ const tags = [
   { id: 111, tagName: '#Macbook Air', link: '/' },
   { id: 112, tagName: '#iPad Pro', link: '/' }
 ];
-
-module.exports = tags;

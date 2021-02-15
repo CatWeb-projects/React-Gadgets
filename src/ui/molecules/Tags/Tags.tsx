@@ -20,7 +20,7 @@ export const Tags = () => {
     // eslint-disable-next-line
   }, []);
 
-  const onFetch = (): Promise<TagsProps[]> => request(tags.action());
+  const onFetch = () => request(tags.action());
 
   const settings = {
     infinite: false,

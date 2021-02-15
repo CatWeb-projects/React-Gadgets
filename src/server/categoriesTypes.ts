@@ -1,4 +1,4 @@
-const categoriesTypes = [
+export const categoriesTypes = [
   {
     id: 101,
     link: '/',
@@ -101,5 +101,3 @@ const categoriesTypes = [
     translate: 'appliances'
   }
 ];
-
-module.exports = categoriesTypes;

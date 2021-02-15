@@ -1,0 +1,52 @@
+@import '~styles/mixins';
+@import '~styles/media-queries';
+
+.promotions {
+  max-width: rem(1400px);
+  margin: 0 auto;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: rem(16px);
+    margin-bottom: rem(16px);
+  }
+
+  &__bg {
+    width: 100%;
+    height: rem(252px);
+    border-radius: rem(16px);
+    padding: rem(24px);
+    background-size: cover;
+    color: #fff;
+
+    h4 {
+      padding-bottom: rem(8px);
+    }
+
+    span {
+      font-size: rem(20px);
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+
+    a {
+      background: #101010;
+      color: #fafafa;
+      border-radius: rem(8px);
+      padding: rem(16px 102px);
+      max-height: rem(50px);
+      font-size: rem(20px);
+      font-weight: 600;
+      transition: all 0.3s;
+
+      &:hover {
+        box-shadow: rem(0 12px 8px -8px) #00000080;
+      }
+    }
+  }
+}
