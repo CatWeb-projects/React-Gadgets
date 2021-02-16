@@ -34,20 +34,25 @@
       object-fit: cover;
       transform: scale(0.95);
       transition: all 0.3s ease-in-out;
-
-      &:hover {
-        transform: scale(1);
-      }
     }
   }
 
   &__item {
     background-color: #101010;
     border-radius: rem(16px);
+    transition: all 0.3s ease-in-out;
 
     > div {
       padding: rem(8px 24px);
       color: #939393;
+    }
+
+    &:hover {
+      box-shadow: rem(0 12px 8px -8px) #00000080;
+
+      img {
+        transform: scale(1);
+      }
     }
   }
 

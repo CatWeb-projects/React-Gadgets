@@ -97,7 +97,7 @@ export const messages = createMessages([
     },
     laptops_discounts: {
       en: 'Save up to 800$',
-      ru: 'Скидки до 60000 рублей',
+      ru: 'Скидки до 14000 лей',
       ro: 'Reduceri până la 14000 lei'
     }
   },
@@ -106,6 +106,11 @@ export const messages = createMessages([
       en: 'Phones',
       ru: 'Телефоны',
       ro: 'Telefoane'
+    },
+    laptops: {
+      en: 'Laptops',
+      ru: 'Ноутбуки',
+      ro: 'Laptop-uri'
     }
   },
   {

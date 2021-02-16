@@ -9,4 +9,5 @@ export type { SliderProps } from './slider/slider.types';
 export type { TagsProps } from './tags/tags.types';
 export type { CategoriesTypesProps } from './categoriesTypes/categoriesTypes.types';
 export type { PromotionsProps } from './promotions/promotions.types';
-export type { PhonesProps } from './recommended/recommended.type';
+export type { GadgetsCardProps } from './recommended/recommended.type';
+export type { GadgetsProps } from './catalog/catalog.types';

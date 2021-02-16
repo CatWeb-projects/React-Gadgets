@@ -71,3 +71,21 @@ export const phones = [
 ];
 
 export const tablets = [{ id: 101, name: 'iPad 2020' }];
+
+export const laptops = [
+  {
+    id: 101,
+    name: 'Lenovo Ideapad 5 (15ARE05), Platinum Gray',
+    price: 9990,
+    credit: 999,
+    cashback: 300,
+    model: '15ARE05',
+    color: 'Gray',
+    weight: 1700,
+    popularity: 100,
+    manufacturer: 'Lenovo',
+    imageUrl:
+      'https://darwin.md/images/product/2020/12/ideapad_5_lenovo_platinum_gray_1-201215051818-darwin.webp',
+    type: 'laptops'
+  }
+];
