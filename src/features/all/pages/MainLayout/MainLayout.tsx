@@ -7,7 +7,7 @@ import {
   recommended
 } from 'libs/http/api';
 import { SlickSlider, Header, Recommended } from 'ui/organims';
-import { Promotions, Tags, Categories } from 'ui/molecules';
+import { Promotions, Tags, Categories, ServiceSection } from 'ui/molecules';
 
 import './MainLayout.scss';
 
@@ -58,6 +58,7 @@ export const MainLayout = () => {
       <Categories />
       <Promotions />
       <Recommended cardData={phonesCard} gadgetData={phonesData} />
+      <ServiceSection />
       <Recommended cardData={laptopsCardData} gadgetData={laptopsData} />
     </div>
   );

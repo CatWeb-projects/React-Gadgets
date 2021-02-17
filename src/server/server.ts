@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { response } from 'express';
 import cors from 'cors';
 import { graphqlHTTP } from 'express-graphql';
 import { phones, tablets, laptops } from './catalog';
@@ -7,6 +7,7 @@ import { tags } from './tags';
 import { categoriesTypes } from './categoriesTypes';
 import { promotions } from './promotions';
 import { phonesCard, laptopsCard } from './recommended';
+import { collection } from './collection';
 const schema = require('./schema');
 
 const server = express();
@@ -73,6 +74,10 @@ server.get('/phones-card', (request, response) => {
 
 server.get('/laptops-card', (request, response) => {
   response.json(laptopsCard);
+});
+
+server.get('/collection', (request, response) => {
+  response.json(collection);
 });
 
 server.listen(port, () => {

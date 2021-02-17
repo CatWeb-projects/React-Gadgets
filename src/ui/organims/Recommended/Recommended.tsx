@@ -22,44 +22,52 @@ export const Recommended: React.FC<Props> = ({ gadgetData, cardData }) => {
             style={{ backgroundImage: `url(${cardData.imgUrl})` }}
           >
             {cardData.name && <h4>{t(`${cardData.name}`)}</h4>}
+            {gadgetData && (
+              <span>
+                {gadgetData.length}+ {t('products')}
+              </span>
+            )}
           </div>
         </Link>
       )}
 
       <div className="recommended__items">
         {gadgetData &&
-          gadgetData.slice(0, 3).map((gadget: any) => (
-            <div key={gadget.id} className="recommended__item">
-              <Link to={gadget.link}>
-                <img src={gadget.imageUrl} alt={gadget.name} />
-              </Link>
+          gadgetData
+            .sort((a, b) => b.popularity - a.popularity)
+            .slice(0, 3)
+            .map((gadget: any) => (
+              <div key={gadget.id} className="recommended__item">
+                <Link to={gadget.link}>
+                  <img src={gadget.imageUrl} alt={gadget.name} />
+                </Link>
 
-              <Link to={gadget.link}>
-                <div className="recommended__title">{gadget.name}</div>
-              </Link>
+                <Link to={gadget.link}>
+                  <div className="recommended__title">{gadget.name}</div>
+                </Link>
 
-              <div className="recommended__price-wrapper">
-                <div className="recommended__price">
-                  {gadget.credit && (
-                    <span>
-                      {gadget.credit} {t('credit')}
-                    </span>
-                  )}
+                <div className="recommended__price-wrapper">
+                  <div className="recommended__price">
+                    {gadget.credit && (
+                      <span>
+                        {gadget.credit} {t('credit')}
+                      </span>
+                    )}
 
-                  <h5>
-                    {gadget.price} {t('lei')}
-                  </h5>
+                    <h5>
+                      {gadget.price} {t('lei')}
+                    </h5>
 
-                  {gadget.cashback && (
-                    <span>
-                      Cashback {gadget.cashback} {t('lei')}
-                    </span>
-                  )}
+                    {gadget.cashback && (
+                      <span>
+                        Cashback {gadget.cashback} {t('lei')}
+                      </span>
+                    )}
+                  </div>
+                  <div className="icons-wrapper"></div>
                 </div>
-                <div className="icons-wrapper"></div>
               </div>
-            </div>
-          ))}
+            ))}
       </div>
     </div>
   );

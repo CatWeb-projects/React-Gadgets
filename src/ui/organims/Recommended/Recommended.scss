@@ -9,6 +9,11 @@
 
   > a {
     width: 25%;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 16px 16px -16px #00000080;
+    }
   }
 
   &__banner {
@@ -19,6 +24,14 @@
     padding: rem(32px 8px);
     margin-right: rem(16px);
     border-radius: rem(16px);
+
+    h4 {
+      margin-bottom: rem(12px);
+    }
+
+    span {
+      font-size: rem(20px);
+    }
   }
 
   &__items {
@@ -84,5 +97,6 @@
   &__price-wrapper {
     display: flex;
     align-items: flex-end;
+    height: rem(100px);
   }
 }

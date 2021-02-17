@@ -111,6 +111,11 @@ export const messages = createMessages([
       en: 'Laptops',
       ru: 'Ноутбуки',
       ro: 'Laptop-uri'
+    },
+    products: {
+      en: 'products',
+      ru: 'товаров',
+      ro: 'produse'
     }
   },
   {
@@ -123,6 +128,22 @@ export const messages = createMessages([
       en: 'lei monthly',
       ru: 'лей/мес',
       ro: 'lei lunar'
+    }
+  },
+  {
+    protection: {
+      en:
+        'We take care of your device in unpredictable situations: broken screen, water contact, etc.',
+      ru:
+        'Мы защитим твой гаджет в непредвиденных ситуациях: разбитый экран, контакт с водой и т.д.',
+      ro:
+        'Avem grijă de device-ul tău în situaţii imprevizibile: ecran spart, contact cu apa etc.'
+    },
+    tradein: {
+      en: 'A unique service for replacing old devices with newer ones.',
+      ru: 'Уникальная услуга по замене старых девайсов на более новые.',
+      ro:
+        'Un serviciu unic pentru înlocuirea dispozitivelor vechi cu altele mai noi.'
     }
   }
 ]);
