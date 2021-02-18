@@ -11,3 +11,9 @@ export const laptopsCard = {
   imgUrl:
     'https://darwin.md/images/category/laptopuri-m-201016105101-darwin.webp'
 };
+
+export const gadgetsCard = {
+  name: 'gadgets',
+  link: '/gadgets',
+  imgUrl: 'https://darwin.md/images/category/gadget-m-201016105215-darwin.webp'
+};

@@ -131,3 +131,34 @@ export const laptops = [
     type: 'laptops'
   }
 ];
+
+export const gadgets = [
+  {
+    id: 1,
+    name: 'Sony PlayStation 5 Digital Edition, White',
+    price: 11999,
+    cashback: 600,
+    model: 'PlayStation 5 Digital Edition',
+    color: 'White',
+    weight: 3900,
+    popularity: 100,
+    manufacturer: 'Sony',
+    imageUrl:
+      'https://darwin.md/images/product/2020/10/sony_playstation_5_digital_edition_white_1.webp',
+    type: 'gadgets'
+  },
+  {
+    id: 2,
+    name: 'Xiaomi Mi Smart Band 5, Black',
+    price: 699,
+    cashback: 35,
+    model: 'Mi Band 5',
+    color: 'Black',
+    weight: 12,
+    popularity: 99,
+    manufacturer: 'Xiaomi',
+    imageUrl:
+      'https://darwin.md/images/product/2020/07/mi_smart_band_5_black_1.webp',
+    type: 'gadgets'
+  }
+];

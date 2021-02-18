@@ -23,5 +23,15 @@ export const recommended = {
         )
       }),
     cancel: (() => null) as Canceler
+  },
+
+  gadgets: {
+    action: (): Promise<{ data: GadgetsCardProps }> =>
+      axios.get(`${baseUrl}/gadgets-card`, {
+        cancelToken: new CancelToken(
+          (c: Canceler) => (recommended.laptops.cancel = c)
+        )
+      }),
+    cancel: (() => null) as Canceler
   }
 };
