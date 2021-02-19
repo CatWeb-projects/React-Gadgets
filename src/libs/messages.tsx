@@ -69,7 +69,7 @@ export const messages = createMessages([
       ro: 'Accesorii'
     },
     appliances: {
-      en: 'Applicances',
+      en: 'Appliances',
       ru: 'Бытовая техника',
       ro: 'Elelctrocasnice'
     }
@@ -144,6 +144,48 @@ export const messages = createMessages([
       ru: 'Уникальная услуга по замене старых девайсов на более новые.',
       ro:
         'Un serviciu unic pentru înlocuirea dispozitivelor vechi cu altele mai noi.'
+    }
+  },
+  {
+    details: {
+      en: 'Details',
+      ru: 'Подробнее',
+      ro: 'Detalii'
+    },
+    musical_instruments: {
+      en: 'Musical Instruments',
+      ru: 'Музыкальные Инструменты',
+      ro: 'Intrumente Muzicale'
+    },
+    travels: {
+      en: 'Travels',
+      ru: 'Путешествия',
+      ro: 'Сălătorii'
+    },
+    children: {
+      en: 'Children',
+      ru: 'Дети',
+      ro: 'Copii'
+    },
+    gaming: {
+      en: 'Gaming',
+      ru: 'Игры',
+      ro: 'Jocuri'
+    },
+    sport: {
+      en: 'Sport',
+      ru: 'Спорт',
+      ro: 'Sport'
+    },
+    auto: {
+      en: 'Auto',
+      ru: 'Авто',
+      ro: 'Auto'
+    },
+    transport: {
+      en: 'Transport',
+      ru: 'Транспорт',
+      ro: 'Transport'
     }
   }
 ]);

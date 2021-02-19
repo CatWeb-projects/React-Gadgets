@@ -22,6 +22,8 @@ export const SlickSlider = () => {
 
   const onFetch = () => request(slider.action());
 
+  const sliderData = React.useMemo(() => data, [data]);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -29,23 +31,24 @@ export const SlickSlider = () => {
     slidesToShow: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 5000
-    // lazyLoad: 'ondemand'
+    autoplaySpeed: 5000,
+    lazyLoad: 'ondemand'
   };
 
   return (
     <div className="slick-wrapper">
       <Slider {...settings}>
-        {data.map((image) => (
-          <Link to={image.link} key={image.id}>
-            <img
-              data-lazy={image.imgUrl}
-              src={image.imgUrl}
-              alt={image.altName}
-              // src="/images/loader.gif"
-            />
-          </Link>
-        ))}
+        {sliderData &&
+          sliderData.map((image) => (
+            <Link to={image.link} key={image.id}>
+              <img
+                data-lazy={image.imgUrl}
+                src={image.imgUrl}
+                alt={image.altName}
+                // src="/images/loader.gif"
+              />
+            </Link>
+          ))}
       </Slider>
     </div>
   );

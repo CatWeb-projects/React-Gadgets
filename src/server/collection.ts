@@ -11,7 +11,8 @@ export const collection = [
     name: 'Travels',
     translate: 'travels',
     link: '/travels',
-    imgUrl: 'https://wallpaperaccess.com/full/408006.jpg'
+    imgUrl:
+      'https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8&w=1000&q=80'
   },
   {
     id: 1003,
@@ -34,7 +35,7 @@ export const collection = [
     translate: 'sport',
     link: '/sport',
     imgUrl:
-      'https://lh3.googleusercontent.com/proxy/ePB8WEqzO9HgqgPacr-61psD6VxZ6JppHO7E6Y2HDNRfGJSE6gmvGvP77Xo_AezdePzy9vmfSGGxHBJYpOMvJrY'
+      'https://s2.best-wallpaper.net/wallpaper/1920x1080/1201/Snow-mountain-snowboard-sport_1920x1080.jpg'
   },
   {
     id: 1006,
@@ -42,5 +43,20 @@ export const collection = [
     translate: 'auto',
     link: '/auto',
     imgUrl: '/images/car.jpeg'
+  },
+  {
+    id: 1007,
+    name: 'Appliances',
+    translate: 'appliances',
+    link: '/appliances',
+    imgUrl: 'https://darwin.md/images/collection/electrocasnice-min.webp'
+  },
+  {
+    id: 1008,
+    name: 'Transport',
+    translate: 'transport',
+    link: '/transport',
+    imgUrl:
+      'https://gearscoot.com/wp-content/uploads/2017/09/inokim-scooter-singapore.jpg'
   }
 ];

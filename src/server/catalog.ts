@@ -149,6 +149,20 @@ export const gadgets = [
   },
   {
     id: 2,
+    name: 'Apple Watch Series 6 44mm, Space Gray / Black',
+    price: 9999,
+    cashback: 500,
+    model: 'Watch Series 6',
+    color: 'Black',
+    weight: 37,
+    popularity: 90,
+    manufacturer: 'Apple',
+    imageUrl:
+      'https://darwin.md/images/product/2020/09/apple_watch_m00h3_2.webp',
+    type: 'gadgets'
+  },
+  {
+    id: 3,
     name: 'Xiaomi Mi Smart Band 5, Black',
     price: 699,
     cashback: 35,

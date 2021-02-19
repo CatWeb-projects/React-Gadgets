@@ -1,12 +1,12 @@
 import axios, { Canceler } from 'axios';
 import { baseUrl } from '../baseUrl';
-import { GadgetsCardProps } from './recommended.type';
+import { DevicesCardProps } from './recommended.type';
 
 const { CancelToken } = axios;
 
 export const recommended = {
   phones: {
-    action: (): Promise<{ data: GadgetsCardProps }> =>
+    action: (): Promise<{ data: DevicesCardProps }> =>
       axios.get(`${baseUrl}/phones-card`, {
         cancelToken: new CancelToken(
           (c: Canceler) => (recommended.phones.cancel = c)
@@ -16,7 +16,7 @@ export const recommended = {
   },
 
   laptops: {
-    action: (): Promise<{ data: GadgetsCardProps }> =>
+    action: (): Promise<{ data: DevicesCardProps }> =>
       axios.get(`${baseUrl}/laptops-card`, {
         cancelToken: new CancelToken(
           (c: Canceler) => (recommended.laptops.cancel = c)
@@ -26,7 +26,7 @@ export const recommended = {
   },
 
   gadgets: {
-    action: (): Promise<{ data: GadgetsCardProps }> =>
+    action: (): Promise<{ data: DevicesCardProps }> =>
       axios.get(`${baseUrl}/gadgets-card`, {
         cancelToken: new CancelToken(
           (c: Canceler) => (recommended.laptops.cancel = c)

@@ -1,4 +1,4 @@
-export interface GadgetsCardProps {
+export interface DevicesCardProps {
   name: string;
   link: string;
   imgUrl: string;

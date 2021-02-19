@@ -2,33 +2,39 @@ import React from 'react';
 import { useRequest } from 'estafette';
 import {
   catalog,
-  GadgetsProps,
-  GadgetsCardProps,
+  DevicesProps,
+  DevicesCardProps,
   recommended
 } from 'libs/http/api';
 import { SlickSlider, Header, Recommended } from 'ui/organims';
-import { Promotions, Tags, Categories, ServiceSection } from 'ui/molecules';
+import {
+  Promotions,
+  Tags,
+  Categories,
+  ServiceSection,
+  Collection
+} from 'ui/molecules';
 
 import './MainLayout.scss';
 
 export const MainLayout = () => {
-  const { request, data } = useRequest<GadgetsCardProps>();
+  const { request, data } = useRequest<DevicesCardProps>();
   const { request: requestPhones, data: phonesData } = useRequest<
-    GadgetsProps[]
+    DevicesProps[]
   >();
   const {
     request: requestLaptopsCard,
     data: laptopsCardData
-  } = useRequest<GadgetsCardProps>();
+  } = useRequest<DevicesCardProps>();
   const { request: requestLaptops, data: laptopsData } = useRequest<
-    GadgetsProps[]
+    DevicesProps[]
   >();
   const {
     request: requestGadgetsCard,
     data: gadgetsCardData
-  } = useRequest<GadgetsCardProps>();
+  } = useRequest<DevicesCardProps>();
   const { request: requestGadgets, data: gadgetsData } = useRequest<
-    GadgetsProps[]
+    DevicesProps[]
   >();
 
   React.useEffect(() => {
@@ -73,10 +79,11 @@ export const MainLayout = () => {
       <SlickSlider />
       <Categories />
       <Promotions />
-      <Recommended cardData={phonesCard} gadgetData={phonesData} />
+      <Recommended cardData={phonesCard} gadgetsData={phonesData} />
       <ServiceSection />
-      <Recommended cardData={laptopsCardData} gadgetData={laptopsData} />
-      <Recommended cardData={gadgetsCardData} gadgetData={gadgetsData} />
+      <Recommended cardData={laptopsCardData} gadgetsData={laptopsData} />
+      <Collection />
+      <Recommended cardData={gadgetsCardData} gadgetsData={gadgetsData} />
     </div>
   );
 };

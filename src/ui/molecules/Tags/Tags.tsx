@@ -28,7 +28,6 @@ export const Tags = () => {
     arrows: false,
     draggable: true,
     variableWidth: true
-    // lazyLoad: 'ondemand'
   };
 
   return (

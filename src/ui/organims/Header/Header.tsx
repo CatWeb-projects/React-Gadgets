@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { Button, Icon } from 'ui/atoms';

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
-import { GadgetsProps, GadgetsCardProps } from 'libs/http/api';
+import { DevicesProps, DevicesCardProps } from 'libs/http/api';
 
 import './Recommended.scss';
 
 interface Props {
-  cardData?: GadgetsCardProps;
-  gadgetData?: GadgetsProps[];
+  cardData?: DevicesCardProps;
+  gadgetsData?: DevicesProps[];
 }
 
-export const Recommended: React.FC<Props> = ({ gadgetData, cardData }) => {
+export const Recommended: React.FC<Props> = ({ gadgetsData, cardData }) => {
   const { t } = useIntl();
 
   return (
@@ -22,9 +22,9 @@ export const Recommended: React.FC<Props> = ({ gadgetData, cardData }) => {
             style={{ backgroundImage: `url(${cardData.imgUrl})` }}
           >
             {cardData.name && <h4>{t(`${cardData.name}`)}</h4>}
-            {gadgetData && (
+            {gadgetsData && (
               <span>
-                {gadgetData.length}+ {t('products')}
+                {gadgetsData.length}+ {t('products')}
               </span>
             )}
           </div>
@@ -32,8 +32,8 @@ export const Recommended: React.FC<Props> = ({ gadgetData, cardData }) => {
       )}
 
       <div className="recommended__items">
-        {gadgetData &&
-          gadgetData
+        {gadgetsData &&
+          gadgetsData
             .sort((a, b) => b.popularity - a.popularity)
             .slice(0, 3)
             .map((gadget: any) => (

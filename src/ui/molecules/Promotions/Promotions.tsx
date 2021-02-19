@@ -26,17 +26,18 @@ export const Promotions = () => {
   return (
     <div className="promotions">
       <div className="promotions__wrapper">
-        {promotionsData.slice(0, 2).map((promotion) => (
-          <Link key={promotion.id} to={promotion.link}>
-            <div
-              className="promotions__bg"
-              style={{ backgroundImage: `url(${promotion.imgUrl})` }}
-            >
-              <h4>{t(`${promotion.title}`)}</h4>
-              <span>{t(`${promotion.description}`)}</span>
-            </div>
-          </Link>
-        ))}
+        {promotionsData &&
+          promotionsData.slice(0, 2).map((promotion) => (
+            <Link key={promotion.id} to={promotion.link}>
+              <div
+                className="promotions__bg"
+                style={{ backgroundImage: `url(${promotion.imgUrl})` }}
+              >
+                <h4>{t(`${promotion.title}`)}</h4>
+                <span>{t(`${promotion.description}`)}</span>
+              </div>
+            </Link>
+          ))}
       </div>
       <div className="promotions__link">
         <Link to="/promotions">{t('promotions_link')}</Link>
