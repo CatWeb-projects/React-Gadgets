@@ -20,10 +20,12 @@ export const Categories = () => {
 
   const onFetch = () => request(categoriesTypes.action());
 
+  const categoriesData = React.useMemo(() => data, [data]);
+
   return (
     <div className="categories">
-      {data &&
-        data.map((cat) => (
+      {categoriesData &&
+        categoriesData.map((cat) => (
           <a className="categories__card" href={cat.link} key={cat.id}>
             <div className="categories__img">
               <img

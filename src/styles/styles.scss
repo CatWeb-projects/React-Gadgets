@@ -39,6 +39,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: #fff;
 
   &.link-disabled {
     cursor: not-allowed;
@@ -48,6 +49,11 @@ a {
       color: #afb6cd;
     }
   }
+}
+
+a:hover {
+  text-decoration: none;
+  color: #bce;
 }
 
 h1 {

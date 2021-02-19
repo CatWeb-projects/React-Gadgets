@@ -1,4 +1,4 @@
-export interface GadgetsProps {
+export interface DevicesProps {
   id: number;
   name: string;
   price: number;

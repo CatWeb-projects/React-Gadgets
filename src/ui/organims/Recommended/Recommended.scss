@@ -4,11 +4,13 @@
 .recommended {
   max-width: rem(1400px);
   margin: 0 auto;
-  padding: rem(16px);
+  padding: rem(16px 0);
   display: flex;
 
   > a {
     width: 25%;
+    transition: all 0.3s;
+    border-radius: rem(16px);
   }
 
   &__banner {
@@ -19,6 +21,19 @@
     padding: rem(32px 8px);
     margin-right: rem(16px);
     border-radius: rem(16px);
+    transition: all 0.3s ease-in;
+
+    h4 {
+      margin-bottom: rem(12px);
+    }
+
+    span {
+      font-size: rem(20px);
+    }
+
+    &:hover {
+      box-shadow: rem(0 16px 16px -16px) #00000080;
+    }
   }
 
   &__items {
@@ -84,5 +99,6 @@
   &__price-wrapper {
     display: flex;
     align-items: flex-end;
+    height: rem(100px);
   }
 }

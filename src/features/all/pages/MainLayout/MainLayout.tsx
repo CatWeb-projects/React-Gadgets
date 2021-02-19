@@ -2,26 +2,39 @@ import React from 'react';
 import { useRequest } from 'estafette';
 import {
   catalog,
-  GadgetsProps,
-  GadgetsCardProps,
+  DevicesProps,
+  DevicesCardProps,
   recommended
 } from 'libs/http/api';
 import { SlickSlider, Header, Recommended } from 'ui/organims';
-import { Promotions, Tags, Categories } from 'ui/molecules';
+import {
+  Promotions,
+  Tags,
+  Categories,
+  ServiceSection,
+  Collection
+} from 'ui/molecules';
 
 import './MainLayout.scss';
 
 export const MainLayout = () => {
-  const { request, data } = useRequest<GadgetsCardProps>();
+  const { request, data } = useRequest<DevicesCardProps>();
   const { request: requestPhones, data: phonesData } = useRequest<
-    GadgetsProps[]
+    DevicesProps[]
   >();
   const {
     request: requestLaptopsCard,
     data: laptopsCardData
-  } = useRequest<GadgetsCardProps>();
+  } = useRequest<DevicesCardProps>();
   const { request: requestLaptops, data: laptopsData } = useRequest<
-    GadgetsProps[]
+    DevicesProps[]
+  >();
+  const {
+    request: requestGadgetsCard,
+    data: gadgetsCardData
+  } = useRequest<DevicesCardProps>();
+  const { request: requestGadgets, data: gadgetsData } = useRequest<
+    DevicesProps[]
   >();
 
   React.useEffect(() => {
@@ -29,12 +42,16 @@ export const MainLayout = () => {
     onFetchPhonesData();
     onFetchLaptopsCard();
     onFetchLaptops();
+    onFetchGadgetsCard();
+    onFetchGadgets();
 
     return () => {
       recommended.phones.cancel();
       catalog.phones.cancel();
       recommended.laptops.cancel();
       catalog.laptops.cancel();
+      recommended.gadgets.cancel();
+      catalog.gadgets.cancel();
     };
     // eslint-disable-next-line
   }, []);
@@ -44,11 +61,16 @@ export const MainLayout = () => {
   const onFetchLaptopsCard = () =>
     requestLaptopsCard(recommended.laptops.action());
   const onFetchLaptops = () => requestLaptops(catalog.laptops.action());
+  const onFetchGadgetsCard = () =>
+    requestGadgetsCard(recommended.gadgets.action());
+  const onFetchGadgets = () => requestGadgets(catalog.gadgets.action());
 
   const phonesCard = React.useMemo(() => data, [data]);
   React.useMemo(() => phonesData, [phonesData]);
   React.useMemo(() => laptopsCardData, [laptopsCardData]);
   React.useMemo(() => laptopsData, [laptopsData]);
+  React.useMemo(() => gadgetsCardData, [gadgetsCardData]);
+  React.useMemo(() => gadgetsData, [gadgetsData]);
 
   return (
     <div className="main-container">
@@ -57,8 +79,11 @@ export const MainLayout = () => {
       <SlickSlider />
       <Categories />
       <Promotions />
-      <Recommended cardData={phonesCard} gadgetData={phonesData} />
-      <Recommended cardData={laptopsCardData} gadgetData={laptopsData} />
+      <Recommended cardData={phonesCard} gadgetsData={phonesData} />
+      <ServiceSection />
+      <Recommended cardData={laptopsCardData} gadgetsData={laptopsData} />
+      <Collection />
+      <Recommended cardData={gadgetsCardData} gadgetsData={gadgetsData} />
     </div>
   );
 };

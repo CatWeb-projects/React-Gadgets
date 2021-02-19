@@ -87,5 +87,92 @@ export const laptops = [
     imageUrl:
       'https://darwin.md/images/product/2020/12/ideapad_5_lenovo_platinum_gray_1-201215051818-darwin.webp',
     type: 'laptops'
+  },
+  {
+    id: 102,
+    name: 'Apple MacBook Pro 13 2020 (Z0Z1000WU), Space Gray',
+    price: 34990,
+    cashback: 1050,
+    model: '13 (2020)',
+    color: 'Space Gray',
+    weight: 1400,
+    popularity: 97,
+    manufacturer: 'Apple',
+    imageUrl:
+      'https://darwin.md/images/product/2020/09/apple_pro_13_2020_space_gray_2.webp',
+    type: 'laptops'
+  },
+  {
+    id: 103,
+    name: 'Asus ROG Strix HERO (G731GV-EV058T), Scar Gunmetal',
+    price: 37490,
+    cashback: 1125,
+    model: 'G731GV',
+    color: 'Gun metal',
+    weight: 2850,
+    popularity: 90,
+    manufacturer: 'Asus',
+    imageUrl: 'https://darwin.md/images/product/2020/06/asus_g731gv_gray2.webp',
+    type: 'laptops'
+  },
+  {
+    id: 104,
+    name: 'Apple MacBook Air 2020 (MWTJ2), Space Gray',
+    price: 21990,
+    credit: 2199,
+    cashback: 660,
+    model: '13 (2020)',
+    color: 'Space Gray',
+    weight: 1290,
+    popularity: 99,
+    manufacturer: 'Apple',
+    imageUrl:
+      'https://darwin.md/images/product/2020/06/apple_air_13_2019_space_gray1-200605030224-darwin.webp',
+    type: 'laptops'
+  }
+];
+
+export const gadgets = [
+  {
+    id: 1,
+    name: 'Sony PlayStation 5 Digital Edition, White',
+    price: 11999,
+    cashback: 600,
+    model: 'PlayStation 5 Digital Edition',
+    color: 'White',
+    weight: 3900,
+    popularity: 100,
+    manufacturer: 'Sony',
+    imageUrl:
+      'https://darwin.md/images/product/2020/10/sony_playstation_5_digital_edition_white_1.webp',
+    type: 'gadgets'
+  },
+  {
+    id: 2,
+    name: 'Apple Watch Series 6 44mm, Space Gray / Black',
+    price: 9999,
+    cashback: 500,
+    model: 'Watch Series 6',
+    color: 'Black',
+    weight: 37,
+    popularity: 90,
+    manufacturer: 'Apple',
+    imageUrl:
+      'https://darwin.md/images/product/2020/09/apple_watch_m00h3_2.webp',
+    type: 'gadgets'
+  },
+  {
+    id: 3,
+    name: 'Xiaomi Mi Smart Band 5, Black',
+    price: 699,
+    cashback: 35,
+    model: 'Mi Band 5',
+    color: 'Black',
+    weight: 12,
+    popularity: 99,
+    manufacturer: 'Xiaomi',
+    imageUrl:
+      'https://darwin.md/images/product/2020/07/mi_smart_band_5_black_1.webp',
+    type: 'gadgets'
   }
 ];

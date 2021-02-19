@@ -1,3 +1,5 @@
 //Run Server
-1. - cd server
-2. - yarn/npm server
+1. - yarn server/npm run server
+2. - yarn start/npm run start
+
+//If server not running, change module to "commonjs" in tsconfig.json

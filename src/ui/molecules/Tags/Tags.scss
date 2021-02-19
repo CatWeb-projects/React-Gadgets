@@ -9,18 +9,18 @@
 
   a {
     color: #707070;
-    padding: 8px 16px;
+    padding: rem(8px 16px);
     background: #101010;
-    border-radius: 16px;
+    border-radius: rem(16px);
     display: inline-block;
     line-height: 1;
-    margin: 4px;
+    margin: rem(4px);
     white-space: nowrap;
-    transition: all 0.3s;
+    transition: all 0.3s ease-in;
 
     &:hover {
       color: #fff;
-      box-shadow: 0 12px 8px -8px #00000080;
+      box-shadow: rem(0 12px 8px -8px) #00000080;
     }
   }
 }

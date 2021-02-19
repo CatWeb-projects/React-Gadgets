@@ -1,12 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import { graphqlHTTP } from 'express-graphql';
-import { phones, tablets, laptops } from './catalog';
+import { phones, tablets, laptops, gadgets } from './catalog';
 import { sliderImages } from './sliderImages';
 import { tags } from './tags';
 import { categoriesTypes } from './categoriesTypes';
 import { promotions } from './promotions';
-import { phonesCard, laptopsCard } from './recommended';
+import { phonesCard, laptopsCard, gadgetsCard } from './recommended';
+import { collection } from './collection';
 const schema = require('./schema');
 
 const server = express();
@@ -51,6 +52,10 @@ server.get('/laptops/:id', (request, response) => {
   response.json(product);
 });
 
+server.get('/gadgets', (request, response) => {
+  response.json(gadgets);
+});
+
 server.get('/slider', (request, response) => {
   response.json(sliderImages);
 });
@@ -73,6 +78,14 @@ server.get('/phones-card', (request, response) => {
 
 server.get('/laptops-card', (request, response) => {
   response.json(laptopsCard);
+});
+
+server.get('/gadgets-card', (request, response) => {
+  response.json(gadgetsCard);
+});
+
+server.get('/collection', (request, response) => {
+  response.json(collection);
 });
 
 server.listen(port, () => {
