@@ -17,7 +17,7 @@ export const Header = () => {
       <div className="header-container">
         <div className="header__logo">
           <Link to="/">
-            <Icon type="play" />
+            <Icon type="logo" />
           </Link>
         </div>
 

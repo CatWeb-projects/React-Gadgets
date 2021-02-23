@@ -1,0 +1,56 @@
+@import '~styles/mixins';
+@import '~styles/media-queries';
+
+.footer {
+  max-width: rem(1400px);
+  margin: rem(16px) auto 0;
+}
+
+.lower-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: rem(16px 0);
+  border-top: rem(1px) solid #333333;
+  color: #a0a0a0;
+
+  &__logo {
+    svg {
+      font-size: rem(50px);
+    }
+  }
+
+  .copyright {
+    margin-left: rem(64px);
+  }
+
+  &__media {
+    a {
+      margin-right: rem(32px);
+      transition: all 0.3s ease-in;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        &:nth-child(1) svg {
+          fill: #385898;
+        }
+
+        &:nth-child(2) svg {
+          fill: #ff0000;
+        }
+
+        &:nth-child(3) svg {
+          fill: #d6249f;
+        }
+      }
+    }
+
+    svg {
+      font-size: rem(30px);
+      fill: #a0a0a0;
+    }
+  }
+}

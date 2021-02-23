@@ -237,5 +237,12 @@ export const messages = createMessages([
       ro:
         'Aprobare în doar 15 minute. Obține credite de la 6 până la 60 de luni.'
     }
+  },
+  {
+    copyright: {
+      en: '© 2021. All rights reserved.',
+      ru: '© 2021. Все права Защищены.',
+      ro: '© 2021. Toate drepturile rezervate.'
+    }
   }
 ]);
