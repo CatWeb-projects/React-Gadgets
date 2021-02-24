@@ -6,13 +6,14 @@ import {
   DevicesCardProps,
   recommended
 } from 'libs/http/api';
-import { SlickSlider, Header, Recommended } from 'ui/organims';
+import { SlickSlider, Header, Recommended, Footer } from 'ui/organims';
 import {
   Promotions,
   Tags,
   Categories,
   ServiceSection,
-  Collection
+  Collection,
+  Features
 } from 'ui/molecules';
 
 import './MainLayout.scss';
@@ -79,11 +80,13 @@ export const MainLayout = () => {
       <SlickSlider />
       <Categories />
       <Promotions />
-      <Recommended cardData={phonesCard} gadgetsData={phonesData} />
+      <Recommended cardData={phonesCard} devicesData={phonesData} />
       <ServiceSection />
-      <Recommended cardData={laptopsCardData} gadgetsData={laptopsData} />
+      <Recommended cardData={laptopsCardData} devicesData={laptopsData} />
       <Collection />
-      <Recommended cardData={gadgetsCardData} gadgetsData={gadgetsData} />
+      <Recommended cardData={gadgetsCardData} devicesData={gadgetsData} />
+      <Features />
+      <Footer />
     </div>
   );
 };

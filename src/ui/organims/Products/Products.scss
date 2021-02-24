@@ -1,10 +1,10 @@
 @import '~styles/mixins';
 @import '~styles/media-queries';
 
-.recommended {
+.item-product {
   max-width: rem(1400px);
   margin: 0 auto;
-  padding: rem(16px 0);
+  padding-top: rem(16px);
   display: flex;
 
   > a {
@@ -38,10 +38,10 @@
 
   &__items {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-gap: rem(16px);
-    width: 75%;
+    width: 100%;
 
     img {
       width: 100%;
@@ -101,4 +101,9 @@
     align-items: flex-end;
     height: rem(100px);
   }
+}
+
+.recommended-item {
+  grid-template-columns: repeat(3, 1fr);
+  width: 75%;
 }

@@ -9,6 +9,7 @@ export interface DevicesProps {
   weight: number;
   popularity: number;
   manufacturer: string;
-  imgUrl: string;
+  imageUrl: string;
   type: string;
+  link: string;
 }

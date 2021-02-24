@@ -1,0 +1,82 @@
+@import '~styles/mixins';
+@import '~styles/media-queries';
+
+.features {
+  max-width: rem(1400px);
+  margin: rem(16px) auto 0;
+  color: #ededed;
+  background-color: #101010;
+  border-radius: rem(16px);
+  padding: rem(16px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-right: 2px solid #262626;
+    cursor: pointer;
+
+    &:hover {
+      .support-first {
+        background-image: url('/images/check-hover.png');
+      }
+
+      .support-second {
+        background-image: url('/images/delivery-hover.png');
+      }
+
+      .support-third {
+        background-image: url('/images/security-hover.png');
+      }
+
+      .support-fourth {
+        background-image: url('/images/cash-hover.png');
+      }
+    }
+  }
+
+  &__item:last-child {
+    border: none;
+  }
+}
+
+.support {
+  height: 46px;
+  width: 46px;
+  background-size: cover;
+  transition: all 0.3s ease-in;
+}
+
+.support,
+.title,
+.info {
+  margin-bottom: rem(16px);
+}
+
+.title {
+  max-width: 80%;
+}
+
+.info {
+  font-size: rem(18px);
+}
+
+.support-first {
+  background-image: url('/images/check.png');
+}
+
+.support-second {
+  background-image: url('/images/delivery.png');
+}
+
+.support-third {
+  background-image: url('/images/security.png');
+}
+
+.support-fourth {
+  background-image: url('/images/cash.png');
+}

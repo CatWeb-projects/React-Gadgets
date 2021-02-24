@@ -187,5 +187,89 @@ export const messages = createMessages([
       ru: 'Транспорт',
       ro: 'Transport'
     }
+  },
+  {
+    guarantee: {
+      en: 'Get up to 2 years warranty',
+      ru: 'Получи гарантию до 2 лет',
+      ro: 'Primești până la 2 ani de garanție'
+    },
+    free: {
+      en: 'The work is free, the pieces are free.',
+      ru: 'Работа мастера бесплатна ,запчасти бесплатны.',
+      ro: 'Lucrul meșterului e gratuit, piesele sunt gratuite.'
+    },
+    delivery: {
+      en: 'Free delivery in Chisinau in 3 hours',
+      ru: 'Бесплатная доставка по Кишиневу от 3 часов',
+      ro: 'Livrare gratuită în Chișinău în 3 ore'
+    },
+    time: {
+      en:
+        'Your time is golden. We deliver your order anywhere in Chisinau, from 3 hours',
+      ru:
+        'Твое время - бесценно. Мы доставим твой заказ в пределах Кишинева, от 3 часов.',
+      ro:
+        'Timpul tău e de aur. Îți livrăm comanda oriunde în raza Chișinăului, de la 3 ore.'
+    },
+    security: {
+      en: 'Protect the product from unexpected circumstances.',
+      ru: 'Защита товара от непредвиденных ситуаций.',
+      ro: 'Protejarea produsului de situații neprevăzute.'
+    },
+    repair: {
+      en:
+        'According to Digital Trends, 50% of all smartphone owners found themselves with a broken screen. And you can wake up with your phone dropping or drowning.',
+      ru:
+        'Согласно данным Digital Trends, 50% владельцев смартфонов столкнулись с разбитым экраном. Твой смартфон тоже может оказаться в свободном полете или утонуть.',
+      ro:
+        'Conform Digital Trends, 50 % din toți cei care dețin un smartphone s-au pomenit cu un ecran spart. Și tu te poți trezi cu telefonul în cădere liberă sau înecat.'
+    },
+    credit_approval: {
+      en: '92% of approved credit applications.',
+      ru: '92% кредитных заявок одобрены банком.',
+      ro: '92% din cereri de credit aprobate.'
+    },
+    approval: {
+      en: 'Approval in just 15 minutes. Get loans from 6 to 60 months.',
+      ru:
+        'Подтверждение всего за 15 минут. Воспользуйся кредитами от 6 до 60 месяцев.',
+      ro:
+        'Aprobare în doar 15 minute. Obține credite de la 6 până la 60 de luni.'
+    }
+  },
+  {
+    copyright: {
+      en: '© 2021. All rights reserved.',
+      ru: '© 2021. Все права Защищены.',
+      ro: '© 2021. Toate drepturile rezervate.'
+    }
+  },
+  {
+    shop: {
+      en: 'Online Shop',
+      ru: 'Интернет магазин',
+      ro: 'Magazin Online'
+    },
+    customer_support: {
+      en: 'Customer support',
+      ru: 'Клиентская поддержка',
+      ro: 'Relații clienți'
+    },
+    services: {
+      en: 'Services',
+      ru: 'Услуги',
+      ro: 'Servicii'
+    },
+    tel: {
+      en: 'tel.',
+      ru: 'тел.',
+      ro: 'tel.'
+    },
+    contacts: {
+      en: 'Contacts',
+      ru: 'Контакты',
+      ro: 'Contacte'
+    }
   }
 ]);

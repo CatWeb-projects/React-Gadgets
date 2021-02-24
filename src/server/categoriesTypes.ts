@@ -1,7 +1,7 @@
 export const categoriesTypes = [
   {
     id: 101,
-    link: '/',
+    link: '/phones',
     name: 'Phones and Tablets',
     imgUrl:
       'https://darwin.md/images/collection/telefoane_si_tablete-201029090952-darwin.png',
@@ -11,7 +11,7 @@ export const categoriesTypes = [
   },
   {
     id: 102,
-    link: '/',
+    link: '/notebook',
     name: 'Laptops and PC',
     imgUrl:
       'https://darwin.md/images/collection/laptopuri_si_pc-9-201029090621-darwin.png',
@@ -21,7 +21,7 @@ export const categoriesTypes = [
   },
   {
     id: 103,
-    link: '/',
+    link: '/gadgets',
     name: 'Gadgets',
     imgUrl:
       'https://darwin.md/images/collection/gageturi-683-201029090629-darwin.png',
@@ -31,7 +31,7 @@ export const categoriesTypes = [
   },
   {
     id: 104,
-    link: '/',
+    link: '/apple',
     name: 'Apple',
     imgUrl:
       'https://darwin.md/images/collection/apple-8b7-201029090637-darwin.png',
@@ -41,7 +41,7 @@ export const categoriesTypes = [
   },
   {
     id: 105,
-    link: '/',
+    link: '/audio',
     name: 'Audio',
     imgUrl:
       'https://darwin.md/images/collection/audio-201002024821-darwin_cffc104f230d47543254a570876a3e29-201029090646-darwin.png',
@@ -52,7 +52,7 @@ export const categoriesTypes = [
   },
   {
     id: 106,
-    link: '/',
+    link: '/sport-and-health',
     name: 'Sport And Health',
     imgUrl:
       'https://darwin.md/images/collection/sport_si_sanatate-416-201029090654-darwin.png',
@@ -62,7 +62,7 @@ export const categoriesTypes = [
   },
   {
     id: 107,
-    link: '/',
+    link: '/personal-transport',
     name: 'Electric Transport',
     imgUrl:
       'https://darwin.md/images/collection/transport_electric-5cf-201029090708-darwin.png',
@@ -72,7 +72,7 @@ export const categoriesTypes = [
   },
   {
     id: 108,
-    link: '/',
+    link: '/tv-foto',
     name: 'TV, Photo and Optics',
     imgUrl:
       'https://darwin.md/images/collection/tv_foto_si_optica448-201029090726-darwin.png',
@@ -82,7 +82,7 @@ export const categoriesTypes = [
   },
   {
     id: 109,
-    link: '/',
+    link: '/accessories',
     name: 'Accessories',
     imgUrl:
       'https://darwin.md/images/collection/accesorii-6cc-201029090733-darwin.png',
@@ -92,7 +92,7 @@ export const categoriesTypes = [
   },
   {
     id: 110,
-    link: '/',
+    link: '/appliances',
     name: 'Appliances',
     imgUrl:
       'https://darwin.md/images/collection/electrocasnice-069c-201029090742-darwin.png',
