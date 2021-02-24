@@ -244,5 +244,32 @@ export const messages = createMessages([
       ru: '© 2021. Все права Защищены.',
       ro: '© 2021. Toate drepturile rezervate.'
     }
+  },
+  {
+    shop: {
+      en: 'Online Shop',
+      ru: 'Интернет магазин',
+      ro: 'Magazin Online'
+    },
+    customer_support: {
+      en: 'Customer support',
+      ru: 'Клиентская поддержка',
+      ro: 'Relații clienți'
+    },
+    services: {
+      en: 'Services',
+      ru: 'Услуги',
+      ro: 'Servicii'
+    },
+    tel: {
+      en: 'tel.',
+      ru: 'тел.',
+      ro: 'tel.'
+    },
+    contacts: {
+      en: 'Contacts',
+      ru: 'Контакты',
+      ro: 'Contacte'
+    }
   }
 ]);

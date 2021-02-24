@@ -6,6 +6,32 @@
   margin: rem(16px) auto 0;
 }
 
+.upper-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(16px);
+  border-top: rem(1px) solid #333333;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    color: #a0a0a0;
+  }
+
+  a {
+    color: #a0a0a0;
+  }
+
+  a,
+  span {
+    font-size: rem(18px);
+  }
+
+  h5 {
+    margin: rem(16px 0);
+  }
+}
+
 .lower-footer {
   display: flex;
   justify-content: space-between;

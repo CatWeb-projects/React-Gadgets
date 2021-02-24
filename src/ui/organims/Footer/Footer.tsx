@@ -11,10 +11,22 @@ export const Footer = () => {
   return (
     <div className="footer">
       <div className="upper-footer">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div>
+          <h5>{t('shop')}</h5>
+          <span>{t('tel')}: + 373 79160000</span>
+          <span>sales@devices.md</span>
+        </div>
+        <div>
+          <h5>{t('customer_support')}</h5>
+          <span>{t('tel')}: + 373 79890000</span>
+          <span>advertising@devices.md</span>
+          <a href="/contacts">{t('contacts')}</a>
+        </div>
+        <div>
+          <h5>{t('services')}</h5>
+          <a href="/protection">Smart Protection</a>
+          <a href="/tradein">Trade-in</a>
+        </div>
       </div>
       <div className="lower-footer">
         <div className="lower-footer__logo">
