@@ -80,11 +80,11 @@ export const MainLayout = () => {
       <SlickSlider />
       <Categories />
       <Promotions />
-      <Recommended cardData={phonesCard} gadgetsData={phonesData} />
+      <Recommended cardData={phonesCard} devicesData={phonesData} />
       <ServiceSection />
-      <Recommended cardData={laptopsCardData} gadgetsData={laptopsData} />
+      <Recommended cardData={laptopsCardData} devicesData={laptopsData} />
       <Collection />
-      <Recommended cardData={gadgetsCardData} gadgetsData={gadgetsData} />
+      <Recommended cardData={gadgetsCardData} devicesData={gadgetsData} />
       <Features />
       <Footer />
     </div>
