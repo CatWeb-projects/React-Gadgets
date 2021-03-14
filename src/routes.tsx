@@ -1,4 +1,6 @@
 import { MainLayout } from 'features/all/pages/MainLayout/MainLayout';
+import { DeviceInfo } from 'features/device_info/pages/DeviceInfo/DeviceInfo';
+import { Gadgets } from 'features/gadgets/pages/Gadgets/Gadgets';
 import { Laptops } from 'features/laptops/pages/Laptops/Laptops';
 import { Phones } from 'features/phones/pages/Phones/Phones';
 import { Protection } from 'features/protection/pages/Protection/Protection';
@@ -25,4 +27,8 @@ export const routes: Route[] =
     {name: 'Phones', path: '/phones', component: Phones},
 
     {name: 'Laptops', path: '/laptops', component: Laptops},
+    
+    {name: 'Gadgets', path: '/gadgets', component: Gadgets},
+
+    {name: 'DeviceInfo', path: '/[slug]', component: DeviceInfo},
   ];

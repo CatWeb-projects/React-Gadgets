@@ -12,7 +12,8 @@ export const phones = [
     manufacturer: 'Xiaomi',
     imageUrl:
       'https://darwin.md/images/product/2020/06/redmi_note_9_pro_gray_1-200605035404-darwin.webp',
-    type: 'smartphones'
+    type: 'smartphones',
+    link: 'redmi_note_9_pro_gray'
   },
   {
     id: 2,
