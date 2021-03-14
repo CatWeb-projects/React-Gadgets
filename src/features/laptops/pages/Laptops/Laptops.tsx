@@ -4,9 +4,7 @@ import { catalog, DevicesProps } from 'libs/http/api';
 import { Footer, Header, Products } from 'ui/organims';
 
 export const Laptops = () => {
-  const { request: requestLaptops, data: laptopsData } = useRequest<
-    DevicesProps[]
-  >();
+  const { request, data: laptopsData } = useRequest<DevicesProps[]>();
 
   React.useEffect(() => {
     onFetchLaptops();
@@ -17,7 +15,7 @@ export const Laptops = () => {
     // eslint-disable-next-line
   }, []);
 
-  const onFetchLaptops = () => requestLaptops(catalog.laptops.action());
+  const onFetchLaptops = () => request(catalog.laptops.action());
 
   React.useMemo(() => laptopsData, [laptopsData]);
 
