@@ -12,6 +12,8 @@ interface Props {
 export const Recommended: React.FC<Props> = ({ devicesData, cardData }) => {
   const { t } = useIntl();
 
+  console.log(devicesData);
+
   return (
     <div className="item-product">
       {cardData && (
@@ -21,7 +23,7 @@ export const Recommended: React.FC<Props> = ({ devicesData, cardData }) => {
             style={{ backgroundImage: `url(${cardData.imgUrl})` }}
           >
             {cardData.name && <h4>{t(`${cardData.name}`)}</h4>}
-            {devicesData && (
+            {devicesData && devicesData.length !== 0 && (
               <span>
                 {devicesData.length}+ {t('products')}
               </span>
