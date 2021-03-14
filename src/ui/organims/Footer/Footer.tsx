@@ -38,15 +38,15 @@ export const Footer = () => {
           <h5>{t('copyright')}</h5>
         </div>
         <div className="lower-footer__media">
-          <Link to="facebook.com">
+          <a href="https://www.facebook.com">
             <Icon type="facebook" />
-          </Link>
-          <Link to="youtube.com">
+          </a>
+          <a href="https://www.youtube.com">
             <Icon type="youtube" />
-          </Link>
-          <Link to="instagram.com">
+          </a>
+          <a href="https://www.instagram.com">
             <Icon type="instagram" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

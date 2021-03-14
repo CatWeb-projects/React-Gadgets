@@ -11,7 +11,7 @@ export const categoriesTypes = [
   },
   {
     id: 102,
-    link: '/notebook',
+    link: '/laptops',
     name: 'Laptops and PC',
     imgUrl:
       'https://darwin.md/images/collection/laptopuri_si_pc-9-201029090621-darwin.png',
