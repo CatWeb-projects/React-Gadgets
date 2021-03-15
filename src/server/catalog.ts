@@ -13,7 +13,7 @@ export const phones = [
     imageUrl:
       'https://darwin.md/images/product/2020/06/redmi_note_9_pro_gray_1-200605035404-darwin.webp',
     type: 'smartphones',
-    link: 'redmi_note_9_pro_gray'
+    link: 'redmi-note-9-pro-gray'
   },
   {
     id: 2,
