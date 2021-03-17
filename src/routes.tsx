@@ -24,11 +24,11 @@ export const routes: Route[] =
 
     {name: 'Tradein', path: '/tradein', component: Tradein},
 
-    {name: 'Phones', path: '/phones', component: Phones},
+    {name: 'Phones', path: '/phones', exact: true, component: Phones},
 
     {name: 'Laptops', path: '/laptops', component: Laptops},
     
     {name: 'Gadgets', path: '/gadgets', component: Gadgets},
 
-    {name: 'DeviceInfo', path: '/phones/:link', exact: true, component: DeviceInfo},
+    {name: 'DeviceInfo', path: '/phones/:link', component: DeviceInfo},
   ];

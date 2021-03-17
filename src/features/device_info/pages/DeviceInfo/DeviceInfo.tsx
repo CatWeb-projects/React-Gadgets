@@ -6,9 +6,9 @@ export const DeviceInfo = () => {
 
   console.log(link);
 
-  if (link) {
-    return <Redirect toRoute="DeviceInfo" toParams={{ link: link }} />;
-  }
+  // if (link) {
+  //   return <Redirect toRoute="DeviceInfo" toParams={{ link: link }} />;
+  // }
 
   return (
     <div className="device-info">
