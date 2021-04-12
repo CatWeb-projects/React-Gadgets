@@ -12,4 +12,12 @@ export interface DevicesProps {
   imageUrl: string;
   type: string;
   link: string;
+  colors: string[];
+  camera: number;
+  frontCamera: number;
+  chipset: string;
+  processor: string;
+  resolution: string;
+  hardDrive: number;
+  memory: number;
 }

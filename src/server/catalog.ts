@@ -13,7 +13,15 @@ export const phones = [
     imageUrl:
       'https://darwin.md/images/product/2020/06/redmi_note_9_pro_gray_1-200605035404-darwin.webp',
     type: 'smartphones',
-    link: 'redmi-note-9-pro-gray'
+    link: 'redmi-note-9-pro-gray',
+    colors: ['gray', 'green', 'white'],
+    camera: 64,
+    frontCamera: 16,
+    chipset: 'Qualcomm SM7125 Snapdragon 720G',
+    processor: 'Octa Core',
+    resolution: '1080 x 2400 px',
+    hardDrive: 128,
+    memory: 6
   },
   {
     id: 2,
@@ -28,7 +36,8 @@ export const phones = [
     manufacturer: 'Samsung',
     imageUrl:
       'https://darwin.md/images/product/2020/11/samsung_galaxy_a51_black_1.webp',
-    type: 'smartphones'
+    type: 'smartphones',
+    link: 'samsung-galaxy-a51-black'
   },
   {
     id: 3,
@@ -41,7 +50,8 @@ export const phones = [
     manufacturer: 'Samsung',
     imageUrl:
       'https://darwin.md/images/product/2020/11/galaxy_a715_black_1.webp',
-    type: 'smartphones'
+    type: 'smartphones',
+    link: 'samsung-galaxy-a715-black'
   },
   {
     id: 4,
@@ -54,7 +64,8 @@ export const phones = [
     manufacturer: 'Samsung',
     imageUrl:
       'https://darwin.md/images/product/2021/01/samsung_g998_galaxy_s21_ultra_black_1-210113020726-darwin.webp',
-    type: 'smartphones'
+    type: 'smartphones',
+    link: 'samsung-g998-galaxy-s21-ultra-black'
   },
   {
     id: 5,
@@ -67,7 +78,8 @@ export const phones = [
     manufacturer: 'Samsung',
     imageUrl:
       'https://darwin.md/images/product/2020/09/samsung_galaxy_s20_fe_cloud_navy_1.webp',
-    type: 'smartphones'
+    type: 'smartphones',
+    link: 'samsung-galaxy-s20-fe-cloud-navy'
   }
 ];
 

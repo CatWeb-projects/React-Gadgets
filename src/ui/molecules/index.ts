@@ -5,3 +5,4 @@ export { ServiceSection } from './ServiceSection/ServiceSection';
 export { Collection } from './Collection/Collection';
 export { Features } from './Features/Features';
 export { ProductItem } from './ProductItem/ProductItem';
+export { DeviceProduct } from './DeviceProduct/DeviceProduct';
