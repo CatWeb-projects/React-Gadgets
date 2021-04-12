@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'estafette-router';
+import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { DevicesProps } from 'libs/http/api';
 
@@ -9,15 +9,14 @@ interface Props {
 
 export const ProductItem: React.FC<Props> = ({ product }) => {
   const { t } = useIntl();
-  const { push } = useHistory();
 
   return (
     <div className="item-product__item">
       {product && (
         <>
-          <a onClick={() => push('DeviceInfo', { link: product.link })}>
+          <Link route="DeviceInfo" params={{ link: product.link }}>
             <img src={product.imageUrl} alt={product.name} />
-          </a>
+          </Link>
           <Link route="DeviceInfo" params={{ link: product.link }}>
             <div className="item-product__title">{product.name}</div>
           </Link>
