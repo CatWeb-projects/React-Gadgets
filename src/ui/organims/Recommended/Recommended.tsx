@@ -12,8 +12,6 @@ interface Props {
 export const Recommended: React.FC<Props> = ({ devicesData, cardData }) => {
   const { t } = useIntl();
 
-  console.log(devicesData);
-
   return (
     <div className="item-product">
       {cardData && (
@@ -37,9 +35,7 @@ export const Recommended: React.FC<Props> = ({ devicesData, cardData }) => {
           devicesData
             .sort((a, b) => b.popularity - a.popularity)
             .slice(0, 3)
-            .map((device: any) => (
-              <ProductItem key={device.id} product={device} />
-            ))}
+            .map((device) => <ProductItem key={device.id} product={device} />)}
       </div>
     </div>
   );

@@ -26,10 +26,10 @@ server.get('/phones', (request, response) => {
   response.json(phones);
 });
 
-server.get('/phones/:id', (request, response) => {
-  const { id } = request.params;
-  const product = phones.filter((item) => item.id === +id);
-  response.json(product);
+server.get('/phones/:link', (request, response) => {
+  const { link } = request.params;
+  const product = phones.filter((item) => item.link === link);
+  response.json(product[0]);
 });
 
 server.get('/tablets', (request, response) => {
