@@ -23,21 +23,25 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
             </div>
             <div className="device-product__info-specifications">
               <div className="device-product__info-specifications-colors">
+                <span>Culoare</span>
                 {deviceData.colors &&
                   deviceData.colors.map((color, key) => (
-                    <div className="device-color" key={key}>
-                      {color}
-                    </div>
+                    <div
+                      className="device-color"
+                      style={{ backgroundColor: color }}
+                      key={key}
+                    ></div>
                   ))}
               </div>
-              <ul className="device-product__info-specs"></ul>
-              <li>Camera : {deviceData.camera} Mpx</li>
-              <li>Camera frontala : {deviceData.frontCamera} Mpx</li>
-              <li>Chipset : {deviceData.chipset}</li>
-              <li>Tip procesor : {deviceData.processor}</li>
-              <li>Rezolutie : {deviceData.resolution}</li>
-              <li>Memorie interna : {deviceData.hardDrive} GB</li>
-              <li>Memorie RAM : {deviceData.memory} GB</li>
+              <ul className="device-product__info-specs">
+                <li>Camera : {deviceData.camera} Mpx</li>
+                <li>Camera frontala : {deviceData.frontCamera} Mpx</li>
+                <li>Chipset : {deviceData.chipset}</li>
+                <li>Tip procesor : {deviceData.processor}</li>
+                <li>Rezolutie : {deviceData.resolution}</li>
+                <li>Memorie interna : {deviceData.hardDrive} GB</li>
+                <li>Memorie RAM : {deviceData.memory} GB</li>
+              </ul>
             </div>
             <div className="device-product__info-buy">
               <div className="device-product__info-price">

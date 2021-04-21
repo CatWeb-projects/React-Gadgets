@@ -7,7 +7,7 @@ import { catalog, DevicesProps } from 'libs/http/api';
 
 export const DeviceInfo = () => {
   const { request, data: deviceData } = useRequest<DevicesProps>({ data: {} });
-  const { link } = useParams<any>();
+  const { link } = useParams<{ link: string }>();
 
   React.useEffect(() => {
     onFetchPhoneData();

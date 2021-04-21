@@ -26,13 +26,27 @@ export const Categories = () => {
     <div className="categories">
       {categoriesData &&
         categoriesData.map((cat) => (
-          <a className="categories__card" href={cat.link} key={cat.id}>
-            <div className="categories__img">
+          <a
+            className="categories__card"
+            href={cat.link}
+            key={cat.id}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.color = `${cat.shadowColor}`)
+            }
+            onMouseOut={(e) => (e.currentTarget.style.color = `#fff`)}
+          >
+            <div
+              className="categories__img"
+              onMouseOver={(e) =>
+                (e.currentTarget.style.boxShadow = `0 0 16px 8px ${cat.shadowColor}`)
+              }
+              onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
+            >
               <img
                 src={cat.imgUrl}
                 alt={cat.name}
-                onMouseOver={(e) => (e.currentTarget.src = cat.imgHover)}
-                onMouseOut={(e) => (e.currentTarget.src = cat.imgUrl)}
+                // onMouseOver={(e) => (e.currentTarget.src = cat.imgHover)}
+                // onMouseOut={(e) => (e.currentTarget.src = cat.imgUrl)}
               />
             </div>
             <div className="categories__title">

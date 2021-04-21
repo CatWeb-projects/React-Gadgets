@@ -33,7 +33,14 @@
     align-items: center;
     background-color: #101010;
     border-radius: 50%;
-    margin-bottom: rem(4px);
+    margin-bottom: rem(8px);
+    transition: all 0.3s ease-out;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
   }
 
   &__title {

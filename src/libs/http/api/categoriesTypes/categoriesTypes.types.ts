@@ -3,6 +3,6 @@ export interface CategoriesTypesProps {
   name: string;
   link: string;
   imgUrl: string;
-  imgHover: string;
+  shadowColor: string;
   translate: string;
 }
