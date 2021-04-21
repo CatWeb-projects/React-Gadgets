@@ -18,5 +18,12 @@ export const sliderImages = [
     imgUrl: '/images/work-place.jpg',
     link: '/work-place',
     altName: 'Work Place'
+  },
+  {
+    id: 106,
+    imgUrl:
+      'https://darwin.md/images/slider/2021/04/site_macbook_pro_2020_m1_1400x520px_rom.webp',
+    link: '/laptops/macbook-pro-13-2020',
+    altName: 'Macbook Pro 2020'
   }
 ];
