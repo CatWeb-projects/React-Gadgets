@@ -2,7 +2,7 @@ import React from 'react';
 import { useRequest } from 'estafette';
 import { useParams } from 'estafette-router';
 import { Footer, Header } from 'ui/organims';
-import { DeviceProduct } from 'ui/molecules';
+import { Categories, DeviceProduct } from 'ui/molecules';
 import { catalog, DevicesProps } from 'libs/http/api';
 
 export const DeviceInfo = () => {
@@ -27,6 +27,7 @@ export const DeviceInfo = () => {
       <div className="device-info">
         <Header />
         <DeviceProduct deviceData={deviceData} />
+        <Categories />
         <Footer />
       </div>
     </div>

@@ -43,7 +43,7 @@ export const Categories = () => {
               onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
             >
               <img
-                src={cat.imgUrl}
+                src={cat.imgUrl && cat.imgUrl}
                 alt={cat.name}
                 // onMouseOver={(e) => (e.currentTarget.src = cat.imgHover)}
                 // onMouseOut={(e) => (e.currentTarget.src = cat.imgUrl)}

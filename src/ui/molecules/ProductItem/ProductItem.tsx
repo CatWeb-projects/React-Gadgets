@@ -14,7 +14,12 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
     <div className="item-product__item">
       {product && (
         <>
-          <Link route="DeviceInfo" params={{ link: product.link }}>
+          <Link
+            route="DeviceInfo"
+            params={{
+              link: product.link
+            }}
+          >
             <img src={product.imageUrl} alt={product.name} />
           </Link>
           <Link route="DeviceInfo" params={{ link: product.link }}>
