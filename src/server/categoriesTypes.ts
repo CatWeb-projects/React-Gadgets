@@ -3,101 +3,80 @@ export const categoriesTypes = [
     id: 101,
     link: '/phones',
     name: 'Phones and Tablets',
-    imgUrl:
-      'https://darwin.md/images/collection/telefoane_si_tablete-201029090952-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/telefoane_si_tablete.png',
-
+    imgUrl: '/images/smartphones_tablete.png',
+    shadowColor: '#3fa2cd',
     translate: 'phonesAndTablets'
   },
   {
     id: 102,
     link: '/laptops',
     name: 'Laptops and PC',
-    imgUrl:
-      'https://darwin.md/images/collection/laptopuri_si_pc-9-201029090621-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/laptopuri_si_pc-9.png',
-
+    imgUrl: '/images/laptop_pc.png',
+    shadowColor: '#58e600',
     translate: 'PC'
   },
   {
     id: 103,
     link: '/gadgets',
     name: 'Gadgets',
-    imgUrl:
-      'https://darwin.md/images/collection/gageturi-683-201029090629-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/gageturi-683.png',
-
+    imgUrl: '/images/gadgets.png',
+    shadowColor: '#e85b10',
     translate: 'gadgets'
   },
   {
     id: 104,
     link: '/apple',
     name: 'Apple',
-    imgUrl:
-      'https://darwin.md/images/collection/apple-8b7-201029090637-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/apple-8b7.png',
-
+    imgUrl: '/images/apple.png',
+    shadowColor: '#e53b26',
     translate: 'apple'
   },
   {
     id: 105,
     link: '/audio',
     name: 'Audio',
-    imgUrl:
-      'https://darwin.md/images/collection/audio-201002024821-darwin_cffc104f230d47543254a570876a3e29-201029090646-darwin.png',
-    imgHover:
-      'https://darwin.md/images/collection/audio-201002024821-darwin_cffc104f230d47543254a570876a3e29.png',
-
+    imgUrl: '/images/audio.png',
+    shadowColor: '#d93c8d',
     translate: 'audio'
   },
   {
     id: 106,
     link: '/sport-and-health',
     name: 'Sport And Health',
-    imgUrl:
-      'https://darwin.md/images/collection/sport_si_sanatate-416-201029090654-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/sport_si_sanatate-416.png',
-
+    imgUrl: '/images/sport_sanatatea.png',
+    shadowColor: '#8c57a7',
     translate: 'health'
   },
   {
     id: 107,
     link: '/personal-transport',
     name: 'Electric Transport',
-    imgUrl:
-      'https://darwin.md/images/collection/transport_electric-5cf-201029090708-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/transport_electric-5cf.png',
-
+    imgUrl: '/images/transport_eco.png',
+    shadowColor: '#32e5e5',
     translate: 'electric_transport'
   },
   {
     id: 108,
     link: '/tv-foto',
     name: 'TV, Photo and Optics',
-    imgUrl:
-      'https://darwin.md/images/collection/tv_foto_si_optica448-201029090726-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/tv_foto_si_optica448.png',
-
+    imgUrl: '/images/tv_optica.png',
+    shadowColor: '#2146c1',
     translate: 'photo_optics_tv'
   },
   {
     id: 109,
     link: '/accessories',
     name: 'Accessories',
-    imgUrl:
-      'https://darwin.md/images/collection/accesorii-6cc-201029090733-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/accesorii-6cc.png',
-
+    imgUrl: '/images/accesorii.png',
+    shadowColor: '#844d97',
     translate: 'accessories'
   },
   {
     id: 110,
     link: '/appliances',
     name: 'Appliances',
-    imgUrl:
-      'https://darwin.md/images/collection/electrocasnice-069c-201029090742-darwin.png',
-    imgHover: 'https://darwin.md/images/collection/electrocasnice-069c.png',
-
+    imgUrl: '/images/electrocasnice.png',
+    shadowColor: '#36bcbe',
     translate: 'appliances'
   }
 ];

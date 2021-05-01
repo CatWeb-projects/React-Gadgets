@@ -13,6 +13,7 @@ export interface DevicesProps {
   type: string;
   link: string;
   colors: string[];
+  memoryOptions: number[];
   camera: number;
   frontCamera: number;
   chipset: string;

@@ -4,6 +4,7 @@
 .device-product {
   max-width: rem(1400px);
   margin: rem(16px auto 0);
+  color: #a0a0a0;
 
   &__name {
     h3 {
@@ -14,14 +15,18 @@
   &__info {
     margin-top: rem(16px);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-gap: rem(16px);
     justify-items: center;
     align-items: center;
+    font-size: rem(20px);
   }
 
   &__info-image {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
     img {
       width: 100%;
       height: auto;
@@ -33,6 +38,54 @@
       &:hover {
         transform: scale(1);
       }
+    }
+  }
+
+  &__options-colors-wrapper {
+    display: flex;
+    align-items: center;
+    margin: rem(8px 0);
+  }
+
+  .device-color {
+    width: rem(32px);
+    height: rem(32px);
+    border-radius: rem(18px);
+    margin-right: rem(10px);
+
+    &.is-active {
+      border: rem(4px) solid #fff;
+      width: rem(37px);
+      height: rem(37px);
+    }
+  }
+
+  &__options-memory-wrapper {
+    display: flex;
+  }
+
+  &__options-memory-wrapper {
+    > a {
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  .memory-option {
+    margin-right: rem(10px);
+    padding: 5px 8px;
+    border-radius: 16px;
+    width: 88px;
+    font-weight: 400;
+    text-align: center;
+    margin-right: 8px;
+    background: #dedede;
+    margin-bottom: 8px;
+
+    &.is-selected {
+      background-color: #1c71b9;
+      color: #fff;
     }
   }
 }

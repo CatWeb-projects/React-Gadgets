@@ -9,7 +9,6 @@ interface Props {
 }
 
 export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
-  console.log(deviceData, 'deviceData');
   return (
     <div className="device-product">
       {deviceData && (
@@ -22,22 +21,66 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
               <img src={deviceData.imageUrl} alt={deviceData.name} />
             </div>
             <div className="device-product__info-specifications">
-              <div className="device-product__info-specifications-colors">
-                {deviceData.colors &&
-                  deviceData.colors.map((color, key) => (
-                    <div className="device-color" key={key}>
-                      {color}
-                    </div>
-                  ))}
+              <div className="device-product__options-colors">
+                <span>Culoare</span>
+                <div className="device-product__options-colors-wrapper">
+                  {deviceData.colors &&
+                    deviceData.colors.map((color, key) => (
+                      <a
+                        href={`/phones/${deviceData.link
+                          .split('-')
+                          .slice(0, -3)
+                          .join('-')}-${deviceData.hardDrive}-gb-${color}`}
+                        key={key}
+                      >
+                        <div
+                          className={
+                            color === deviceData.color.toLowerCase()
+                              ? 'device-color is-active'
+                              : 'device-color'
+                          }
+                          style={{ backgroundColor: color }}
+                        ></div>
+                      </a>
+                    ))}
+                </div>
               </div>
-              <ul className="device-product__info-specs"></ul>
-              <li>Camera : {deviceData.camera} Mpx</li>
-              <li>Camera frontala : {deviceData.frontCamera} Mpx</li>
-              <li>Chipset : {deviceData.chipset}</li>
-              <li>Tip procesor : {deviceData.processor}</li>
-              <li>Rezolutie : {deviceData.resolution}</li>
-              <li>Memorie interna : {deviceData.hardDrive} GB</li>
-              <li>Memorie RAM : {deviceData.memory} GB</li>
+              <div className="device-product__options-memory">
+                <span>Culoare</span>
+                <div className="device-product__options-memory-wrapper">
+                  {deviceData.memoryOptions &&
+                    deviceData.memoryOptions.map((memory, key) => (
+                      <a
+                        href={`${deviceData.link
+                          .split('-')
+                          .slice(0, -3)
+                          .join(
+                            '-'
+                          )}-${memory}-gb-${deviceData.color.toLowerCase()}`}
+                        key={key}
+                      >
+                        <div
+                          className={
+                            memory === deviceData.hardDrive
+                              ? 'memory-option is-selected'
+                              : 'memory-option'
+                          }
+                        >
+                          {memory} GB
+                        </div>
+                      </a>
+                    ))}
+                </div>
+              </div>
+              <ul className="device-product__info-specs">
+                <li>Camera : {deviceData.camera} Mpx</li>
+                <li>Camera frontala : {deviceData.frontCamera} Mpx</li>
+                <li>Chipset : {deviceData.chipset}</li>
+                <li>Tip procesor : {deviceData.processor}</li>
+                <li>Rezolutie : {deviceData.resolution}</li>
+                <li>Memorie interna : {deviceData.hardDrive} GB</li>
+                <li>Memorie RAM : {deviceData.memory} GB</li>
+              </ul>
             </div>
             <div className="device-product__info-buy">
               <div className="device-product__info-price">

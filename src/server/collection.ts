@@ -35,7 +35,7 @@ export const collection = [
     translate: 'sport',
     link: '/sport',
     imgUrl:
-      'https://s2.best-wallpaper.net/wallpaper/1920x1080/1201/Snow-mountain-snowboard-sport_1920x1080.jpg'
+      'https://cdn.shortpixel.ai/spai/q_glossy+ret_img/https://whateveryourdose.com/wp-content/uploads/2019/12/How-to-plan-the-perfect-snow-break.001.jpeg'
   },
   {
     id: 1006,
