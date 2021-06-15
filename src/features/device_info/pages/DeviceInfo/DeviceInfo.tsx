@@ -26,8 +26,8 @@ export const DeviceInfo = () => {
     <div className="main-container">
       <div className="device-info">
         <Header />
-        <DeviceProduct deviceData={deviceData} />
         <Categories />
+        <DeviceProduct deviceData={deviceData} />
         <Footer />
       </div>
     </div>

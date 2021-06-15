@@ -88,3 +88,29 @@ h4,
 h5 {
   margin: 0;
 }
+
+@font-face {
+  font-family: 'Avenir-Next';
+  src: url('/fonts/avenir/avenirnextcyr-regular.otf');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir-Bold';
+  src: url('/fonts/avenir/avenirnextcyr-bold.otf');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir-DemiBold';
+  src: url('/fonts/avenir/avenirnextcyr-demi.otf');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir-Medium';
+  src: url('/fonts/avenir/avenirnextcyr-medium.otf');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Weissenhoff';
+  src: url('/fonts/weissenhoff/weissenhofgrotesk-bold_cyr.otf');
+  font-display: swap;
+}

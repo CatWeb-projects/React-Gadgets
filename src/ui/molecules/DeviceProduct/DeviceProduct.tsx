@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'estafette-router';
+import { useIntl } from 'estafette-intl';
 import { DevicesProps } from 'libs/http/api';
 
 import './DeviceProduct.scss';
@@ -9,6 +10,8 @@ interface Props {
 }
 
 export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
+  const { t } = useIntl();
+
   return (
     <div className="device-product">
       {deviceData && (
@@ -84,12 +87,20 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
             </div>
             <div className="device-product__info-buy">
               <div className="device-product__info-price">
-                {deviceData.price}
+                {`${deviceData.price} ${t('lei')}`}
               </div>
-              <Link>cumpara</Link>
-              <div className="device-product__info-credit"></div>
-              <div className="device-product__info-cashback"></div>
-              <Link>solicita credit</Link>
+              <Link to="/checkout" className="device-product__buy">
+                {t('buy')}
+              </Link>
+              <div className="device-product__info-credit">{`${
+                deviceData.credit
+              } ${t('credit')}`}</div>
+              <div className="device-product__info-cashback">{`Cashback ${
+                deviceData.cashback
+              } ${t('lei')}`}</div>
+              <Link to="/credit" className="device-product__credit">
+                {t('buy_credit')}
+              </Link>
             </div>
           </div>
         </div>

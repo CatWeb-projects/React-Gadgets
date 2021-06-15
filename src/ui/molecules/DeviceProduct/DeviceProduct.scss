@@ -88,4 +88,59 @@
       color: #fff;
     }
   }
+
+  &__info-buy {
+    background-color: #101010;
+    padding: rem(16px 20% 16px 16px);
+    border-radius: rem(8px);
+    color: #fff;
+    width: 100%;
+    font-size: rem(32px);
+
+    > div,
+    a {
+      display: table;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s;
+      margin-top: rem(8px);
+      border-radius: rem(8px);
+      padding: rem(5px 0);
+    }
+
+    > a:hover {
+      color: #fff;
+    }
+  }
+
+  &__info-price {
+    background-color: #8c57a7;
+  }
+
+  &__buy {
+    display: table;
+    background-color: #fbac2a;
+
+    &:hover {
+      box-shadow: 0 0 8px 4px #fbac2a80;
+    }
+  }
+
+  &__info-credit {
+    background-color: #58e600;
+  }
+
+  &__credit {
+    color: #1c71b9;
+    border: rem(1px) solid #1c71b9;
+
+    &:hover {
+      background-color: #1c71b9;
+      box-shadow: 0 0 8px 4px #1c71b9;
+    }
+  }
+
+  &__info-cashback {
+    background-color: #d7298f;
+  }
 }

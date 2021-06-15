@@ -125,9 +125,9 @@ export const messages = createMessages([
       ro: 'lei'
     },
     credit: {
-      en: 'lei monthly',
+      en: 'lei/monthly',
       ru: 'лей/мес',
-      ro: 'lei lunar'
+      ro: 'lei/lună'
     }
   },
   {
@@ -270,6 +270,18 @@ export const messages = createMessages([
       en: 'Contacts',
       ru: 'Контакты',
       ro: 'Contacte'
+    }
+  },
+  {
+    buy: {
+      en: 'Buy',
+      ru: 'Купить',
+      ro: 'Cumpără'
+    },
+    buy_credit: {
+      en: 'Credit Buy',
+      ru: 'Купить в Кредит',
+      ro: 'Solicită credit'
     }
   }
 ]);
