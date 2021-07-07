@@ -15,7 +15,7 @@
   &__info {
     margin-top: rem(16px);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: 1fr;
     grid-gap: rem(16px);
     justify-items: center;
@@ -25,20 +25,25 @@
 
   &__info-image {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 4;
 
     img {
       width: 100%;
       height: auto;
       object-fit: cover;
       cursor: pointer;
-      transform: scale(0.9);
+      transform: scale(0.95);
       transition: all 0.5s ease-out;
 
       &:hover {
         transform: scale(1);
       }
     }
+  }
+
+  &__info-specifications {
+    grid-column-start: 4;
+    grid-column-end: 7;
   }
 
   &__options-colors-wrapper {
@@ -90,6 +95,8 @@
   }
 
   &__info-buy {
+    grid-column-start: 7;
+    grid-column-end: 9;
     background-color: #101010;
     padding: rem(16px 20% 16px 16px);
     border-radius: rem(8px);
