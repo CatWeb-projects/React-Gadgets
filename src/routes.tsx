@@ -30,5 +30,5 @@ export const routes: Route[] =
     
     {name: 'Gadgets', path: '/gadgets', component: Gadgets},
 
-    {name: 'DeviceInfo', path: '/phones/:link', component: DeviceInfo},
+    {name: 'DeviceInfo', path: '/device/:link', component: DeviceInfo},
   ];

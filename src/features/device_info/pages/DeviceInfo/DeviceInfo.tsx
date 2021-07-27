@@ -6,21 +6,32 @@ import { Categories, DeviceProduct } from 'ui/molecules';
 import { catalog, DevicesProps } from 'libs/http/api';
 
 export const DeviceInfo = () => {
-  const { request, data: deviceData } = useRequest<DevicesProps>({ data: {} });
+  const { request, data: phoneData } = useRequest<DevicesProps>({ data: {} });
+  const { request: requestLaptop, data: laptopData } = useRequest<DevicesProps>(
+    { data: {} }
+  );
   const { link } = useParams<{ link: string }>();
 
   React.useEffect(() => {
     onFetchPhoneData();
+    onFetchLaptopData();
 
     return () => {
       catalog.phone.cancel();
+      catalog.laptop.cancel();
     };
     // eslint-disable-next-line
   }, []);
 
   const onFetchPhoneData = () => request(catalog.phone.action(link));
+  const onFetchLaptopData = () => requestLaptop(catalog.laptop.action(link));
 
+  const deviceData: DevicesProps = phoneData ? phoneData : laptopData;
   React.useMemo(() => deviceData, [deviceData]);
+
+  console.log(deviceData, 'device info');
+  console.log(phoneData, 'if phone');
+  console.log(laptopData, 'if laptop');
 
   return (
     <div className="main-container">

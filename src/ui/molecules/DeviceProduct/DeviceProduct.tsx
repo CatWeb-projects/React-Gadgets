@@ -24,13 +24,13 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
               <img src={deviceData.imageUrl} alt={deviceData.name} />
             </div>
             <div className="device-product__info-specifications">
-              <div className="device-product__options-colors">
-                <span>Culoare</span>
-                <div className="device-product__options-colors-wrapper">
-                  {deviceData.colors &&
-                    deviceData.colors.map((color, key) => (
+              {deviceData.colors && (
+                <div className="device-product__options-colors">
+                  <span>Culoare</span>
+                  <div className="device-product__options-colors-wrapper">
+                    {deviceData.colors.map((color, key) => (
                       <a
-                        href={`/phones/${deviceData.link
+                        href={`/device/${deviceData.link
                           .split('-')
                           .slice(0, -3)
                           .join('-')}-${deviceData.hardDrive}-gb-${color}`}
@@ -46,15 +46,16 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                         ></div>
                       </a>
                     ))}
+                  </div>
                 </div>
-              </div>
-              <div className="device-product__options-memory">
-                <span>Culoare</span>
-                <div className="device-product__options-memory-wrapper">
-                  {deviceData.memoryOptions &&
-                    deviceData.memoryOptions.map((memory, key) => (
+              )}
+              {deviceData.memoryOptions && (
+                <div className="device-product__options-memory">
+                  <span>Memorie</span>
+                  <div className="device-product__options-memory-wrapper">
+                    {deviceData.memoryOptions.map((memory, key) => (
                       <a
-                        href={`${deviceData.link
+                        href={`/device/${deviceData.link
                           .split('-')
                           .slice(0, -3)
                           .join(
@@ -73,16 +74,41 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                         </div>
                       </a>
                     ))}
+                  </div>
                 </div>
-              </div>
+              )}
               <ul className="device-product__info-specs">
-                <li>Camera : {deviceData.camera} Mpx</li>
-                <li>Camera frontala : {deviceData.frontCamera} Mpx</li>
-                <li>Chipset : {deviceData.chipset}</li>
-                <li>Tip procesor : {deviceData.processor}</li>
-                <li>Rezolutie : {deviceData.resolution}</li>
-                <li>Memorie interna : {deviceData.hardDrive} GB</li>
-                <li>Memorie RAM : {deviceData.memory} GB</li>
+                {deviceData.segment && <li>Segment : {deviceData.segment}</li>}
+                {deviceData.camera && <li>Camera : {deviceData.camera} Mpx</li>}
+                {deviceData.frontCamera && (
+                  <li>Camera frontala : {deviceData.frontCamera} Mpx</li>
+                )}
+                {deviceData.chipset && <li>Chipset : {deviceData.chipset}</li>}
+                {deviceData.cores && <li>Nr.nuclee : {deviceData.cores}</li>}
+                {deviceData.chipsetFrequency && (
+                  <li>Frecvența procesor : {deviceData.chipsetFrequency}</li>
+                )}
+                {deviceData.processor && (
+                  <li>Tip procesor : {deviceData.processor}</li>
+                )}
+                {deviceData.resolution && (
+                  <li>Rezolutie : {deviceData.resolution}</li>
+                )}
+                {deviceData.hardDrive && (
+                  <li>Memorie interna : {deviceData.hardDrive} GB</li>
+                )}
+                {deviceData.memory && (
+                  <li>Memorie RAM : {deviceData.memory} GB</li>
+                )}
+                {deviceData.displayType && (
+                  <li>Display : {deviceData.displayType}</li>
+                )}
+                {deviceData.videoCard && (
+                  <li>Model placă video : {deviceData.videoCard}</li>
+                )}
+                {deviceData.videoCardMemory && (
+                  <li>Memorie video : {deviceData.videoCardMemory} GB</li>
+                )}
               </ul>
             </div>
             <div className="device-product__info-buy">

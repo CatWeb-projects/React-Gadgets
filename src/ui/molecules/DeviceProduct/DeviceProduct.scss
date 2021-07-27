@@ -67,9 +67,8 @@
 
   &__options-memory-wrapper {
     display: flex;
-  }
+    margin-top: rem(8px);
 
-  &__options-memory-wrapper {
     > a {
       &:hover {
         color: #fff;

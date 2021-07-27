@@ -14,11 +14,17 @@ export interface DevicesProps {
   link: string;
   colors: string[];
   memoryOptions: number[];
-  camera: number;
-  frontCamera: number;
-  chipset: string;
-  processor: string;
-  resolution: string;
-  hardDrive: number;
-  memory: number;
+  camera?: number;
+  frontCamera?: number;
+  chipset?: string;
+  processor?: string;
+  resolution?: string;
+  hardDrive?: number;
+  memory?: number;
+  cores?: number;
+  chipsetFrequency?: string;
+  segment?: string;
+  displayType?: string;
+  videoCard: string;
+  videoCardMemory: string;
 }
