@@ -26,7 +26,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
             <div className="device-product__info-specifications">
               {deviceData.colors && (
                 <div className="device-product__options-colors">
-                  <span>Culoare</span>
+                  <span>{t('color')}</span>
                   <div className="device-product__options-colors-wrapper">
                     {deviceData.colors.map((color, key) => (
                       <a
@@ -51,7 +51,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
               )}
               {deviceData.memoryOptions && (
                 <div className="device-product__options-memory">
-                  <span>Memorie</span>
+                  <span>{t('memory')}</span>
                   <div className="device-product__options-memory-wrapper">
                     {deviceData.memoryOptions.map((memory, key) => (
                       <a
@@ -78,36 +78,65 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 </div>
               )}
               <ul className="device-product__info-specs">
-                {deviceData.segment && <li>Segment : {deviceData.segment}</li>}
-                {deviceData.camera && <li>Camera : {deviceData.camera} Mpx</li>}
+                {deviceData.segment && (
+                  <li>
+                    {t('segment')} : {deviceData.segment}
+                  </li>
+                )}
+                {deviceData.camera && (
+                  <li>
+                    {t('camera')} : {deviceData.camera} {t('mpx')}
+                  </li>
+                )}
                 {deviceData.frontCamera && (
-                  <li>Camera frontala : {deviceData.frontCamera} Mpx</li>
+                  <li>
+                    {t('frontCamera')} : {deviceData.frontCamera} {t('mpx')}
+                  </li>
                 )}
-                {deviceData.chipset && <li>Chipset : {deviceData.chipset}</li>}
-                {deviceData.cores && <li>Nr.nuclee : {deviceData.cores}</li>}
+                {deviceData.chipset && (
+                  <li>
+                    {t('chipset')} : {deviceData.chipset}
+                  </li>
+                )}
+                {deviceData.cores && (
+                  <li>
+                    {t('cores')} : {deviceData.cores}
+                  </li>
+                )}
                 {deviceData.chipsetFrequency && (
-                  <li>Frecvența procesor : {deviceData.chipsetFrequency}</li>
-                )}
-                {deviceData.processor && (
-                  <li>Tip procesor : {deviceData.processor}</li>
+                  <li>
+                    {t('chipsetFrequency')} : {deviceData.chipsetFrequency}
+                  </li>
                 )}
                 {deviceData.resolution && (
-                  <li>Rezolutie : {deviceData.resolution}</li>
+                  <li>
+                    {t('resolution')} : {deviceData.resolution} {t('px')}
+                  </li>
                 )}
                 {deviceData.hardDrive && (
-                  <li>Memorie interna : {deviceData.hardDrive} GB</li>
+                  <li>
+                    {t('memory')} : {deviceData.hardDrive} GB
+                  </li>
                 )}
                 {deviceData.memory && (
-                  <li>Memorie RAM : {deviceData.memory} GB</li>
+                  <li>
+                    {t('ram')} : {deviceData.memory} GB
+                  </li>
                 )}
                 {deviceData.displayType && (
-                  <li>Display : {deviceData.displayType}</li>
+                  <li>
+                    {t('displayType')} : {deviceData.displayType}
+                  </li>
                 )}
                 {deviceData.videoCard && (
-                  <li>Model placă video : {deviceData.videoCard}</li>
+                  <li>
+                    {t('videoCard')} : {deviceData.videoCard}
+                  </li>
                 )}
                 {deviceData.videoCardMemory && (
-                  <li>Memorie video : {deviceData.videoCardMemory} GB</li>
+                  <li>
+                    {t('videoCardMemory')} : {deviceData.videoCardMemory} GB
+                  </li>
                 )}
               </ul>
             </div>

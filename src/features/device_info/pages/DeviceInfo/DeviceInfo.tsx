@@ -29,10 +29,6 @@ export const DeviceInfo = () => {
   const deviceData: DevicesProps = phoneData ? phoneData : laptopData;
   React.useMemo(() => deviceData, [deviceData]);
 
-  console.log(deviceData, 'device info');
-  console.log(phoneData, 'if phone');
-  console.log(laptopData, 'if laptop');
-
   return (
     <div className="main-container">
       <div className="device-info">

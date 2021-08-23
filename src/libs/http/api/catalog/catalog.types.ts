@@ -17,7 +17,6 @@ export interface DevicesProps {
   camera?: number;
   frontCamera?: number;
   chipset?: string;
-  processor?: string;
   resolution?: string;
   hardDrive?: number;
   memory?: number;
@@ -25,6 +24,6 @@ export interface DevicesProps {
   chipsetFrequency?: string;
   segment?: string;
   displayType?: string;
-  videoCard: string;
-  videoCardMemory: string;
+  videoCard?: string;
+  videoCardMemory?: string;
 }

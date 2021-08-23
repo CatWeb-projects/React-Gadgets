@@ -20,7 +20,7 @@ export const phones = [
     frontCamera: 16,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 64,
     memory: 6
   },
@@ -45,7 +45,7 @@ export const phones = [
     frontCamera: 32,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 4
   },
@@ -70,7 +70,7 @@ export const phones = [
     frontCamera: 20,
     chipset: 'Qualcomm SM8250 Snapdragon 865',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 8
   },
@@ -95,7 +95,7 @@ export const phones = [
     frontCamera: 20,
     chipset: 'Qualcomm SM8250 Snapdragon 865',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 256,
     memory: 8
   },
@@ -120,7 +120,7 @@ export const phones = [
     frontCamera: 20,
     chipset: 'Qualcomm SM8250 Snapdragon 865',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 8
   },
@@ -145,7 +145,7 @@ export const phones = [
     frontCamera: 32,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 256,
     memory: 8
   },
@@ -170,7 +170,7 @@ export const phones = [
     frontCamera: 32,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 4
   },
@@ -195,7 +195,7 @@ export const phones = [
     frontCamera: 32,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 256,
     memory: 8
   },
@@ -220,7 +220,7 @@ export const phones = [
     frontCamera: 16,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 6
   },
@@ -245,7 +245,7 @@ export const phones = [
     frontCamera: 16,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 64,
     memory: 6
   },
@@ -270,7 +270,7 @@ export const phones = [
     frontCamera: 16,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 64,
     memory: 6
   },
@@ -295,7 +295,7 @@ export const phones = [
     frontCamera: 16,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 6
   },
@@ -320,7 +320,7 @@ export const phones = [
     frontCamera: 16,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 6
   },
@@ -345,7 +345,7 @@ export const phones = [
     frontCamera: 32,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 4
   },
@@ -370,7 +370,7 @@ export const phones = [
     frontCamera: 32,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 256,
     memory: 8
   },
@@ -395,7 +395,7 @@ export const phones = [
     frontCamera: 32,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 128,
     memory: 4
   },
@@ -420,7 +420,7 @@ export const phones = [
     frontCamera: 32,
     chipset: 'Qualcomm SM7125 Snapdragon 720G',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 256,
     memory: 8
   },
@@ -445,7 +445,7 @@ export const phones = [
     frontCamera: 20,
     chipset: 'Qualcomm SM8250 Snapdragon 865',
     processor: 'Octa Core',
-    resolution: '1080 x 2400 px',
+    resolution: '1080 x 2400',
     hardDrive: 256,
     memory: 8
   },
@@ -470,7 +470,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 64,
     memory: 4
   },
@@ -495,7 +495,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 64,
     memory: 4
   },
@@ -520,7 +520,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 64,
     memory: 4
   },
@@ -545,7 +545,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 64,
     memory: 4
   },
@@ -570,7 +570,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 64,
     memory: 4
   },
@@ -595,7 +595,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 64,
     memory: 4
   },
@@ -620,7 +620,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 128,
     memory: 4
   },
@@ -645,7 +645,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 128,
     memory: 4
   },
@@ -670,7 +670,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 128,
     memory: 4
   },
@@ -695,7 +695,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 128,
     memory: 4
   },
@@ -720,7 +720,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 128,
     memory: 4
   },
@@ -745,7 +745,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 128,
     memory: 4
   },
@@ -770,7 +770,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 256,
     memory: 4
   },
@@ -795,7 +795,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 256,
     memory: 4
   },
@@ -820,7 +820,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 256,
     memory: 4
   },
@@ -845,7 +845,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 256,
     memory: 4
   },
@@ -870,7 +870,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 256,
     memory: 4
   },
@@ -895,7 +895,7 @@ export const phones = [
     frontCamera: 12,
     chipset: 'Apple A13 Bionic',
     processor: 'Hexa Core',
-    resolution: '1792 x 828 px',
+    resolution: '1792 x 828',
     hardDrive: 256,
     memory: 4
   }
@@ -913,7 +913,7 @@ export const laptops = [
     model: '15IMH05',
     color: 'Black',
     weight: 2200,
-    popularity: 97,
+    popularity: 91,
     manufacturer: 'Lenovo',
     imageUrl:
       'https://darwin.md/images/product/2020/08/ideapad_gaming_3_15imh05_black_1.webp',
@@ -924,8 +924,7 @@ export const laptops = [
     chipset: 'Intel Core i5-10300H',
     cores: 4,
     chipsetFrequency: '2500 - 4500 MHz',
-    processor: 'Hexa Core',
-    resolution: '1920 x 1080 px',
+    resolution: '1920 x 1080',
     hardDrive: 512,
     memory: 8,
     videoCard: 'GeForce GTX 1650',
@@ -934,45 +933,55 @@ export const laptops = [
   },
   {
     id: 102,
-    name: 'Apple MacBook Pro 13 2020 (Z0Z1000WU), Space Gray',
-    price: 34990,
-    cashback: 1050,
+    name: 'Laptop Apple MacBook Pro 13 2020 (MYD82ZP/A), Space Gray',
+    price: 29900,
+    credit: 2990,
+    cashback: 3000,
     model: '13 (2020)',
     color: 'Space Gray',
     weight: 1400,
-    popularity: 97,
-    manufacturer: 'Apple',
-    imageUrl:
-      'https://darwin.md/images/product/2020/09/apple_pro_13_2020_space_gray_2.webp',
-    type: 'laptops'
-  },
-  {
-    id: 103,
-    name: 'Asus ROG Strix HERO (G731GV-EV058T), Scar Gunmetal',
-    price: 37490,
-    cashback: 1125,
-    model: 'G731GV',
-    color: 'Gun metal',
-    weight: 2850,
-    popularity: 90,
-    manufacturer: 'Asus',
-    imageUrl: 'https://darwin.md/images/product/2020/06/asus_g731gv_gray2.webp',
-    type: 'laptops'
-  },
-  {
-    id: 104,
-    name: 'Apple MacBook Air 2020 (MWTJ2), Space Gray',
-    price: 21990,
-    credit: 2199,
-    cashback: 660,
-    model: '13 (2020)',
-    color: 'Space Gray',
-    weight: 1290,
     popularity: 99,
     manufacturer: 'Apple',
     imageUrl:
-      'https://darwin.md/images/product/2020/06/apple_air_13_2019_space_gray1-200605030224-darwin.webp',
-    type: 'laptops'
+      'https://darwin.md/images/product/2020/12/apple_macbook_pro_2020_m1_space_gray_2-201126101357-darwin.webp',
+    type: 'laptops',
+    segment: 'Home & Office',
+    link: `macbook-pro-13-2020-myd82zpa`,
+    colors: ['darkgrey'],
+    chipset: 'M1',
+    cores: 8,
+    chipsetFrequency: '600 - 3200 MHz',
+    resolution: '2560 x 1600',
+    hardDrive: 256,
+    memory: 8,
+    videoCard: 'Integrated',
+    displayType: 'IPS'
+  },
+  {
+    id: 103,
+    name: 'Laptop Lenovo Ideapad 5 15ARE05 Gray',
+    price: 14900,
+    credit: 1490,
+    cashback: 1500,
+    model: '15ARE05',
+    color: 'Gray',
+    weight: 1600,
+    popularity: 97,
+    manufacturer: 'Lenovo',
+    imageUrl:
+      'https://darwin.md/images/product/2020/12/ideapad_5_lenovo_platinum_gray_1.webp',
+    type: 'laptops',
+    segment: 'Home & Office',
+    link: `laptop-lenovo-ideapad-5-15are05-gray`,
+    colors: ['gray'],
+    chipset: 'Ryzen 7 4700U',
+    cores: 8,
+    chipsetFrequency: '2.00 GHz - 4.10 GHz',
+    resolution: '1920 x 1080',
+    hardDrive: 512,
+    memory: 16,
+    videoCard: 'Radeon RX Vega 7',
+    displayType: 'IPS'
   }
 ];
 
