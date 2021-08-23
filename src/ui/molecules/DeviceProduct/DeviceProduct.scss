@@ -67,12 +67,13 @@
 
   &__options-memory-wrapper {
     display: flex;
-  }
+    margin-top: rem(8px);
 
-  &__options-memory-wrapper {
     > a {
+      color: #1c71b9;
+
       &:hover {
-        color: #fff;
+        color: #1c71b9;
       }
     }
   }

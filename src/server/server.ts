@@ -46,10 +46,10 @@ server.get('/laptops', (request, response) => {
   response.json(laptops);
 });
 
-server.get('/laptops/:id', (request, response) => {
-  const { id } = request.params;
-  const product = laptops.filter((item) => item.id === +id);
-  response.json(product);
+server.get('/laptops/:link', (request, response) => {
+  const { link } = request.params;
+  const product = laptops.filter((item) => item.link === link);
+  response.json(product[0]);
 });
 
 server.get('/gadgets', (request, response) => {

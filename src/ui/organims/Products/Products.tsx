@@ -13,9 +13,11 @@ export const Products: React.FC<PhonesProps> = ({ products }) => {
     <div className="item-product">
       <div className="item-product__items">
         {products &&
-          products.map((product) => (
-            <ProductItem key={product.id} product={product} />
-          ))}
+          products
+            .sort((a, b) => b.popularity - a.popularity)
+            .map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
       </div>
     </div>
   );

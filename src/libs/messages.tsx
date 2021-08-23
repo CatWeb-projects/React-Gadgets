@@ -283,5 +283,87 @@ export const messages = createMessages([
       ru: 'Купить в Кредит',
       ro: 'Solicită credit'
     }
+  },
+  {
+    color: {
+      en: 'Color',
+      ru: 'Цвет',
+      ro: 'Culoare'
+    },
+    memory: {
+      en: 'Built-in memory',
+      ru: 'Встроенная память',
+      ro: 'Memorie internă'
+    },
+    segment: {
+      en: 'Segment',
+      ru: 'Сегмент',
+      ro: 'Segment'
+    },
+    camera: {
+      en: 'Camera',
+      ru: 'Камера',
+      ro: 'Camera'
+    },
+    frontCamera: {
+      en: 'Front camera',
+      ru: 'Фронтальная камера',
+      ro: 'Camera frontală'
+    },
+    mpx: {
+      en: 'Mpx',
+      ru: 'Мп',
+      ro: 'Mpx'
+    },
+    chipset: {
+      en: 'Chipset',
+      ru: 'Чипсет',
+      ro: 'Chipset'
+    },
+    cores: {
+      en: 'Cores',
+      ru: 'Количество ядер',
+      ro: 'Număr nuclee'
+    },
+    chipsetFrequency: {
+      en: 'CPU frequency',
+      ru: 'Частота процессора',
+      ro: 'Frecvența procesor'
+    },
+    resolution: {
+      en: 'Resolution',
+      ru: 'Разрешение',
+      ro: 'Rezoluție'
+    },
+    px: {
+      en: 'px',
+      ru: 'пкс',
+      ro: 'px'
+    },
+    ram: {
+      en: 'RAM Memory',
+      ru: 'Оперативная память',
+      ro: 'Memorie RAM'
+    },
+    displayType: {
+      en: 'Screen technology',
+      ru: 'Технология экрана',
+      ro: 'Tehnologia ecranului'
+    },
+    display: {
+      en: 'Display',
+      ru: 'Диагональ экрана',
+      ro: 'Diagonală display'
+    },
+    videoCard: {
+      en: 'Video Card',
+      ru: 'Модель видеокарты',
+      ro: 'Model placă video'
+    },
+    videoCardMemory: {
+      en: 'Video Memory',
+      ru: 'Видеопамять',
+      ro: 'Memorie video'
+    }
   }
 ]);

@@ -35,6 +35,16 @@ export const catalog = {
     cancel: (() => null) as Canceler
   },
 
+  laptop: {
+    action: (link: string): Promise<{ data: DevicesProps }> =>
+      axios.get(`${baseUrl}/laptops/${link}`, {
+        cancelToken: new CancelToken(
+          (c: Canceler) => (catalog.laptop.cancel = c)
+        )
+      }),
+    cancel: (() => null) as Canceler
+  },
+
   gadgets: {
     action: (): Promise<{ data: DevicesProps[] }> =>
       axios.get(`${baseUrl}/gadgets`, {
