@@ -23,6 +23,7 @@ export interface DevicesProps {
   cores?: number;
   chipsetFrequency?: string;
   segment?: string;
+  display?: string;
   displayType?: string;
   videoCard?: string;
   videoCardMemory?: string;

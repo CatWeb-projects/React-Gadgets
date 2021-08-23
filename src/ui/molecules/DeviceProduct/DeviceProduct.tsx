@@ -30,10 +30,14 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                   <div className="device-product__options-colors-wrapper">
                     {deviceData.colors.map((color, key) => (
                       <a
-                        href={`/device/${deviceData.link
-                          .split('-')
-                          .slice(0, -3)
-                          .join('-')}-${deviceData.hardDrive}-gb-${color}`}
+                        href={
+                          deviceData.colors.length === 1
+                            ? `/device/${deviceData.link}`
+                            : `/device/${deviceData.link
+                                .split('-')
+                                .slice(0, -3)
+                                .join('-')}-${deviceData.hardDrive}-gb-${color}`
+                        }
                         key={key}
                       >
                         <div
@@ -113,14 +117,19 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('resolution')} : {deviceData.resolution} {t('px')}
                   </li>
                 )}
+                {deviceData.memory && (
+                  <li>
+                    {t('ram')} : {deviceData.memory} GB
+                  </li>
+                )}
                 {deviceData.hardDrive && (
                   <li>
                     {t('memory')} : {deviceData.hardDrive} GB
                   </li>
                 )}
-                {deviceData.memory && (
+                {deviceData.display && (
                   <li>
-                    {t('ram')} : {deviceData.memory} GB
+                    {t('display')} : {deviceData.display}
                   </li>
                 )}
                 {deviceData.displayType && (

@@ -346,9 +346,14 @@ export const messages = createMessages([
       ro: 'Memorie RAM'
     },
     displayType: {
-      en: 'Display',
+      en: 'Screen technology',
       ru: 'Технология экрана',
-      ro: 'Display'
+      ro: 'Tehnologia ecranului'
+    },
+    display: {
+      en: 'Display',
+      ru: 'Диагональ экрана',
+      ro: 'Diagonală display'
     },
     videoCard: {
       en: 'Video Card',
