@@ -59,12 +59,16 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                   <div className="device-product__options-memory-wrapper">
                     {deviceData.memoryOptions.map((memory, key) => (
                       <a
-                        href={`/device/${deviceData.link
-                          .split('-')
-                          .slice(0, -3)
-                          .join(
-                            '-'
-                          )}-${memory}-gb-${deviceData.color.toLowerCase()}`}
+                        href={
+                          deviceData.memoryOptions.length === 1
+                            ? `/device/${deviceData.link}`
+                            : `/device/${deviceData.link
+                                .split('-')
+                                .slice(0, -3)
+                                .join(
+                                  '-'
+                                )}-${memory}-gb-${deviceData.color.toLowerCase()}`
+                        }
                         key={key}
                       >
                         <div
