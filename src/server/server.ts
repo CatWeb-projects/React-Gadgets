@@ -56,6 +56,12 @@ server.get('/gadgets', (request, response) => {
   response.json(gadgets);
 });
 
+server.get('/gadgets/:link', (request, response) => {
+  const { link } = request.params;
+  const product = gadgets.filter((item) => item.link === link);
+  response.json(product[0]);
+});
+
 server.get('/slider', (request, response) => {
   response.json(sliderImages);
 });

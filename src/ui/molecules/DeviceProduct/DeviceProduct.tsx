@@ -151,6 +151,72 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('videoCardMemory')} : {deviceData.videoCardMemory} GB
                   </li>
                 )}
+                {deviceData.weight && (
+                  <li>
+                    {t('weight')} :{' '}
+                    {deviceData.weight.toString().split('').length >= 4
+                      ? deviceData.weight * 0.001
+                      : deviceData.weight}
+                    {deviceData.weight.toString().split('').length >= 4
+                      ? t('kilogram')
+                      : t('gram')}
+                  </li>
+                )}
+                {deviceData.touchScreen && (
+                  <li>
+                    {t('touchScreen')} :{' '}
+                    {deviceData.touchScreen === true ? t('true') : t('false')}
+                  </li>
+                )}
+                {deviceData.chargingTime && (
+                  <li>
+                    {t('chargingTime')} : {deviceData.chargingTime} {t('hours')}
+                  </li>
+                )}
+                {deviceData.workingTimeDays ||
+                  (deviceData.workingTimeHours && (
+                    <li>
+                      {t('workingTime')} :{' '}
+                      {deviceData.workingTimeDays
+                        ? deviceData.workingTimeDays
+                        : deviceData.workingTimeHours}{' '}
+                      {deviceData.workingTimeDays ? t('days') : t('hours')}
+                    </li>
+                  ))}
+                {deviceData.batteryCapacity && (
+                  <li>
+                    {t('batteryCapacity')} : {deviceData.batteryCapacity}{' '}
+                    {t('mah')}
+                  </li>
+                )}
+                {deviceData.bluetooth && (
+                  <li>Bluetooth : v{deviceData.bluetooth.toPrecision(2)}</li>
+                )}
+                {deviceData.power && (
+                  <li>
+                    {t('power')} : {deviceData.power}W
+                  </li>
+                )}
+                {deviceData.workingDistance && (
+                  <li>
+                    {t('workingDistance')} : {deviceData.workingDistance}m
+                  </li>
+                )}
+                {deviceData.audioFrequency && (
+                  <li>
+                    {t('audioFrequency')} : {deviceData.audioFrequency}
+                  </li>
+                )}
+                {deviceData.audioFormats && (
+                  <li>
+                    {t('audioFormats')} : {deviceData.audioFormats.join(', ')}
+                  </li>
+                )}
+                {deviceData.usbConnectors && (
+                  <li>
+                    {t('usbConnectors')} : {deviceData.usbConnectors}
+                  </li>
+                )}
               </ul>
             </div>
             <div className="device-product__info-buy">

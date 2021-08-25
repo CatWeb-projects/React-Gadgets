@@ -27,4 +27,15 @@ export interface DevicesProps {
   displayType?: string;
   videoCard?: string;
   videoCardMemory?: string;
+  touchScreen?: boolean;
+  chargingTime?: number;
+  workingTimeDays?: number;
+  workingTimeHours?: number;
+  batteryCapacity?: number;
+  bluetooth?: number;
+  power?: number;
+  workingDistance?: number;
+  audioFrequency?: string;
+  audioFormats?: string[];
+  usbConnectors?: number;
 }

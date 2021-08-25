@@ -364,6 +364,91 @@ export const messages = createMessages([
       en: 'Video Memory',
       ru: 'Видеопамять',
       ro: 'Memorie video'
+    },
+    weight: {
+      en: 'Weight',
+      ru: 'Вес',
+      ro: 'Greutate'
+    },
+    kilogram: {
+      en: 'kg',
+      ru: 'кг',
+      ro: 'kg'
+    },
+    gram: {
+      en: 'g',
+      ru: 'г',
+      ro: 'g'
+    },
+    true: {
+      en: 'Yes',
+      ru: 'Да',
+      ro: 'Da'
+    },
+    false: {
+      en: 'No',
+      ru: 'Нет',
+      ro: 'Nu'
+    },
+    touchScreen: {
+      en: 'Touchscreen',
+      ru: 'Сенсорный экран',
+      ro: 'Touchscreen'
+    },
+    chargingTime: {
+      en: 'Charging Time',
+      ru: 'Время зарядки',
+      ro: 'Timp de încărcare'
+    },
+    hours: {
+      en: 'hours',
+      ru: 'часа',
+      ro: 'ore'
+    },
+    days: {
+      en: 'days',
+      ru: 'дней',
+      ro: 'zile'
+    },
+    workingTime: {
+      en: 'Working Time',
+      ru: 'Время работы',
+      ro: 'Timpul de lucru'
+    },
+    batteryCapacity: {
+      en: 'Battery Capacity',
+      ru: 'Ёмкость аккумулятора',
+      ro: 'Capacitate acumulator'
+    },
+    mah: {
+      en: 'mAh',
+      ru: 'мАч',
+      ro: 'mAh'
+    },
+    power: {
+      en: 'Power',
+      ru: 'Мощность',
+      ro: 'Putere'
+    },
+    workingDistance: {
+      en: 'Working Distance',
+      ru: 'Рабочее расстояние',
+      ro: 'Distanta de lucru'
+    },
+    audioFrequency: {
+      en: 'Audio Frequency',
+      ru: 'Частота',
+      ro: 'Audio Frecvenţă'
+    },
+    audioFormats: {
+      en: 'Audio Formats',
+      ru: 'Форматы воспроизведения',
+      ro: 'Formate de redare'
+    },
+    usbConnectors: {
+      en: 'USB Conectors',
+      ru: 'USB разъёмы',
+      ro: 'Conectoare USB'
     }
   }
 ]);
