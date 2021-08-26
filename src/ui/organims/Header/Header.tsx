@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
-import { Button, Icon } from 'ui/atoms';
+import { Icon } from 'ui/atoms';
+import { Search } from 'ui/organims';
 
 import './Header.scss';
 
@@ -26,12 +27,7 @@ export const Header = () => {
           {t('categories')}
         </div>
 
-        <div className="header__search">
-          <input type="text" placeholder={t('search')} />
-          <Button>
-            <Icon type="zoom" />
-          </Button>
-        </div>
+        <Search />
 
         <div className="header__main-menu">
           <div className="header__favorites">

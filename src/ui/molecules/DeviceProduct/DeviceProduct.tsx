@@ -11,7 +11,6 @@ interface Props {
 
 export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
   const { t } = useIntl();
-
   return (
     <div className="device-product">
       {deviceData && (

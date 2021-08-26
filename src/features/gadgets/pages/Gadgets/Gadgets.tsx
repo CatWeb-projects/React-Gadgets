@@ -2,6 +2,7 @@ import React from 'react';
 import { useRequest } from 'estafette';
 import { Footer, Header, Products } from 'ui/organims';
 import { catalog, DevicesProps } from 'libs/http/api';
+import { Categories } from 'ui/molecules';
 
 export const Gadgets = () => {
   const { request, data: gadgetsData } = useRequest<DevicesProps[]>();
@@ -23,7 +24,9 @@ export const Gadgets = () => {
     <div className="main-container">
       <div className="gadgets">
         <Header />
+        <Categories />
         <Products products={gadgetsData} />
+        <Categories />
         <Footer />
       </div>
     </div>

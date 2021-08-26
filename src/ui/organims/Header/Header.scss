@@ -200,3 +200,11 @@
   height: rem(72px);
   border-radius: rem(16px);
 }
+.finded {
+  position: absolute;
+  top: rem(50px);
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  z-index: 100;
+}

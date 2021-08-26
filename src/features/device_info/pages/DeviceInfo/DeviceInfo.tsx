@@ -14,15 +14,14 @@ export const DeviceInfo = () => {
   const { request: requestLaptop, data: laptopData } = useRequest<DevicesProps>(
     { data: {} }
   );
-  const {
-    request: requestGadgets,
-    data: gadgetsData
-  } = useRequest<DevicesProps>({ data: {} });
+  const { request: requestGadget, data: gadgetData } = useRequest<DevicesProps>(
+    { data: {} }
+  );
 
   React.useEffect(() => {
     onFetchPhoneData();
     onFetchLaptopData();
-    onFetchGadgetsData();
+    onFetchGadgetData();
 
     return () => {
       catalog.phone.cancel();
@@ -34,9 +33,7 @@ export const DeviceInfo = () => {
 
   const onFetchPhoneData = () => requestPhones(catalog.phone.action(link));
   const onFetchLaptopData = () => requestLaptop(catalog.laptop.action(link));
-  const onFetchGadgetsData = () => requestGadgets(catalog.gadget.action(link));
-
-  // const deviceData: DevicesProps = phoneData ? phoneData : laptopData;
+  const onFetchGadgetData = () => requestGadget(catalog.gadget.action(link));
 
   let deviceData: any = {};
 
@@ -46,7 +43,7 @@ export const DeviceInfo = () => {
     } else if (laptopData) {
       return (deviceData = laptopData);
     }
-    return (deviceData = gadgetsData);
+    return (deviceData = gadgetData);
   };
   CheckDevicesAPI();
 
