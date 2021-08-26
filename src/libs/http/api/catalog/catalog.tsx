@@ -49,7 +49,17 @@ export const catalog = {
     action: (): Promise<{ data: DevicesProps[] }> =>
       axios.get(`${baseUrl}/gadgets`, {
         cancelToken: new CancelToken(
-          (c: Canceler) => (catalog.laptops.cancel = c)
+          (c: Canceler) => (catalog.gadgets.cancel = c)
+        )
+      }),
+    cancel: (() => null) as Canceler
+  },
+
+  gadget: {
+    action: (link: string): Promise<{ data: DevicesProps }> =>
+      axios.get(`${baseUrl}/gadgets/${link}`, {
+        cancelToken: new CancelToken(
+          (c: Canceler) => (catalog.gadget.cancel = c)
         )
       }),
     cancel: (() => null) as Canceler

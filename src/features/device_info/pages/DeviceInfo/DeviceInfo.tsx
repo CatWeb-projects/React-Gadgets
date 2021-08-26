@@ -6,27 +6,47 @@ import { Categories, DeviceProduct } from 'ui/molecules';
 import { catalog, DevicesProps } from 'libs/http/api';
 
 export const DeviceInfo = () => {
-  const { request, data: phoneData } = useRequest<DevicesProps>({ data: {} });
+  const { link } = useParams<{ link: string }>();
+
+  const { request: requestPhones, data: phoneData } = useRequest<DevicesProps>({
+    data: {}
+  });
   const { request: requestLaptop, data: laptopData } = useRequest<DevicesProps>(
     { data: {} }
   );
-  const { link } = useParams<{ link: string }>();
+  const { request: requestGadget, data: gadgetData } = useRequest<DevicesProps>(
+    { data: {} }
+  );
 
   React.useEffect(() => {
     onFetchPhoneData();
     onFetchLaptopData();
+    onFetchGadgetData();
 
     return () => {
       catalog.phone.cancel();
       catalog.laptop.cancel();
+      catalog.gadget.cancel();
     };
     // eslint-disable-next-line
   }, []);
 
-  const onFetchPhoneData = () => request(catalog.phone.action(link));
+  const onFetchPhoneData = () => requestPhones(catalog.phone.action(link));
   const onFetchLaptopData = () => requestLaptop(catalog.laptop.action(link));
+  const onFetchGadgetData = () => requestGadget(catalog.gadget.action(link));
 
-  const deviceData: DevicesProps = phoneData ? phoneData : laptopData;
+  let deviceData: any = {};
+
+  const CheckDevicesAPI = () => {
+    if (phoneData) {
+      return (deviceData = phoneData);
+    } else if (laptopData) {
+      return (deviceData = laptopData);
+    }
+    return (deviceData = gadgetData);
+  };
+  CheckDevicesAPI();
+
   React.useMemo(() => deviceData, [deviceData]);
 
   return (
