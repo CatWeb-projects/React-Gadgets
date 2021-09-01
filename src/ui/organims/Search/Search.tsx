@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRequest } from 'estafette';
-import { Link } from 'estafette-router';
+import { Link, useHistory } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { Button, Icon } from 'ui/atoms';
 import { catalog, DevicesProps } from 'libs/http/api';
@@ -34,6 +34,7 @@ export const Search = () => {
   >({ data: {} });
 
   const { t } = useIntl();
+  const { push } = useHistory();
 
   React.useEffect(() => {
     onFetchPhonesData();
@@ -72,43 +73,54 @@ export const Search = () => {
     // eslint-disable-next-line
   }, [searchValue]);
 
+  const onSearch = () => {
+    setSearchValue('');
+    push('SearchPage', { link: `?slug=${searchValue}` });
+  };
+
   React.useMemo(() => deviceData, [deviceData]);
 
   return (
     <div className="header__search">
-      <form>
-        <input
-          type="text"
-          style={searchValue ? { borderRadius: '8px 8px 0 0' } : {}}
-          placeholder={t('search')}
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
-        />
-        <Button>
-          <Icon type="zoom" />
-        </Button>
-      </form>
-      <div className="finded-wrapper">
-        {searchDevices &&
-          searchDevices.map((finded, key) => (
-            <Link
-              route="DeviceInfo"
-              params={{
-                link: finded.link
-              }}
-              className="finded"
-              key={key}
-            >
-              <img src={finded.imageUrl} alt={finded.name} />
-              <div className="finded-product">
-                <div>{finded.name}</div>
-                <div>
-                  {finded.price} {t('lei')}
-                </div>
-              </div>
-            </Link>
-          ))}
-      </div>
+      <input
+        type="text"
+        style={searchValue ? { borderRadius: '8px 8px 0 0' } : {}}
+        placeholder={t('search')}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
+      />
+
+      <Button onClick={() => onSearch()}>
+        <Icon type="zoom" />
+      </Button>
+
+      {searchValue && (
+        <div className="finded-wrapper">
+          <h3>{t('products')}</h3>
+
+          {searchDevices &&
+            searchDevices
+              .filter((_, key) => key < 10)
+              .map((finded, key) => (
+                <Link
+                  route="DeviceInfo"
+                  params={{
+                    link: finded.link
+                  }}
+                  className="finded"
+                  key={key}
+                >
+                  <img src={finded.imageUrl} alt={finded.name} />
+                  <div className="finded-product">
+                    <div>{finded.name}</div>
+                    <div>
+                      {finded.price} {t('lei')}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+        </div>
+      )}
     </div>
   );
 };

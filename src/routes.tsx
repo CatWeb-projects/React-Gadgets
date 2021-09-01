@@ -4,6 +4,7 @@ import { Gadgets } from 'features/gadgets/pages/Gadgets/Gadgets';
 import { Laptops } from 'features/laptops/pages/Laptops/Laptops';
 import { Phones } from 'features/phones/pages/Phones/Phones';
 import { Protection } from 'features/protection/pages/Protection/Protection';
+import { SearchPage } from 'features/search_page/pages/SearchPage/SearchPage';
 import { Tradein } from 'features/tradein/pages/Tradein/Tradein';
 
 export interface Route {
@@ -31,4 +32,6 @@ export const routes: Route[] =
     {name: 'Gadgets', path: '/gadgets', component: Gadgets},
 
     {name: 'DeviceInfo', path: '/device/:link', component: DeviceInfo},
+
+    {name: 'SearchPage', path: '/search/:link', component: SearchPage},
   ];

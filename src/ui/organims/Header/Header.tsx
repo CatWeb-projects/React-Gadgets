@@ -47,6 +47,7 @@ export const Header = () => {
               <Icon type="languages" />
               <h5>{locale}</h5>
             </div>
+
             <div className="header__languages-overlay lang-overlay">
               <h5 onClick={() => onChangeLanguage('en')}>en</h5>
               <h5 onClick={() => onChangeLanguage('ru')}>ru</h5>

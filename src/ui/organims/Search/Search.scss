@@ -11,10 +11,15 @@
   z-index: 100;
   padding: rem(8px 16px);
   border-radius: rem(0 0 8px 8px);
+  color: #fff;
+
+  h3 {
+    text-transform: capitalize;
+    margin-bottom: rem(8px);
+  }
 }
 
 .finded {
-  color: #fff;
   display: flex;
   align-items: center;
   margin-bottom: rem(8px);
