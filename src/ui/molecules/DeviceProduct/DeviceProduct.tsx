@@ -11,6 +11,7 @@ interface Props {
 
 export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
   const { t } = useIntl();
+
   return (
     <div className="device-product">
       {deviceData && (
@@ -154,7 +155,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                   <li>
                     {t('weight')} :{' '}
                     {deviceData.weight.toString().split('').length >= 4
-                      ? deviceData.weight * 0.001
+                      ? (deviceData.weight * 0.001).toFixed(1)
                       : deviceData.weight}
                     {deviceData.weight.toString().split('').length >= 4
                       ? t('kilogram')

@@ -66,7 +66,7 @@ export const laptops = [
     popularity: 97,
     manufacturer: 'Lenovo',
     imageUrl:
-      'https://darwin.md/images/product/2020/12/ideapad_5_lenovo_platinum_gray_1.webp',
+      'https://darwin.md/images/product/2021/05/darwin-laptop-lenovo-ideapad-5-15are05-gray-0.webp',
     type: 'laptops',
     segment: 'Home & Office',
     link: `laptop-lenovo-ideapad-5-15are05-gray`,

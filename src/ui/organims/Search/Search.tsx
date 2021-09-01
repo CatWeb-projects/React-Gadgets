@@ -1,13 +1,18 @@
 import React from 'react';
 import { useRequest } from 'estafette';
+import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { Button, Icon } from 'ui/atoms';
 import { catalog, DevicesProps } from 'libs/http/api';
+
+import './Search.scss';
 
 export interface Findings {
   id: number;
   name: string;
   link: string;
+  imageUrl: string;
+  price: number;
 }
 
 export const Search = () => {
@@ -74,6 +79,7 @@ export const Search = () => {
       <form>
         <input
           type="text"
+          style={searchValue ? { borderRadius: '8px 8px 0 0' } : {}}
           placeholder={t('search')}
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
@@ -82,10 +88,25 @@ export const Search = () => {
           <Icon type="zoom" />
         </Button>
       </form>
-      <div className="finded">
+      <div className="finded-wrapper">
         {searchDevices &&
           searchDevices.map((finded, key) => (
-            <div key={key}>{finded.name}</div>
+            <Link
+              route="DeviceInfo"
+              params={{
+                link: finded.link
+              }}
+              className="finded"
+              key={key}
+            >
+              <img src={finded.imageUrl} alt={finded.name} />
+              <div className="finded-product">
+                <div>{finded.name}</div>
+                <div>
+                  {finded.price} {t('lei')}
+                </div>
+              </div>
+            </Link>
           ))}
       </div>
     </div>
