@@ -8,7 +8,7 @@ import { catalog, DevicesProps } from 'libs/http/api';
 export const DeviceInfo = () => {
   const { link } = useParams<{ link: string }>();
 
-  const { request: requestPhones, data: phoneData } = useRequest<DevicesProps>({
+  const { request: requestPhone, data: phoneData } = useRequest<DevicesProps>({
     data: {}
   });
   const { request: requestLaptop, data: laptopData } = useRequest<DevicesProps>(
@@ -31,7 +31,7 @@ export const DeviceInfo = () => {
     // eslint-disable-next-line
   }, []);
 
-  const onFetchPhoneData = () => requestPhones(catalog.phone.action(link));
+  const onFetchPhoneData = () => requestPhone(catalog.phone.action(link));
   const onFetchLaptopData = () => requestLaptop(catalog.laptop.action(link));
   const onFetchGadgetData = () => requestGadget(catalog.gadget.action(link));
 

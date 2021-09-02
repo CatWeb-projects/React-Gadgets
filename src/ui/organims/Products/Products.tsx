@@ -5,7 +5,7 @@ import { ProductItem } from 'ui/molecules';
 import './Products.scss';
 
 interface PhonesProps {
-  products?: DevicesProps[];
+  products?: DevicesProps[] | null;
 }
 
 export const Products: React.FC<PhonesProps> = ({ products }) => {
