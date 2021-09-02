@@ -66,6 +66,12 @@ server.get('/devices', (request, response) => {
   response.json(devices);
 });
 
+server.get('/devices/:link', (request, response) => {
+  const { link } = request.params;
+  const product = devices.filter((device) => device.link === link);
+  response.json(product[0]);
+});
+
 server.get('/devices/:name', (request, response) => {
   const { name } = request.params;
   const product = devices.filter((device) =>

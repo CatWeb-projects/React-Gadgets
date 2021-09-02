@@ -50,18 +50,28 @@ interface DevicesProps {
 
 interface Props {
   devicesData: DevicesProps[];
+  searchDevices: DevicesProps[];
+  searchValue: string;
   setDevicesData: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
+  setSearchDevices: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const defaultValue = {
   devicesData: [],
-  setDevicesData: () => {}
+  searchDevices: [],
+  searchValue: '',
+  setDevicesData: () => {},
+  setSearchDevices: () => {},
+  setSearchValue: () => {}
 };
 
 export const DeviceContext = React.createContext<Props>(defaultValue);
 
 export const ProviderContext = (props: ProviderProps) => {
   const [devicesData, setDevicesData] = React.useState<DevicesProps[]>([]);
+  const [searchDevices, setSearchDevices] = React.useState<DevicesProps[]>([]);
+  const [searchValue, setSearchValue] = React.useState<string>('');
 
   const { request, data } = useRequest<DevicesProps[]>({
     data: {}
@@ -86,7 +96,11 @@ export const ProviderContext = (props: ProviderProps) => {
 
   const values = {
     devicesData,
-    setDevicesData
+    setDevicesData,
+    searchDevices,
+    setSearchDevices,
+    searchValue,
+    setSearchValue
   };
 
   const { children } = props;

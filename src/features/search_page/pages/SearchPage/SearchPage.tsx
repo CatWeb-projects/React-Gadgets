@@ -1,5 +1,5 @@
 import React from 'react';
-import { Footer, Header } from 'ui/organims';
+import { Footer, Header, Products } from 'ui/organims';
 import { Categories } from 'ui/molecules';
 
 export const SearchPage = () => {
@@ -8,6 +8,7 @@ export const SearchPage = () => {
       <div className="gadgets">
         <Header />
         <Categories />
+        <Products />
         <Footer />
       </div>
     </div>
