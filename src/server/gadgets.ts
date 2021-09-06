@@ -1,6 +1,6 @@
 export const gadgets = [
   {
-    id: 1,
+    id: 1001,
     name: 'Xiaomi Mi Smart Band 5, Black',
     price: 700,
     credit: 70,
@@ -26,7 +26,7 @@ export const gadgets = [
     bluetooth: 5.0
   },
   {
-    id: 2,
+    id: 1002,
     name: 'JBL PARTYBOX 310, Black',
     price: 10000,
     credit: 1000,
@@ -52,7 +52,7 @@ export const gadgets = [
     usbConnectors: 1
   },
   {
-    id: 3,
+    id: 1003,
     name: 'Sony PlayStation 5, White',
     price: 14000,
     credit: 1400,

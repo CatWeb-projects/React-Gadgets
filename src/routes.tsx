@@ -1,4 +1,5 @@
 import { MainLayout } from 'features/all/pages/MainLayout/MainLayout';
+import { Apple } from 'features/apple/pages/Apple/Apple';
 import { DeviceInfo } from 'features/device_info/pages/DeviceInfo/DeviceInfo';
 import { Gadgets } from 'features/gadgets/pages/Gadgets/Gadgets';
 import { Laptops } from 'features/laptops/pages/Laptops/Laptops';
@@ -30,6 +31,8 @@ export const routes: Route[] =
     {name: 'Laptops', path: '/laptops', component: Laptops},
     
     {name: 'Gadgets', path: '/gadgets', component: Gadgets},
+
+    {name: 'Apple', path: '/apple', component: Apple},
 
     {name: 'DeviceInfo', path: '/device/:link', component: DeviceInfo},
 

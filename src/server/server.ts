@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { graphqlHTTP } from 'express-graphql';
-import { phones, tablets, laptops, gadgets } from './catalog';
+import { phones, tablets, laptops, gadgets, devices } from './catalog';
 import { sliderImages } from './sliderImages';
 import { tags } from './tags';
 import { categoriesTypes } from './categoriesTypes';
@@ -60,6 +60,24 @@ server.get('/gadgets/:link', (request, response) => {
   const { link } = request.params;
   const product = gadgets.filter((item) => item.link === link);
   response.json(product[0]);
+});
+
+server.get('/devices', (request, response) => {
+  response.json(devices);
+});
+
+server.get('/devices/item/:link', (request, response) => {
+  const { link } = request.params;
+  const product = devices.filter((device) => device.link === link);
+  response.json(product[0]);
+});
+
+server.get('/devices/:name', (request, response) => {
+  const { name } = request.params;
+  const product = devices.filter((device) =>
+    device.name.toLowerCase().match(name)
+  );
+  response.json(product);
 });
 
 server.get('/slider', (request, response) => {
