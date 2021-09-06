@@ -15,18 +15,10 @@ export interface Findings {
 }
 
 export const Search = () => {
-  const {
-    devicesData,
-    searchValue,
-    setSearchValue,
-    searchDevices,
-    setSearchDevices
-  } = React.useContext(DeviceContext);
+  const { devicesData } = React.useContext(DeviceContext);
 
-  // const [searchValue, setSearchValue] = React.useState<string>('');
-  // const [searchDevices, setSearchDevices] = React.useState<Findings[] | null>(
-  //   null
-  // );
+  const [searchValue, setSearchValue] = React.useState<string>('');
+  const [searchDevices, setSearchDevices] = React.useState<Findings[]>();
 
   const { t } = useIntl();
   const { push } = useHistory();
@@ -41,18 +33,15 @@ export const Search = () => {
     } else if (searchValue === '' || searchValue.length === 0) {
       setSearchDevices([]);
     }
-    return () => {};
 
+    return () => {};
     // eslint-disable-next-line
   }, [searchValue]);
 
   const onSearch = () => {
     setSearchValue('');
     push('SearchPage', { link: `query=${searchValue}` });
-  };
-
-  const clearData = () => {
-    setSearchValue('');
+    window.location.reload();
   };
 
   React.useMemo(() => searchDevices, [searchDevices]);
@@ -61,7 +50,11 @@ export const Search = () => {
     <div className="header__search">
       <input
         type="text"
-        style={searchValue ? { borderRadius: '8px 8px 0 0' } : {}}
+        style={
+          searchValue && searchDevices && searchDevices.length !== 0
+            ? { borderRadius: '8px 8px 0 0' }
+            : {}
+        }
         placeholder={t('search')}
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
@@ -71,7 +64,7 @@ export const Search = () => {
         <Icon type="zoom" />
       </Button>
 
-      {searchValue && (
+      {searchValue && searchDevices && searchDevices.length !== 0 && (
         <div className="finded-wrapper">
           <h3>{t('products')}</h3>
 
@@ -84,7 +77,6 @@ export const Search = () => {
                   params={{
                     link: finded.link
                   }}
-                  onClick={() => clearData()}
                   className="finded"
                   key={key}
                 >

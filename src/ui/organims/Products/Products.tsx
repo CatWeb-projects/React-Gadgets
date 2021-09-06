@@ -9,7 +9,6 @@ interface PhonesProps {
 }
 
 export const Products: React.FC<PhonesProps> = ({ products }) => {
-  console.log(products, 'products');
   return (
     <div className="item-product">
       <div className="item-product__items">

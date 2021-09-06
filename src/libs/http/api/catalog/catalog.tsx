@@ -77,7 +77,7 @@ export const catalog = {
 
   device: {
     action: (link: string): Promise<{ data: DevicesProps }> =>
-      axios.get(`${baseUrl}/devices/${link}`, {
+      axios.get(`${baseUrl}/devices/item/${link}`, {
         cancelToken: new CancelToken(
           (c: Canceler) => (catalog.device.cancel = c)
         )

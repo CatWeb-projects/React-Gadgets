@@ -66,7 +66,7 @@ server.get('/devices', (request, response) => {
   response.json(devices);
 });
 
-server.get('/devices/:link', (request, response) => {
+server.get('/devices/item/:link', (request, response) => {
   const { link } = request.params;
   const product = devices.filter((device) => device.link === link);
   response.json(product[0]);
