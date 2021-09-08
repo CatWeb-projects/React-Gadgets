@@ -39,7 +39,7 @@ export const laptops = [
     popularity: 99,
     manufacturer: 'Apple',
     imageUrl:
-      'https://darwin.md/images/product/2020/12/apple_macbook_pro_2020_m1_space_gray_2-201126101357-darwin.webp',
+      'https://darwin.md/images/product/2021/09/darwin-laptop-apple-macbook-pro-13-2020-space-gray-15.webp',
     type: 'laptops',
     segment: 'Home & Office',
     link: `macbook-pro-13-2020-myd82zpa`,
@@ -93,7 +93,7 @@ export const laptops = [
     popularity: 90,
     manufacturer: 'Asus',
     imageUrl:
-      'https://darwin.md/images/product/2021/01/ux425ja_xenbook_asus_gray_1.webp',
+      'https://darwin.md/images/product/2021/09/darwin-laptop-asus-zenbook-ux425ja-pine-gray-082.webp',
     type: 'laptops',
     segment: 'Home & Office',
     link: `ux425ja-zenbook-asus-i7-1065g7`,
@@ -230,7 +230,8 @@ export const laptops = [
     weight: 1800,
     popularity: 18,
     manufacturer: 'Asus',
-    imageUrl: 'https://darwin.md/images/product/2021/04/asus_d515da_gray1.webp',
+    imageUrl:
+      'https://darwin.md/images/product/2021/09/darwin-laptop-asus-d515da-gray-024.webp',
     type: 'laptops',
     segment: 'Home & Office',
     link: `asus-d515da-gray`,

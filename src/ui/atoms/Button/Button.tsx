@@ -7,9 +7,10 @@ interface Props {
   value?: string | number;
   onClick?: () => void;
   className?: string;
-  type?: 'primary' | 'invert' | 'transparent' | 'icon';
+  type?: 'primary' | 'invert' | 'transparent' | 'icon' | 'black';
   disabled?: boolean;
   generalType?: 'button' | 'submit';
+  size?: 'small' | 'medium' | 'large';
 }
 
 export const Button: React.FC<Props> = ({
@@ -19,6 +20,7 @@ export const Button: React.FC<Props> = ({
   type = 'primary',
   generalType = 'button',
   disabled,
+  size = 'medium',
   ...props
 }) => {
   const onClickHandler = (): void => {
@@ -29,7 +31,7 @@ export const Button: React.FC<Props> = ({
 
   return (
     <button
-      className={`button button-type-${type} ${
+      className={`button button-type-${type} button-type-${size} ${
         disabled ? 'disabled' : ''
       } ${className}`}
       onClick={onClickHandler}
