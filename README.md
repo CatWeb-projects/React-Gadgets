@@ -3,3 +3,4 @@
 2. - yarn start/npm run start
 
 //If server not running, change module from "esnext" to "commonjs" in tsconfig.json
+//if SlickSlider not working => change lazyload ts to 'string'

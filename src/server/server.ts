@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { graphqlHTTP } from 'express-graphql';
+import cookieParser from 'cookie-parser';
+import mongoose from 'mongoose';
 import { phones, tablets, laptops, gadgets, devices } from './catalog';
 import { sliderImages } from './sliderImages';
 import { tags } from './tags';
@@ -8,19 +9,29 @@ import { categoriesTypes } from './categoriesTypes';
 import { promotions } from './promotions';
 import { phonesCard, laptopsCard, gadgetsCard } from './recommended';
 import { collection } from './collection';
-const schema = require('./schema');
+import { UserController } from './controllers/user-controller';
+
+const start = async () => {
+  try {
+    process.env.DB_URL &&
+      (await mongoose.connect(process.env.DB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }));
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+start();
 
 const server = express();
+const router = express.Router();
 const port = 3005;
 
+server.use(cookieParser());
 server.use(cors());
-server.use(
-  '/graphql',
-  graphqlHTTP({
-    schema: schema,
-    graphiql: true
-  })
-);
+server.use('/api', router);
 
 server.get('/phones', (request, response) => {
   response.json(phones);
