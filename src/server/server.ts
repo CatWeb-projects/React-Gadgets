@@ -26,11 +26,15 @@ const start = async () => {
 start();
 
 const server = express();
+server.use(cookieParser());
+server.use(cors());
 const router = express.Router();
 const port = 3005;
 
-server.use(cookieParser());
-server.use(cors());
+server.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
 server.use('/api', router);
 
 server.get('/phones', (request, response) => {
@@ -123,6 +127,8 @@ server.get('/collection', (request, response) => {
   response.json(collection);
 });
 
-server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+router.post('/registration', UserController.registration);
+router.post('/login', UserController.login);
+router.post('/logout', UserController.logout);
+router.get('/activate/:link', UserController.logout);
+router.get('/refresh', UserController.refresh);
