@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 
-export const TokenSchema = new Schema({
-  user: { type: Schema.Types.ObjectId, ref: 'User' },
+export const TokenModel = new Schema({
+  user: { type: Schema.Types.ObjectId, ref: 'UserInfo' },
   refreshToken: { type: String, required: true }
 });

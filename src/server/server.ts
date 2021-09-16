@@ -11,30 +11,28 @@ import { phonesCard, laptopsCard, gadgetsCard } from './recommended';
 import { collection } from './collection';
 import { UserController } from './controllers/user-controller';
 
+const uri =
+  'mongodb+srv://user:user@users.jrmay.mongodb.net/React-Gadgets?retryWrites=true&w=majority';
+const server = express();
+server.use(express.json());
+server.use(cookieParser());
+server.use(cors());
+export const router = express.Router();
+const port = 3005;
+
 const start = async () => {
   try {
-    process.env.DB_URL &&
-      (await mongoose.connect(process.env.DB_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      }));
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
   } catch (e) {
     console.log(e);
   }
 };
-
 start();
 
-const server = express();
-server.use(cookieParser());
-server.use(cors());
-const router = express.Router();
-const port = 3005;
-
-server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
+server.listen(port, () => console.log(`Server is running on port ${port}`));
 server.use('/api', router);
 
 server.get('/phones', (request, response) => {
