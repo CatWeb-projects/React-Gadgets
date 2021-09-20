@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { graphqlHTTP } from 'express-graphql';
+import cookieParser from 'cookie-parser';
+import mongoose from 'mongoose';
 import { phones, tablets, laptops, gadgets, devices } from './catalog';
 import { sliderImages } from './sliderImages';
 import { tags } from './tags';
@@ -8,19 +9,31 @@ import { categoriesTypes } from './categoriesTypes';
 import { promotions } from './promotions';
 import { phonesCard, laptopsCard, gadgetsCard } from './recommended';
 import { collection } from './collection';
-const schema = require('./schema');
+import { UserController } from './controllers/user-controller';
 
+const uri =
+  'mongodb+srv://user:user@users.jrmay.mongodb.net/React-Gadgets?retryWrites=true&w=majority';
 const server = express();
+server.use(express.json());
+server.use(cookieParser());
+server.use(cors());
+export const router = express.Router();
 const port = 3005;
 
-server.use(cors());
-server.use(
-  '/graphql',
-  graphqlHTTP({
-    schema: schema,
-    graphiql: true
-  })
-);
+const start = async () => {
+  try {
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+start();
+
+server.listen(port, () => console.log(`Server is running on port ${port}`));
+server.use('/api', router);
 
 server.get('/phones', (request, response) => {
   response.json(phones);
@@ -112,6 +125,8 @@ server.get('/collection', (request, response) => {
   response.json(collection);
 });
 
-server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+router.post('/registration', UserController.registration);
+router.post('/login', UserController.login);
+router.post('/logout', UserController.logout);
+router.get('/activate/:link', UserController.logout);
+router.get('/refresh', UserController.refresh);

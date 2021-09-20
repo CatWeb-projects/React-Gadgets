@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
-import { Icon } from 'ui/atoms';
 import { Search } from 'ui/organims';
+import { Button, Icon } from 'ui/atoms';
 
 import './Header.scss';
 
@@ -11,6 +11,12 @@ export const Header = () => {
 
   const onChangeLanguage = (value: string) => {
     setLocale(value);
+  };
+
+  const [profile, setProfile] = React.useState<boolean>(false);
+
+  const onProfileClick = () => {
+    setProfile((i) => !i);
   };
 
   return (
@@ -56,13 +62,37 @@ export const Header = () => {
           </div>
 
           <div className="header__user">
-            <Link to="/">
+            <Button onClick={() => onProfileClick()}>
               <Icon type="user" />
               <span>{t('account')}</span>
-            </Link>
+            </Button>
           </div>
         </div>
       </div>
+
+      {profile && (
+        <div className="profile">
+          <div className="profile__wrapper">
+            <form>
+              <label htmlFor="email">E-mail: </label>
+              <input type="text" />
+              <label htmlFor="email">Password: </label>
+              <input type="text" />
+              <div className="registration">
+                <Button type="black" className="login">
+                  Login
+                </Button>
+                <Button type="black" className="register">
+                  Registration
+                </Button>
+              </div>
+            </form>
+            <Button className="close" onClick={() => onProfileClick()}>
+              X
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
