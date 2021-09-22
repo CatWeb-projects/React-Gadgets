@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
+import { body } from 'express-validator';
 import { phones, tablets, laptops, gadgets, devices } from './catalog';
 import { sliderImages } from './sliderImages';
 import { tags } from './tags';
@@ -125,7 +126,12 @@ server.get('/collection', (request, response) => {
   response.json(collection);
 });
 
-router.post('/registration', UserController.registration);
+router.post(
+  '/registration',
+  body('email').isEmail(),
+  body('password').isLength({ min: 5, max: 32 }),
+  UserController.registration
+);
 router.post('/login', UserController.login);
 router.post('/logout', UserController.logout);
 router.get('/activate/:link', UserController.logout);
