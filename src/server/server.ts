@@ -17,7 +17,12 @@ const uri =
 const server = express();
 server.use(express.json());
 server.use(cookieParser());
-server.use(cors());
+server.use(
+  cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+  })
+);
 export const router = express.Router();
 const port = 3005;
 

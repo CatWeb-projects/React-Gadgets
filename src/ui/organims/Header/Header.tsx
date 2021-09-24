@@ -1,23 +1,80 @@
 import React from 'react';
+import { useRequest } from 'estafette';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
+import { auth } from 'libs/http/api';
 import { Search } from 'ui/organims';
 import { Button, Icon } from 'ui/atoms';
 
 import './Header.scss';
 
 export const Header = () => {
+  const { request, data } = useRequest<any>();
   const { t, locale, setLocale } = useIntl();
+
+  const [profile, setProfile] = React.useState<boolean>(false);
+  const [email, setEmail] = React.useState<string>('');
+  const [password, setPassword] = React.useState<string>('');
+  const [user, setUser] = React.useState<any>();
+  const [authVerify, setAuthVerify] = React.useState<boolean>(false);
 
   const onChangeLanguage = (value: string) => {
     setLocale(value);
   };
 
-  const [profile, setProfile] = React.useState<boolean>(false);
-
   const onProfileClick = () => {
     setProfile((i) => !i);
   };
+
+  const onRegistration = (email: string, password: string) => {
+    if (email.length > 4 && password.length > 5) {
+      try {
+        request(
+          auth.registration.action({
+            email,
+            password
+          })
+        );
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  };
+
+  const onLogin = (email: string, password: string) => {
+    try {
+      request(
+        auth.login.action({
+          email,
+          password
+        })
+      );
+      setEmail('');
+      setPassword('');
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const onLogout = (refreshToken: string) => {
+    try {
+      request(auth.logout.action(refreshToken));
+      localStorage.removeItem('refresh-token');
+      setUser({});
+      setAuthVerify(false);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  React.useEffect(() => {
+    if (data) {
+      localStorage.setItem('refresh-token', JSON.stringify(data.accessToken));
+      setAuthVerify(true);
+      setUser(data);
+      setProfile(false);
+    }
+  }, [data]);
 
   return (
     <div className="header">
@@ -61,12 +118,21 @@ export const Header = () => {
             </div>
           </div>
 
-          <div className="header__user">
-            <Button onClick={() => onProfileClick()}>
-              <Icon type="user" />
-              <span>{t('account')}</span>
-            </Button>
-          </div>
+          {user && user.refreshToken && authVerify ? (
+            <div className="header__user">
+              <Button onClick={() => onLogout(user.user.refreshToken)}>
+                <Icon type="user" />
+                {user && <span>{user.user.email}</span>}
+              </Button>
+            </div>
+          ) : (
+            <div className="header__user">
+              <Button onClick={() => onProfileClick()}>
+                <Icon type="user" />
+                <span>{t('account')}</span>
+              </Button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -75,14 +141,30 @@ export const Header = () => {
           <div className="profile__wrapper">
             <form>
               <label htmlFor="email">E-mail: </label>
-              <input type="text" />
-              <label htmlFor="email">Password: </label>
-              <input type="text" />
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label htmlFor="password">Password: </label>
+              <input
+                type="text"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <div className="registration">
-                <Button type="black" className="login">
+                <Button
+                  onClick={() => onLogin(email, password)}
+                  type="black"
+                  className="login"
+                >
                   Login
                 </Button>
-                <Button type="black" className="register">
+                <Button
+                  onClick={() => onRegistration(email, password)}
+                  type="black"
+                  className="register"
+                >
                   Registration
                 </Button>
               </div>
