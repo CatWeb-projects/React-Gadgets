@@ -15,12 +15,13 @@ import { UserController } from './controllers/user-controller';
 const uri =
   'mongodb+srv://user:user@users.jrmay.mongodb.net/React-Gadgets?retryWrites=true&w=majority';
 const server = express();
-server.use(express.json());
 server.use(cookieParser());
+server.use(express.json());
+server.use(express.urlencoded({ extended: false }));
 server.use(
   cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: true
   })
 );
 export const router = express.Router();

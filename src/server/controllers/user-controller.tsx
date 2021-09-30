@@ -9,14 +9,12 @@ export const UserController = {
         return Error('Registration is not valid');
       }
       const { email, password } = request.body;
-      if (password === undefined) {
-        return request.cancel();
-      }
       const userData = await UserService.registration(email, password);
-      response.cookie('refreshToken', userData.refreshToken, {
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        httpOnly: true
-      });
+      userData &&
+        response.cookie('refreshToken', userData.refreshToken, {
+          maxAge: 30 * 24 * 60 * 60 * 1000,
+          httpOnly: true
+        });
       return response.json(userData);
     } catch (e) {
       console.log(e);
@@ -26,10 +24,20 @@ export const UserController = {
     try {
       const { email, password } = request.body;
       const userData = await UserService.login(email, password);
-      response.cookie('refreshToken', userData.refreshToken, {
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        httpOnly: true
-      });
+      // console.log(
+      //   response.cookie('refreshToken', userData.refreshToken, {
+      //     maxAge: 30 * 24 * 60 * 60 * 1000,
+      //     httpOnly: true
+      //   }),
+      //   'set cookie'
+      // );
+
+      console.log(request.cookies, 'get cookie');
+      userData &&
+        response.cookie('refreshToken', userData.refreshToken, {
+          maxAge: 30 * 24 * 60 * 60 * 1000,
+          httpOnly: true
+        });
       return response.json(userData);
     } catch (e) {
       console.log(e);
@@ -37,9 +45,9 @@ export const UserController = {
   },
   logout: async (request: any, response: any, next: any) => {
     try {
-      const { refreshToken } = request.cookies;
+      const { refreshToken } = request;
       const token = await UserService.logout(refreshToken);
-      response.clearCookie('refreshToken');
+      token && response.clearCookie('refreshToken');
       return response.json(token);
     } catch (e) {
       console.log(e);
@@ -54,11 +62,8 @@ export const UserController = {
   refresh: async (request: any, response: any, next: any) => {
     try {
       const { refreshToken } = request.cookies;
-      const userData = await UserService.refresh(refreshToken);
-      response.cookie('refreshToken', userData.refreshToken, {
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        httpOnly: true
-      });
+      const userData =
+        refreshToken && (await UserService.refresh(refreshToken));
       return response.json(userData);
     } catch (e) {
       console.log(e);

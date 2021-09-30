@@ -33,6 +33,7 @@ export const auth = {
   checkAuth: {
     action: (): Promise<{ data: any }> =>
       axios.get(`${baseUrl}/api/refresh`, {
+        withCredentials: true,
         cancelToken: new CancelToken(
           (c: Canceler) => (auth.checkAuth.cancel = c)
         )

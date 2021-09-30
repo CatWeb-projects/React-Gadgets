@@ -1,13 +1,13 @@
 import { model } from 'mongoose';
-import jwt from 'jsonwebtoken';
+import { sign, verify } from 'jsonwebtoken';
 import { TokenModel } from '../models/token-model';
 
 export const TokenService = {
   generateTokens: (payload) => {
-    const accessToken = jwt.sign(payload, 'jwt-secret-key', {
+    const accessToken = sign(payload, 'jwt-secret-key', {
       expiresIn: '30m'
     });
-    const refreshToken = jwt.sign(payload, 'jwt-refresh-key', {
+    const refreshToken = sign(payload, 'jwt-refresh-key', {
       expiresIn: '30d'
     });
     return {
@@ -18,7 +18,7 @@ export const TokenService = {
 
   validateAccessToken: (token) => {
     try {
-      const UserData = jwt.verify(token, 'jwt-secret-key');
+      const UserData = verify(token, 'jwt-secret-key');
       return UserData;
     } catch (e) {
       return null;
@@ -27,7 +27,7 @@ export const TokenService = {
 
   validateRefreshToken: (token) => {
     try {
-      const UserData = jwt.verify(token, 'jwt-refresh-key');
+      const UserData = verify(token, 'jwt-refresh-key');
       return UserData;
     } catch (e) {
       return null;
@@ -36,7 +36,7 @@ export const TokenService = {
 
   saveToken: async (userId, refreshToken) => {
     const TokenInfo = model('Token', TokenModel);
-    const tokenData = await TokenInfo.findOne({ user: userId });
+    const tokenData = userId && (await TokenInfo.findOne({ user: userId }));
     if (tokenData) {
       tokenData.refreshToken = refreshToken;
       return tokenData.save();
@@ -47,7 +47,7 @@ export const TokenService = {
 
   removeToken: async (refreshToken) => {
     const TokenInfo = model('Token', TokenModel);
-    const tokenData = await TokenInfo.deleteOne({ refreshToken });
+    const tokenData = await TokenInfo.deleteOne(refreshToken);
     return tokenData;
   },
 

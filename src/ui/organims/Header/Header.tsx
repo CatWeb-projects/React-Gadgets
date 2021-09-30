@@ -26,18 +26,35 @@ export const Header = () => {
     setProfile((i) => !i);
   };
 
+  React.useEffect(() => {
+    if (data) {
+      localStorage.setItem('refresh-token', data.refreshToken);
+      setUser(data);
+      setProfile(false);
+    }
+
+    const token = localStorage.getItem('refresh-token');
+    if (token) {
+      request(auth.checkAuth.action());
+      console.log(request(auth.checkAuth.action()), 'refresh console');
+      // console.log(token, 'refresh console');
+    }
+    return () => {
+      auth.checkAuth.cancel();
+    };
+    // eslint-disable-next-line
+  }, [data, auth]);
+
   const onRegistration = (email: string, password: string) => {
-    if (email.length > 4 && password.length > 5) {
-      try {
-        request(
-          auth.registration.action({
-            email,
-            password
-          })
-        );
-      } catch (e) {
-        console.log(e);
-      }
+    try {
+      request(
+        auth.registration.action({
+          email,
+          password
+        })
+      );
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -49,6 +66,7 @@ export const Header = () => {
           password
         })
       );
+      setAuthVerify(true);
       setEmail('');
       setPassword('');
     } catch (e) {
@@ -67,14 +85,7 @@ export const Header = () => {
     }
   };
 
-  React.useEffect(() => {
-    if (data) {
-      localStorage.setItem('refresh-token', JSON.stringify(data.accessToken));
-      setAuthVerify(true);
-      setUser(data);
-      setProfile(false);
-    }
-  }, [data]);
+  console.log(user, 'user');
 
   return (
     <div className="header">
