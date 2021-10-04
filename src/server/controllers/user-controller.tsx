@@ -29,7 +29,6 @@ export const UserController = {
           maxAge: 30 * 24 * 60 * 60 * 1000,
           httpOnly: true
         });
-      console.log(request.cookies, 'get cookie');
       return response.json(userData);
     } catch (e) {
       console.log(e);
@@ -53,7 +52,7 @@ export const UserController = {
   },
   refresh: async (request: any, response: any, next: any) => {
     try {
-      const { refreshToken } = request.cookies;
+      const { refreshToken } = request.body;
       const userData =
         refreshToken && (await UserService.refresh(refreshToken));
       return response.json(userData);

@@ -141,4 +141,4 @@ router.post(
 router.post('/login', UserController.login);
 router.post('/logout', UserController.logout);
 router.get('/activate/:link', UserController.logout);
-router.get('/refresh', UserController.refresh);
+router.post('/refresh', UserController.refresh);

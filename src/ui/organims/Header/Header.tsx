@@ -17,6 +17,7 @@ export const Header = () => {
   const [password, setPassword] = React.useState<string>('');
   const [user, setUser] = React.useState<any>();
   const [authVerify, setAuthVerify] = React.useState<boolean>(false);
+  const [saveToken, setSaveToken] = React.useState<string | null>(null);
 
   const onChangeLanguage = (value: string) => {
     setLocale(value);
@@ -27,7 +28,17 @@ export const Header = () => {
   };
 
   React.useEffect(() => {
-    if (data) {
+    const token = localStorage.getItem('refresh-token');
+    setSaveToken(token);
+    if (saveToken) {
+      setUser(request(auth.checkAuth.action({ refreshToken: saveToken })));
+      setAuthVerify(true);
+    }
+    // eslint-disable-next-line
+  }, [saveToken]);
+
+  React.useEffect(() => {
+    if (data && data.refreshToken) {
       localStorage.setItem('refresh-token', data.refreshToken);
       setUser(data);
       setProfile(false);
@@ -38,15 +49,6 @@ export const Header = () => {
     };
     // eslint-disable-next-line
   }, [data]);
-
-  React.useEffect(() => {
-    const token = localStorage.getItem('refresh-token');
-    if (token) {
-      setUser(request(auth.checkAuth.action()));
-      setAuthVerify(true);
-    }
-    // eslint-disable-next-line
-  }, []);
 
   const onRegistration = (email: string, password: string) => {
     try {
@@ -87,8 +89,6 @@ export const Header = () => {
       console.log(e);
     }
   };
-
-  console.log(user, 'user');
 
   return (
     <div className="header">
