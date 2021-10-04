@@ -24,20 +24,12 @@ export const UserController = {
     try {
       const { email, password } = request.body;
       const userData = await UserService.login(email, password);
-      // console.log(
-      //   response.cookie('refreshToken', userData.refreshToken, {
-      //     maxAge: 30 * 24 * 60 * 60 * 1000,
-      //     httpOnly: true
-      //   }),
-      //   'set cookie'
-      // );
-
-      console.log(request.cookies, 'get cookie');
       userData &&
         response.cookie('refreshToken', userData.refreshToken, {
           maxAge: 30 * 24 * 60 * 60 * 1000,
           httpOnly: true
         });
+      console.log(request.cookies, 'get cookie');
       return response.json(userData);
     } catch (e) {
       console.log(e);

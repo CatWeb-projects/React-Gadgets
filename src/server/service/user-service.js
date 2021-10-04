@@ -71,7 +71,9 @@ export const UserService = {
 
     const UserInfo = model('UserInfo', UserModel);
     const user = await UserInfo.findById(userData._doc);
-    user && (await TokenService.saveToken(user._id, tokenFromDB.refreshToken));
+    user &&
+      tokenFromDB &&
+      (await TokenService.saveToken(user._id, tokenFromDB.refreshToken));
 
     return {
       refreshToken: tokenFromDB.refreshToken,

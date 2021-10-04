@@ -33,17 +33,20 @@ export const Header = () => {
       setProfile(false);
     }
 
-    const token = localStorage.getItem('refresh-token');
-    if (token) {
-      request(auth.checkAuth.action());
-      console.log(request(auth.checkAuth.action()), 'refresh console');
-      // console.log(token, 'refresh console');
-    }
     return () => {
       auth.checkAuth.cancel();
     };
     // eslint-disable-next-line
-  }, [data, auth]);
+  }, [data]);
+
+  React.useEffect(() => {
+    const token = localStorage.getItem('refresh-token');
+    if (token) {
+      setUser(request(auth.checkAuth.action()));
+      setAuthVerify(true);
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const onRegistration = (email: string, password: string) => {
     try {
@@ -133,7 +136,7 @@ export const Header = () => {
             <div className="header__user">
               <Button onClick={() => onLogout(user.user.refreshToken)}>
                 <Icon type="user" />
-                {user && <span>{user.user.email}</span>}
+                {user && <span>{user?.user?.email}</span>}
               </Button>
             </div>
           ) : (
