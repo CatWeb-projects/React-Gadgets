@@ -41,6 +41,7 @@ export const Header = () => {
     if (data && data.refreshToken) {
       localStorage.setItem('refresh-token', data.refreshToken);
       setUser(data);
+      setAuthVerify(true);
       setProfile(false);
     }
 
@@ -136,7 +137,9 @@ export const Header = () => {
             <div className="header__user">
               <Button onClick={() => onLogout(user.user.refreshToken)}>
                 <Icon type="user" />
-                {user && <span>{user?.user?.email}</span>}
+                {user && (
+                  <span>{user?.user?.email.split('@')[0].toUpperCase()}</span>
+                )}
               </Button>
             </div>
           ) : (
