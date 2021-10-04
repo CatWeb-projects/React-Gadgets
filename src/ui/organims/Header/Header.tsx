@@ -133,7 +133,7 @@ export const Header = () => {
             </div>
           </div>
 
-          {user && user.refreshToken && authVerify ? (
+          {authVerify ? (
             <div className="header__user">
               <Button onClick={() => onLogout(user.user.refreshToken)}>
                 <Icon type="user" />
