@@ -4,7 +4,6 @@ import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import { MailService } from './mail-service';
 import { TokenService } from './token-service';
-import { MongoAPIError } from 'mongodb';
 
 export const UserService = {
   registration: async (email, password) => {
@@ -35,7 +34,7 @@ export const UserService = {
 
   login: async (email, password) => {
     const UserInfo = model('UserInfo', UserModel);
-    const user = await UserInfo.findOne({ email });
+    const user = email && (await UserInfo.findOne({ email }));
     if (!user) {
       throw Error('User with this email not found');
     }
@@ -43,7 +42,7 @@ export const UserService = {
     if (!checkPassMatch) {
       throw Error('Password does not match');
     }
-    const tokens = await TokenService.generateTokens({ ...user });
+    const tokens = user && (await TokenService.generateTokens({ ...user }));
     user && (await TokenService.saveToken(user.id, tokens.refreshToken));
 
     return {
@@ -59,23 +58,26 @@ export const UserService = {
 
   refresh: async (refreshToken) => {
     if (!refreshToken) {
-      throw MongoAPIError.UnauthorizedError();
+      throw Error(401, 'User is not authorized');
     }
-    const userData = await TokenService.validateRefreshToken(refreshToken);
-    const tokenFromDB = await TokenService.findToken(refreshToken);
-    if (!tokenFromDB || !userData) {
-      throw MongoAPIError.UnauthorizedError();
+
+    const userData =
+      refreshToken && (await TokenService.validateRefreshToken(refreshToken));
+    const tokenFromDB =
+      refreshToken && (await TokenService.findToken(refreshToken));
+    if (!userData || !tokenFromDB) {
+      throw Error(401, 'User is not valid');
     }
 
     const UserInfo = model('UserInfo', UserModel);
-    const user = await UserInfo.findById(userData.id);
-
-    const tokens = await TokenService.generateTokens({ ...user });
-    user && (await TokenService.saveToken(user.id, tokens.refreshToken));
+    const user = await UserInfo.findById(userData._doc);
+    user &&
+      tokenFromDB &&
+      (await TokenService.saveToken(user._id, tokenFromDB.refreshToken));
 
     return {
-      ...tokens,
-      user
+      refreshToken: tokenFromDB.refreshToken,
+      user: user
     };
   }
 };

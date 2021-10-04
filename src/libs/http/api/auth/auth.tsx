@@ -31,8 +31,9 @@ export const auth = {
   },
 
   checkAuth: {
-    action: (): Promise<{ data: any }> =>
-      axios.get(`${baseUrl}/api/refresh`, {
+    action: (params: { refreshToken: string }): Promise<{ data: any }> =>
+      axios.post(`${baseUrl}/api/refresh`, params, {
+        withCredentials: true,
         cancelToken: new CancelToken(
           (c: Canceler) => (auth.checkAuth.cancel = c)
         )

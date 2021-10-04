@@ -17,6 +17,7 @@ export const Header = () => {
   const [password, setPassword] = React.useState<string>('');
   const [user, setUser] = React.useState<any>();
   const [authVerify, setAuthVerify] = React.useState<boolean>(false);
+  const [saveToken, setSaveToken] = React.useState<string | null>(null);
 
   const onChangeLanguage = (value: string) => {
     setLocale(value);
@@ -26,18 +27,40 @@ export const Header = () => {
     setProfile((i) => !i);
   };
 
+  React.useEffect(() => {
+    const token = localStorage.getItem('refresh-token');
+    setSaveToken(token);
+    if (saveToken) {
+      setUser(request(auth.checkAuth.action({ refreshToken: saveToken })));
+      setAuthVerify(true);
+    }
+    // eslint-disable-next-line
+  }, [saveToken]);
+
+  React.useEffect(() => {
+    if (data && data.refreshToken) {
+      localStorage.setItem('refresh-token', data.refreshToken);
+      setUser(data);
+      setAuthVerify(true);
+      setProfile(false);
+    }
+
+    return () => {
+      auth.checkAuth.cancel();
+    };
+    // eslint-disable-next-line
+  }, [data]);
+
   const onRegistration = (email: string, password: string) => {
-    if (email.length > 4 && password.length > 5) {
-      try {
-        request(
-          auth.registration.action({
-            email,
-            password
-          })
-        );
-      } catch (e) {
-        console.log(e);
-      }
+    try {
+      request(
+        auth.registration.action({
+          email,
+          password
+        })
+      );
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -49,6 +72,7 @@ export const Header = () => {
           password
         })
       );
+      setAuthVerify(true);
       setEmail('');
       setPassword('');
     } catch (e) {
@@ -66,15 +90,6 @@ export const Header = () => {
       console.log(e);
     }
   };
-
-  React.useEffect(() => {
-    if (data) {
-      localStorage.setItem('refresh-token', JSON.stringify(data.accessToken));
-      setAuthVerify(true);
-      setUser(data);
-      setProfile(false);
-    }
-  }, [data]);
 
   return (
     <div className="header">
@@ -122,7 +137,9 @@ export const Header = () => {
             <div className="header__user">
               <Button onClick={() => onLogout(user.user.refreshToken)}>
                 <Icon type="user" />
-                {user && <span>{user.user.email}</span>}
+                {user && (
+                  <span>{user?.user?.email.split('@')[0].toUpperCase()}</span>
+                )}
               </Button>
             </div>
           ) : (

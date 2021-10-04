@@ -63,7 +63,7 @@ export const gadgets = [
     popularity: 100,
     manufacturer: 'Sony',
     imageUrl:
-      'https://darwin.md/images/product/2020/10/sony_playstation_5_white_2.webp',
+      'https://darwin.md/images/product/2021/09/consola-pentru-jocuri-sony-playstation-5-digital-edition-white-011.webp',
     type: 'gadgets',
     link: 'sony-playstation-5-white',
     colors: ['white'],
