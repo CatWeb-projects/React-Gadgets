@@ -269,3 +269,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.logged-in {
+  span {
+    color: #ff9800;
+    font-weight: 800;
+  }
+}

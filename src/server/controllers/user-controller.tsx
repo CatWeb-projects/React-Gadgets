@@ -52,7 +52,12 @@ export const UserController = {
   },
   refresh: async (request: any, response: any, next: any) => {
     try {
-      const { refreshToken } = request.body;
+      let { refreshToken } = request.cookies;
+      if (refreshToken) {
+        return refreshToken;
+      } else {
+        ({ refreshToken } = request.body);
+      }
       const userData =
         refreshToken && (await UserService.refresh(refreshToken));
       return response.json(userData);
