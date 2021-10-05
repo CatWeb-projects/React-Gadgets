@@ -50,18 +50,23 @@ interface DevicesProps {
 
 interface Props {
   devicesData: DevicesProps[];
+  authVerify: boolean;
   setDevicesData: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
+  setAuthVerify: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const defaultValue = {
   devicesData: [],
-  setDevicesData: () => {}
+  authVerify: false,
+  setDevicesData: () => {},
+  setAuthVerify: () => {}
 };
 
 export const DeviceContext = React.createContext<Props>(defaultValue);
 
 export const ProviderContext = (props: ProviderProps) => {
   const [devicesData, setDevicesData] = React.useState<DevicesProps[]>([]);
+  const [authVerify, setAuthVerify] = React.useState<boolean>(false);
 
   const { request, data } = useRequest<DevicesProps[]>();
 
@@ -84,7 +89,9 @@ export const ProviderContext = (props: ProviderProps) => {
 
   const values = {
     devicesData,
-    setDevicesData
+    setDevicesData,
+    authVerify,
+    setAuthVerify
   };
 
   const { children } = props;

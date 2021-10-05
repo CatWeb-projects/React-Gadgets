@@ -2,6 +2,7 @@ import React from 'react';
 import { useRequest } from 'estafette';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
+import { DeviceContext } from 'contexts/Devices-Context';
 import { auth } from 'libs/http/api';
 import { Search } from 'ui/organims';
 import { Button, Icon } from 'ui/atoms';
@@ -12,11 +13,10 @@ export const Header = () => {
   const { request, data } = useRequest<any>();
   const { t, locale, setLocale } = useIntl();
 
+  const { authVerify, setAuthVerify } = React.useContext(DeviceContext);
   const [profile, setProfile] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
-  const [user, setUser] = React.useState<any>();
-  const [authVerify, setAuthVerify] = React.useState<boolean>(false);
   const [saveToken, setSaveToken] = React.useState<string | null>(null);
 
   const onChangeLanguage = (value: string) => {
@@ -31,7 +31,7 @@ export const Header = () => {
     const token = localStorage.getItem('refresh-token');
     setSaveToken(token);
     if (saveToken) {
-      setUser(request(auth.checkAuth.action({ refreshToken: saveToken })));
+      request(auth.checkAuth.action({ refreshToken: saveToken }));
       setAuthVerify(true);
     }
     // eslint-disable-next-line
@@ -40,7 +40,6 @@ export const Header = () => {
   React.useEffect(() => {
     if (data && data.refreshToken) {
       localStorage.setItem('refresh-token', data.refreshToken);
-      setUser(data);
       setAuthVerify(true);
       setProfile(false);
     }
@@ -84,12 +83,14 @@ export const Header = () => {
     try {
       request(auth.logout.action(refreshToken));
       localStorage.removeItem('refresh-token');
-      setUser({});
+
       setAuthVerify(false);
     } catch (e) {
       console.log(e);
     }
   };
+
+  const user = React.useMemo(() => data.user, [data]);
 
   return (
     <div className="header">
@@ -135,10 +136,15 @@ export const Header = () => {
 
           {authVerify ? (
             <div className="header__user">
-              <Button onClick={() => onLogout(user.user.refreshToken)}>
+              <Button
+                onClick={() => onLogout(user.refreshToken)}
+                className="logged-in"
+              >
                 <Icon type="user" />
                 {user && (
-                  <span>{user?.user?.email.split('@')[0].toUpperCase()}</span>
+                  <span>{`${user.email?.[0].toUpperCase()}${user.email
+                    ?.split('@')[0]
+                    .slice(1)}`}</span>
                 )}
               </Button>
             </div>
