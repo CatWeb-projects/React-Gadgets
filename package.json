@@ -15,7 +15,7 @@
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "eslint-config-airbnb": "^18.2.1",
-    "estafette": "^1.0.10",
+    "estafette": "^1.0.14",
     "estafette-intl": "^1.0.2",
     "estafette-router": "^2.2.1",
     "express": "^4.17.1",

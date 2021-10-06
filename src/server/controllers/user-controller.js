@@ -2,7 +2,7 @@ import { UserService } from '../service/user-service';
 import { validationResult } from 'express-validator';
 
 export const UserController = {
-  registration: async (request: any, response: any, next: any) => {
+  registration: async (request, response, next) => {
     try {
       const errors = validationResult(request);
       if (!errors.isEmpty()) {
@@ -20,7 +20,7 @@ export const UserController = {
       console.log(e);
     }
   },
-  login: async (request: any, response: any, next: any) => {
+  login: async (request, response, next) => {
     try {
       const { email, password } = request.body;
       const userData = await UserService.login(email, password);
@@ -32,9 +32,10 @@ export const UserController = {
       return response.json(userData);
     } catch (e) {
       console.log(e);
+      return response.status(401).send({ error: e.message });
     }
   },
-  logout: async (request: any, response: any, next: any) => {
+  logout: async (request, response, next) => {
     try {
       const { refreshToken } = request;
       const token = await UserService.logout(refreshToken);
@@ -44,13 +45,13 @@ export const UserController = {
       console.log(e);
     }
   },
-  activate: async (request: any, response: any, next: any) => {
+  activate: async (request, response, next) => {
     try {
     } catch (e) {
       console.log(e);
     }
   },
-  refresh: async (request: any, response: any, next: any) => {
+  refresh: async (request, response, next) => {
     try {
       let { refreshToken } = request.cookies;
       if (refreshToken) {

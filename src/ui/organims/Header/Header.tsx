@@ -10,14 +10,13 @@ import { Button, Icon } from 'ui/atoms';
 import './Header.scss';
 
 export const Header = () => {
-  const { request, data } = useRequest<any>();
+  const { request, data, errors } = useRequest<any>();
   const { t, locale, setLocale } = useIntl();
 
   const { authVerify, setAuthVerify } = React.useContext(DeviceContext);
   const [profile, setProfile] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
-  const [saveToken, setSaveToken] = React.useState<string | null>(null);
 
   const onChangeLanguage = (value: string) => {
     setLocale(value);
@@ -29,13 +28,12 @@ export const Header = () => {
 
   React.useEffect(() => {
     const token = localStorage.getItem('refresh-token');
-    setSaveToken(token);
-    if (saveToken) {
-      request(auth.checkAuth.action({ refreshToken: saveToken }));
+    if (token) {
+      request(auth.checkAuth.action({ refreshToken: token }));
       setAuthVerify(true);
     }
     // eslint-disable-next-line
-  }, [saveToken]);
+  }, []);
 
   React.useEffect(() => {
     if (data && data.refreshToken) {
@@ -137,7 +135,7 @@ export const Header = () => {
           {authVerify ? (
             <div className="header__user">
               <Button
-                onClick={() => onLogout(user.refreshToken)}
+                onClick={() => onLogout(user?.refreshToken)}
                 className="logged-in"
               >
                 <Icon type="user" />
@@ -195,6 +193,7 @@ export const Header = () => {
             <Button className="close" onClick={() => onProfileClick()}>
               X
             </Button>
+            {errors && <div className="errors">{errors.error}</div>}
           </div>
         </div>
       )}

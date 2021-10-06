@@ -36,11 +36,11 @@ export const UserService = {
     const UserInfo = model('UserInfo', UserModel);
     const user = email && (await UserInfo.findOne({ email }));
     if (!user) {
-      throw Error('User with this email not found');
+      throw new Error('User with this email not found');
     }
     const checkPassMatch = await bcrypt.compare(password, user.password);
     if (!checkPassMatch) {
-      throw Error('Password does not match');
+      throw new Error('Password does not match');
     }
     const tokens = user && (await TokenService.generateTokens({ ...user }));
     user && (await TokenService.saveToken(user.id, tokens.refreshToken));
@@ -58,7 +58,7 @@ export const UserService = {
 
   refresh: async (refreshToken) => {
     if (!refreshToken) {
-      throw Error(401, 'User is not authorized');
+      throw Error('User is not authorized');
     }
 
     const userData =
@@ -66,7 +66,7 @@ export const UserService = {
     const tokenFromDB =
       refreshToken && (await TokenService.findToken(refreshToken));
     if (!userData || !tokenFromDB) {
-      throw Error(401, 'User is not valid');
+      throw Error('User is not valid');
     }
 
     const UserInfo = model('UserInfo', UserModel);
