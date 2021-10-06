@@ -108,7 +108,7 @@ export const Header = () => {
 
         <div className="header__main-menu">
           <div className="header__favorites">
-            <Link to="/">
+            <Link to="/favorites">
               <Icon type="heart" />
             </Link>
           </div>

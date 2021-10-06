@@ -10,7 +10,7 @@ export const UserService = {
     const UserInfo = model('UserInfo', UserModel);
     const candidate = await UserInfo.findOne({ email });
     if (candidate) {
-      throw new Error(`User with this ${email} already exists`);
+      throw new Error(`User with this email already exists`);
     }
     if (!password) {
       throw new Error(`Please insert a password`);

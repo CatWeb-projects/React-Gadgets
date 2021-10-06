@@ -1,12 +1,15 @@
-import { MainLayout } from 'features/all/pages/MainLayout/MainLayout';
-import { Apple } from 'features/apple/pages/Apple/Apple';
-import { DeviceInfo } from 'features/device_info/pages/DeviceInfo/DeviceInfo';
-import { Gadgets } from 'features/gadgets/pages/Gadgets/Gadgets';
-import { Laptops } from 'features/laptops/pages/Laptops/Laptops';
-import { Phones } from 'features/phones/pages/Phones/Phones';
-import { Protection } from 'features/protection/pages/Protection/Protection';
-import { SearchPage } from 'features/search_page/pages/SearchPage/SearchPage';
-import { Tradein } from 'features/tradein/pages/Tradein/Tradein';
+import {
+  Apple,
+  DeviceInfo,
+  Favorites,
+  Gadgets,
+  Laptops,
+  MainLayout,
+  Phones,
+  Protection,
+  SearchPage,
+  Tradein
+} from 'features';
 
 export interface Route {
   name: string;
@@ -37,4 +40,6 @@ export const routes: Route[] =
     {name: 'DeviceInfo', path: '/device/:link', component: DeviceInfo},
 
     {name: 'SearchPage', path: '/search/:link', component: SearchPage},
+
+    {name: 'Favorites', path: '/favorites', component: Favorites},
   ];
