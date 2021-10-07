@@ -18,6 +18,7 @@ export const UserController = {
       return response.json(userData);
     } catch (e) {
       console.log(e);
+      return response.status(401).send({ error: e.message });
     }
   },
   login: async (request, response, next) => {

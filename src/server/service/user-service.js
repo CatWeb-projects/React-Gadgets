@@ -10,10 +10,13 @@ export const UserService = {
     const UserInfo = model('UserInfo', UserModel);
     const candidate = await UserInfo.findOne({ email });
     if (candidate) {
-      throw new Error(`User with this ${email} already exists`);
+      throw new Error('User with this email already exists');
     }
     if (!password) {
-      throw new Error(`Please insert a password`);
+      throw new Error('Please insert a password');
+    }
+    if (password.length < 5) {
+      throw new Error('Password cannot be less than 5 characters');
     }
     const hashPassword = bcrypt && (await bcrypt.hash(password, 3));
     const activationLink = uuidv4();

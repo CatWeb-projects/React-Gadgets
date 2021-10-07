@@ -7,8 +7,8 @@ import { catalog, DevicesProps } from 'libs/http/api';
 
 export const SearchPage = () => {
   const { link } = useParams<{ link: string }>();
-  const query = link.substring(6, link.length);
   const { request, data } = useRequest<DevicesProps[]>();
+  const query = link.substring(6, link.length);
 
   React.useEffect(() => {
     onFetch();

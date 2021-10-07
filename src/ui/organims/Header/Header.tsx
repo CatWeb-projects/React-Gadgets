@@ -30,7 +30,6 @@ export const Header = () => {
     const token = localStorage.getItem('refresh-token');
     if (token) {
       request(auth.checkAuth.action({ refreshToken: token }));
-      setAuthVerify(true);
     }
     // eslint-disable-next-line
   }, []);
@@ -56,6 +55,10 @@ export const Header = () => {
           password
         })
       );
+      if (authVerify) {
+        setEmail('');
+      }
+      setPassword('');
     } catch (e) {
       console.log(e);
     }
@@ -69,8 +72,9 @@ export const Header = () => {
           password
         })
       );
-      setAuthVerify(true);
-      setEmail('');
+      if (authVerify) {
+        setEmail('');
+      }
       setPassword('');
     } catch (e) {
       console.log(e);
@@ -108,7 +112,7 @@ export const Header = () => {
 
         <div className="header__main-menu">
           <div className="header__favorites">
-            <Link to="/">
+            <Link to="/favorites">
               <Icon type="heart" />
             </Link>
           </div>
