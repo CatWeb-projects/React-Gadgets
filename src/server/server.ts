@@ -135,7 +135,7 @@ server.get('/collection', (request, response) => {
 router.post(
   '/registration',
   body('email').isEmail(),
-  body('password').isLength({ min: 5, max: 32 }),
+  // body('password').isLength({ min: 5, max: 32 }),
   UserController.registration
 );
 router.post('/login', UserController.login);
