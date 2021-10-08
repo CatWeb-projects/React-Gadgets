@@ -126,13 +126,13 @@ export const Header = () => {
           <div className="header__languages">
             <div className="locale-language">
               <Icon type="languages" />
-              <h5>{locale}</h5>
+              <h6>{locale}</h6>
             </div>
 
             <div className="header__languages-overlay lang-overlay">
-              <h5 onClick={() => onChangeLanguage('en')}>en</h5>
-              <h5 onClick={() => onChangeLanguage('ru')}>ru</h5>
-              <h5 onClick={() => onChangeLanguage('ro')}>ro</h5>
+              <h6 onClick={() => onChangeLanguage('en')}>en</h6>
+              <h6 onClick={() => onChangeLanguage('ru')}>ru</h6>
+              <h6 onClick={() => onChangeLanguage('ro')}>ro</h6>
             </div>
           </div>
 

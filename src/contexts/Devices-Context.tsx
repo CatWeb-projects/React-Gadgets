@@ -50,15 +50,19 @@ interface DevicesProps {
 
 interface Props {
   devicesData: DevicesProps[];
+  favorites: DevicesProps[];
   authVerify: boolean;
   setDevicesData: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
+  setFavorites: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setAuthVerify: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const defaultValue = {
   devicesData: [],
+  favorites: [],
   authVerify: false,
   setDevicesData: () => {},
+  setFavorites: () => {},
   setAuthVerify: () => {}
 };
 
@@ -66,6 +70,7 @@ export const DeviceContext = React.createContext<Props>(defaultValue);
 
 export const ProviderContext = (props: ProviderProps) => {
   const [devicesData, setDevicesData] = React.useState<DevicesProps[]>([]);
+  const [favorites, setFavorites] = React.useState<DevicesProps[]>([]);
   const [authVerify, setAuthVerify] = React.useState<boolean>(false);
 
   const { request, data } = useRequest<DevicesProps[]>();
@@ -91,7 +96,9 @@ export const ProviderContext = (props: ProviderProps) => {
     devicesData,
     setDevicesData,
     authVerify,
-    setAuthVerify
+    setAuthVerify,
+    favorites,
+    setFavorites
   };
 
   const { children } = props;

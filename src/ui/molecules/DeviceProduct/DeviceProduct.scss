@@ -152,3 +152,32 @@
     background-color: #d7298f;
   }
 }
+
+.options-devices {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+  button {
+    display: flex;
+    align-items: center;
+    padding: rem(5px 10px);
+    color: #a0a0a0;
+    font-size: rem(20px);
+    margin-top: rem(8px);
+
+    &:hover {
+      color: #fff;
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  svg {
+    font-size: 1.5rem;
+    fill: #a0a0a0;
+    margin-right: rem(8px);
+  }
+}

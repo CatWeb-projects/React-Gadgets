@@ -23,6 +23,12 @@ export const DeviceInfo = () => {
 
   const deviceData = React.useMemo(() => data, [data]);
 
+  React.useEffect(() => {
+    if (deviceData.link && link !== deviceData.link) {
+      return window.location.reload();
+    }
+  }, [link, deviceData.link]);
+
   return (
     <div className="main-container">
       <div className="device-info">
