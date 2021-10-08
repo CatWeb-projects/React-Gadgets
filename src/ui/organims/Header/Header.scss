@@ -84,19 +84,23 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: rem(10px);
+        padding: rem(12px);
         cursor: pointer;
         border: none;
       }
 
       &:hover {
-        background-color: #262626;
-        border-radius: rem(8px 8px 0 0);
+        background-color: #333;
+        border-radius: rem(8px);
 
         svg {
           fill: #fff;
         }
       }
+    }
+
+    .header__languages:hover {
+      border-radius: rem(8px 8px 0 0);
     }
 
     svg {
@@ -114,7 +118,7 @@
     background-color: #333333;
     border-radius: rem(8px);
     transition: all 0.3s;
-    height: rem(48px);
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,6 +128,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    position: relative;
     z-index: 10;
     transition: all 0.3s;
 
@@ -133,7 +138,7 @@
       color: #a0a0a0;
     }
 
-    h5 {
+    h6 {
       margin-left: rem(8px);
     }
 
@@ -156,19 +161,20 @@
   &__languages-overlay {
     display: none;
     flex-direction: column;
+    position: absolute;
+    top: 100%;
     background-color: #262626;
     border-radius: rem(0 0 8px 8px);
     width: 100%;
-    margin-top: rem(-1px);
     text-align: center;
     color: #a0a0a0;
     cursor: pointer;
 
-    h5 {
+    h6 {
       transition: all 0.3s;
     }
 
-    h5:hover {
+    h6:hover {
       color: #fff;
     }
   }

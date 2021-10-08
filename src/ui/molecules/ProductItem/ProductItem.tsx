@@ -43,7 +43,6 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
                 </span>
               )}
             </div>
-            <div className="icons-wrapper"></div>
           </div>
         </>
       )}

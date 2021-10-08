@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
+import { DeviceContext } from 'contexts/Devices-Context';
 import { DevicesProps } from 'libs/http/api';
+import { Button, Icon } from 'ui/atoms';
 
 import './DeviceProduct.scss';
 
@@ -10,7 +12,22 @@ interface Props {
 }
 
 export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
+  const { authVerify, favorites, setFavorites } =
+    React.useContext(DeviceContext);
   const { t } = useIntl();
+
+  const addFavorites = React.useCallback(() => {
+    if (
+      authVerify &&
+      deviceData &&
+      favorites.find((item) => item.name === deviceData.name)
+    ) {
+      setFavorites((prev) => prev);
+    } else if (authVerify && deviceData) {
+      setFavorites([...favorites, deviceData]);
+    }
+    // eslint-disable-next-line
+  }, [authVerify, deviceData, favorites]);
 
   return (
     <div className="device-product">
@@ -218,6 +235,24 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                   </li>
                 )}
               </ul>
+              <div className="options-devices">
+                <div className="compare-devices">
+                  <Button type="black" size="full-width">
+                    <Icon type="heart" />
+                    Compare
+                  </Button>
+                </div>
+                <div className="add-to-favorites">
+                  <Button
+                    onClick={() => addFavorites()}
+                    type="black"
+                    size="full-width"
+                  >
+                    <Icon type="heart" />
+                    Add to favorites
+                  </Button>
+                </div>
+              </div>
             </div>
             <div className="device-product__info-buy">
               <div className="device-product__info-price">

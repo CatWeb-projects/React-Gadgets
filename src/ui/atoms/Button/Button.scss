@@ -16,12 +16,18 @@
 }
 
 .button-type-black {
-  background: #101010;
+  background-color: #101010;
   color: #fff;
 
   &:hover {
-    background: lighten(#101010, 20%);
+    background-color: lighten(#101010, 20%);
   }
+}
+
+.button-type-full-width {
+  width: 100%;
+  height: auto;
+  min-height: rem(30px);
 }
 
 .button-type-small {
