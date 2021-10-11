@@ -42,7 +42,7 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
           <Link route="DeviceInfo" params={{ link: product.link }}>
             <div className="item-product__title">{product.name}</div>
           </Link>
-          <div className="item-product__price-wrapper">
+          <div className="item-product__price-wrapper options-devices-card-wrapper">
             <div className="item-product__price">
               {product.credit && (
                 <span>
@@ -60,29 +60,32 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
                 </span>
               )}
             </div>
-          </div>
-          <div className="options-devices">
-            <div className="compare-devices">
-              <Button type="black" size="full-width">
-                <Icon type="compare" />
-                Compare
-              </Button>
-            </div>
-            <div className="add-to-favorites">
-              <Button
-                onClick={() => addFavorites()}
-                type="black"
-                size="full-width"
-                className={
-                  authVerify &&
-                  favorites.find((item) => item.name === product.name)
-                    ? 'added-to-favorites'
-                    : ''
-                }
-              >
-                <Icon type="heart" />
-                Add to favorites
-              </Button>
+            <div className="options-devices">
+              <div className="compare-devices">
+                <Button type="black">
+                  <Icon type="compare" />
+                </Button>
+                <div className="options-devices-info compare-info">
+                  {t('compare')}
+                </div>
+              </div>
+              <div className="add-to-favorites">
+                <Button
+                  onClick={() => addFavorites()}
+                  type="black"
+                  className={
+                    authVerify &&
+                    favorites.find((item) => item.name === product.name)
+                      ? 'added-to-favorites'
+                      : ''
+                  }
+                >
+                  <Icon type="heart" />
+                </Button>
+                <div className="options-devices-info favorites-info">
+                  {t('favorites')}
+                </div>
+              </div>
             </div>
           </div>
         </>
