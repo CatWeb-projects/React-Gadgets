@@ -239,7 +239,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 <div className="compare-devices">
                   <Button type="black" size="full-width">
                     <Icon type="compare" />
-                    Compare
+                    {t('compare')}
                   </Button>
                 </div>
                 <div className="add-to-favorites">
@@ -255,7 +255,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     }
                   >
                     <Icon type="heart" />
-                    Add to favorites
+                    {t('favorites')}
                   </Button>
                 </div>
               </div>

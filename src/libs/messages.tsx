@@ -132,18 +132,14 @@ export const messages = createMessages([
   },
   {
     protection: {
-      en:
-        'We take care of your device in unpredictable situations: broken screen, water contact, etc.',
-      ru:
-        'Мы защитим твой гаджет в непредвиденных ситуациях: разбитый экран, контакт с водой и т.д.',
-      ro:
-        'Avem grijă de device-ul tău în situaţii imprevizibile: ecran spart, contact cu apa etc.'
+      en: 'We take care of your device in unpredictable situations: broken screen, water contact, etc.',
+      ru: 'Мы защитим твой гаджет в непредвиденных ситуациях: разбитый экран, контакт с водой и т.д.',
+      ro: 'Avem grijă de device-ul tău în situaţii imprevizibile: ecran spart, contact cu apa etc.'
     },
     tradein: {
       en: 'A unique service for replacing old devices with newer ones.',
       ru: 'Уникальная услуга по замене старых девайсов на более новые.',
-      ro:
-        'Un serviciu unic pentru înlocuirea dispozitivelor vechi cu altele mai noi.'
+      ro: 'Un serviciu unic pentru înlocuirea dispozitivelor vechi cu altele mai noi.'
     }
   },
   {
@@ -205,12 +201,9 @@ export const messages = createMessages([
       ro: 'Livrare gratuită în Chișinău în 3 ore'
     },
     time: {
-      en:
-        'Your time is golden. We deliver your order anywhere in Chisinau, from 3 hours',
-      ru:
-        'Твое время - бесценно. Мы доставим твой заказ в пределах Кишинева, от 3 часов.',
-      ro:
-        'Timpul tău e de aur. Îți livrăm comanda oriunde în raza Chișinăului, de la 3 ore.'
+      en: 'Your time is golden. We deliver your order anywhere in Chisinau, from 3 hours',
+      ru: 'Твое время - бесценно. Мы доставим твой заказ в пределах Кишинева, от 3 часов.',
+      ro: 'Timpul tău e de aur. Îți livrăm comanda oriunde în raza Chișinăului, de la 3 ore.'
     },
     security: {
       en: 'Protect the product from unexpected circumstances.',
@@ -218,12 +211,9 @@ export const messages = createMessages([
       ro: 'Protejarea produsului de situații neprevăzute.'
     },
     repair: {
-      en:
-        'According to Digital Trends, 50% of all smartphone owners found themselves with a broken screen. And you can wake up with your phone dropping or drowning.',
-      ru:
-        'Согласно данным Digital Trends, 50% владельцев смартфонов столкнулись с разбитым экраном. Твой смартфон тоже может оказаться в свободном полете или утонуть.',
-      ro:
-        'Conform Digital Trends, 50 % din toți cei care dețin un smartphone s-au pomenit cu un ecran spart. Și tu te poți trezi cu telefonul în cădere liberă sau înecat.'
+      en: 'According to Digital Trends, 50% of all smartphone owners found themselves with a broken screen. And you can wake up with your phone dropping or drowning.',
+      ru: 'Согласно данным Digital Trends, 50% владельцев смартфонов столкнулись с разбитым экраном. Твой смартфон тоже может оказаться в свободном полете или утонуть.',
+      ro: 'Conform Digital Trends, 50 % din toți cei care dețin un smartphone s-au pomenit cu un ecran spart. Și tu te poți trezi cu telefonul în cădere liberă sau înecat.'
     },
     credit_approval: {
       en: '92% of approved credit applications.',
@@ -232,10 +222,8 @@ export const messages = createMessages([
     },
     approval: {
       en: 'Approval in just 15 minutes. Get loans from 6 to 60 months.',
-      ru:
-        'Подтверждение всего за 15 минут. Воспользуйся кредитами от 6 до 60 месяцев.',
-      ro:
-        'Aprobare în doar 15 minute. Obține credite de la 6 până la 60 de luni.'
+      ru: 'Подтверждение всего за 15 минут. Воспользуйся кредитами от 6 до 60 месяцев.',
+      ro: 'Aprobare în doar 15 minute. Obține credite de la 6 până la 60 de luni.'
     }
   },
   {
@@ -449,6 +437,18 @@ export const messages = createMessages([
       en: 'USB Conectors',
       ru: 'USB разъёмы',
       ro: 'Conectoare USB'
+    }
+  },
+  {
+    compare: {
+      en: 'Compare',
+      ru: 'Добавить в сравнение',
+      ro: 'Adaugă în comparaţie'
+    },
+    favorites: {
+      en: 'Add to favorites',
+      ru: 'Добавить в избранное',
+      ro: 'Adaugă în favorite'
     }
   }
 ]);
