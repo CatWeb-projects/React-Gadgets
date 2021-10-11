@@ -56,6 +56,9 @@
     background-color: #101010;
     border-radius: rem(16px);
     transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     > div {
       padding: rem(8px 24px);

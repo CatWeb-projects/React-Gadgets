@@ -92,6 +92,17 @@ export const ProviderContext = (props: ProviderProps) => {
 
   React.useMemo(() => devicesData, [devicesData]);
 
+  React.useEffect(() => {
+    const data = localStorage.getItem('favorites');
+    if (data) {
+      return setFavorites(JSON.parse(data));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
   const values = {
     devicesData,
     setDevicesData,

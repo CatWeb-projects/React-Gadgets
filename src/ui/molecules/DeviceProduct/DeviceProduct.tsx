@@ -20,9 +20,9 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
     if (
       authVerify &&
       deviceData &&
-      favorites.find((item) => item.name === deviceData.name)
+      favorites.find((item) => deviceData.name === item.name)
     ) {
-      setFavorites((prev) => prev);
+      setFavorites(favorites.filter((item) => deviceData.name !== item.name));
     } else if (authVerify && deviceData) {
       setFavorites([...favorites, deviceData]);
     }
@@ -238,7 +238,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
               <div className="options-devices">
                 <div className="compare-devices">
                   <Button type="black" size="full-width">
-                    <Icon type="heart" />
+                    <Icon type="compare" />
                     Compare
                   </Button>
                 </div>
@@ -247,6 +247,12 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     onClick={() => addFavorites()}
                     type="black"
                     size="full-width"
+                    className={
+                      authVerify &&
+                      favorites.find((item) => item.name === deviceData.name)
+                        ? 'added-to-favorites'
+                        : ''
+                    }
                   >
                     <Icon type="heart" />
                     Add to favorites

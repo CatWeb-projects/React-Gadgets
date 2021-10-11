@@ -156,7 +156,6 @@
 .options-devices {
   display: flex;
   flex-direction: column;
-  width: 80%;
 
   button {
     display: flex;
@@ -179,5 +178,14 @@
     font-size: 1.5rem;
     fill: #a0a0a0;
     margin-right: rem(8px);
+  }
+}
+
+.added-to-favorites.button {
+  background-color: #673ab7;
+  color: #fff;
+
+  svg {
+    fill: #fff;
   }
 }
