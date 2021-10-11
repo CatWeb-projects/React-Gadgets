@@ -1,14 +1,31 @@
 import React from 'react';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
+import { DeviceContext } from 'contexts/Devices-Context';
 import { DevicesProps } from 'libs/http/api';
+import { Button, Icon } from 'ui/atoms';
 
 interface Props {
   product?: DevicesProps;
 }
 
 export const ProductItem: React.FC<Props> = ({ product }) => {
+  const { authVerify, favorites, setFavorites } =
+    React.useContext(DeviceContext);
   const { t } = useIntl();
+
+  const addFavorites = React.useCallback(() => {
+    if (
+      authVerify &&
+      product &&
+      favorites.find((item) => product.name === item.name)
+    ) {
+      setFavorites(favorites.filter((item) => product.name !== item.name));
+    } else if (authVerify && product) {
+      setFavorites([...favorites, product]);
+    }
+    // eslint-disable-next-line
+  }, [authVerify, product, favorites]);
 
   return (
     <div className="item-product__item">
@@ -42,6 +59,30 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
                   Cashback {product.cashback} {t('lei')}
                 </span>
               )}
+            </div>
+          </div>
+          <div className="options-devices">
+            <div className="compare-devices">
+              <Button type="black" size="full-width">
+                <Icon type="compare" />
+                Compare
+              </Button>
+            </div>
+            <div className="add-to-favorites">
+              <Button
+                onClick={() => addFavorites()}
+                type="black"
+                size="full-width"
+                className={
+                  authVerify &&
+                  favorites.find((item) => item.name === product.name)
+                    ? 'added-to-favorites'
+                    : ''
+                }
+              >
+                <Icon type="heart" />
+                Add to favorites
+              </Button>
             </div>
           </div>
         </>
