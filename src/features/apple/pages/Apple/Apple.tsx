@@ -7,13 +7,11 @@ import { DeviceContext } from 'contexts/Devices-Context';
 export const Apple = () => {
   const { devicesData } = React.useContext(DeviceContext);
 
-  const [filter, setFilter] = React.useState<DevicesProps[]>([]);
+  const [apple, setApple] = React.useState<DevicesProps[]>([]);
 
   React.useEffect(() => {
     if (devicesData) {
-      setFilter(
-        devicesData.filter((device) => device.manufacturer === 'Apple')
-      );
+      setApple(devicesData.filter((device) => device.manufacturer === 'Apple'));
     }
 
     return () => {};
@@ -24,8 +22,8 @@ export const Apple = () => {
       <div className="gadgets">
         <Header />
         <Categories />
-        {filter && <Products products={filter} />}
-        <Categories />
+        {apple && <Products products={apple} />}
+        {apple?.length > 4 && <Categories />}
         <Footer />
       </div>
     </div>

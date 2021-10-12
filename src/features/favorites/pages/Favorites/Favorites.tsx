@@ -11,10 +11,10 @@ export const Favorites = () => {
       <div className="favorites">
         <Header />
         <Categories />
-        {authVerify ? (
+        {authVerify && favorites?.length !== 0 ? (
           <>
             <Products products={favorites} />
-            <Categories />
+            {favorites?.length > 4 && <Categories />}
           </>
         ) : (
           <div className="protection-image">

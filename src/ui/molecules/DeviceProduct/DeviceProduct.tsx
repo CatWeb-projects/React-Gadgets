@@ -46,8 +46,8 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                   <span>{t('color')}</span>
                   <div className="device-product__options-colors-wrapper">
                     {deviceData.colors.map((color, key) => (
-                      <a
-                        href={
+                      <Link
+                        to={
                           deviceData.colors.length === 1
                             ? `/device/${deviceData.link}`
                             : `/device/${deviceData.link
@@ -65,7 +65,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                           }
                           style={{ backgroundColor: color }}
                         ></div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -75,8 +75,8 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                   <span>{t('memory')}</span>
                   <div className="device-product__options-memory-wrapper">
                     {deviceData.memoryOptions.map((memory, key) => (
-                      <a
-                        href={
+                      <Link
+                        to={
                           deviceData.memoryOptions.length === 1
                             ? `/device/${deviceData.link}`
                             : `/device/${deviceData.link
@@ -97,7 +97,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                         >
                           {memory} GB
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

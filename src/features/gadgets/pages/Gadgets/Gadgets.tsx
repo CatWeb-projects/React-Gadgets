@@ -26,7 +26,7 @@ export const Gadgets = () => {
         <Header />
         <Categories />
         <Products products={gadgetsData} />
-        <Categories />
+        {gadgetsData?.length > 4 && <Categories />}
         <Footer />
       </div>
     </div>
