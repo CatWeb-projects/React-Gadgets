@@ -26,7 +26,7 @@ export const Laptops = () => {
         <Header />
         <Categories />
         <Products products={laptopsData} />
-        <Categories />
+        {laptopsData?.length > 4 && <Categories />}
         <Footer />
       </div>
     </div>

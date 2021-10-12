@@ -55,6 +55,7 @@ interface Props {
   setDevicesData: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setFavorites: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setAuthVerify: React.Dispatch<React.SetStateAction<boolean>>;
+  addFavorites: (product: DevicesProps) => void;
 }
 
 const defaultValue = {
@@ -63,7 +64,8 @@ const defaultValue = {
   authVerify: false,
   setDevicesData: () => {},
   setFavorites: () => {},
-  setAuthVerify: () => {}
+  setAuthVerify: () => {},
+  addFavorites: () => {}
 };
 
 export const DeviceContext = React.createContext<Props>(defaultValue);
@@ -103,13 +105,30 @@ export const ProviderContext = (props: ProviderProps) => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
+  const addFavorites = React.useCallback(
+    (product: DevicesProps) => {
+      if (
+        authVerify &&
+        product &&
+        favorites.find((item) => product.name === item.name)
+      ) {
+        setFavorites(favorites.filter((item) => product.name !== item.name));
+      } else if (authVerify && product) {
+        setFavorites([...favorites, product]);
+      }
+      // eslint-disable-next-line
+    },
+    [authVerify, favorites]
+  );
+
   const values = {
     devicesData,
     setDevicesData,
     authVerify,
     setAuthVerify,
     favorites,
-    setFavorites
+    setFavorites,
+    addFavorites
   };
 
   const { children } = props;

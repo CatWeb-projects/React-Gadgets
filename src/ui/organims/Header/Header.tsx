@@ -31,6 +31,10 @@ export const Header = () => {
     if (token) {
       request(auth.checkAuth.action({ refreshToken: token }));
     }
+
+    return () => {
+      auth.checkAuth.cancel();
+    };
     // eslint-disable-next-line
   }, []);
 

@@ -26,7 +26,7 @@ export const Phones = () => {
         <Header />
         <Categories />
         <Products products={phonesData} />
-        <Categories />
+        {phonesData?.length > 4 && <Categories />}
         <Footer />
       </div>
     </div>

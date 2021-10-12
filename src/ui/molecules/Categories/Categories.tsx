@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRequest } from 'estafette';
+import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { categoriesTypes, CategoriesTypesProps } from 'libs/http/api';
 
@@ -26,28 +27,28 @@ export const Categories = () => {
     <div className="categories">
       {categoriesData &&
         categoriesData.map((cat) => (
-          <a
-            className="categories__card"
-            href={cat.link}
+          <Link
+            className={`categories__card ${cat.link.slice(1)}`}
+            to={cat.link}
             key={cat.id}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.color = `${cat.shadowColor}`)
-            }
-            onMouseOut={(e) => (e.currentTarget.style.color = `#fff`)}
+            // onMouseOver={(e) =>
+            //   (e.currentTarget.style.color = `${cat.shadowColor}`)
+            // }
+            // onMouseOut={(e) => (e.currentTarget.style.color = `#fff`)}
           >
             <div
               className="categories__img"
-              onMouseOver={(e) =>
-                (e.currentTarget.style.boxShadow = `0 0 16px 8px ${cat.shadowColor}`)
-              }
-              onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
+              // onMouseOver={(e) =>
+              //   (e.currentTarget.style.boxShadow = `0 0 16px 8px ${cat.shadowColor}`)
+              // }
+              // onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
             >
               <img src={cat.imgUrl && cat.imgUrl} alt={cat.name} />
             </div>
             <div className="categories__title">
               <span>{t(`${cat.translate}`)}</span>
             </div>
-          </a>
+          </Link>
         ))}
     </div>
   );

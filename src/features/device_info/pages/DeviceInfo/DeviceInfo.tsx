@@ -27,6 +27,8 @@ export const DeviceInfo = () => {
     if (deviceData.link && link !== deviceData.link) {
       return window.location.reload();
     }
+
+    return () => {};
   }, [link, deviceData.link]);
 
   return (

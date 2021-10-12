@@ -10,22 +10,9 @@ interface Props {
 }
 
 export const ProductItem: React.FC<Props> = ({ product }) => {
-  const { authVerify, favorites, setFavorites } =
+  const { authVerify, favorites, addFavorites } =
     React.useContext(DeviceContext);
   const { t } = useIntl();
-
-  const addFavorites = React.useCallback(() => {
-    if (
-      authVerify &&
-      product &&
-      favorites.find((item) => product.name === item.name)
-    ) {
-      setFavorites(favorites.filter((item) => product.name !== item.name));
-    } else if (authVerify && product) {
-      setFavorites([...favorites, product]);
-    }
-    // eslint-disable-next-line
-  }, [authVerify, product, favorites]);
 
   return (
     <div className="item-product__item">
@@ -71,11 +58,11 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
               </div>
               <div className="add-to-favorites">
                 <Button
-                  onClick={() => addFavorites()}
+                  onClick={() => addFavorites(product)}
                   type="black"
                   className={
                     authVerify &&
-                    favorites.find((item) => item.name === product.name)
+                    favorites.find((item: any) => item.name === product.name)
                       ? 'added-to-favorites'
                       : ''
                   }
