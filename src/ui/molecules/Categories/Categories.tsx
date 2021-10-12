@@ -23,8 +23,6 @@ export const Categories = () => {
 
   const categoriesData = React.useMemo(() => data, [data]);
 
-  console.log(categoriesData);
-
   return (
     <div className="categories">
       {categoriesData &&
