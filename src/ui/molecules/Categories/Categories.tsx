@@ -23,12 +23,14 @@ export const Categories = () => {
 
   const categoriesData = React.useMemo(() => data, [data]);
 
+  console.log(categoriesData);
+
   return (
     <div className="categories">
       {categoriesData &&
         categoriesData.map((cat) => (
           <Link
-            className="categories__card"
+            className={`categories__card ${cat.link.slice(1)}`}
             to={cat.link}
             key={cat.id}
             // onMouseOver={(e) =>
@@ -38,10 +40,10 @@ export const Categories = () => {
           >
             <div
               className="categories__img"
-              onMouseOver={(e) =>
-                (e.currentTarget.style.boxShadow = `0 0 16px 8px ${cat.shadowColor}`)
-              }
-              onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
+              // onMouseOver={(e) =>
+              //   (e.currentTarget.style.boxShadow = `0 0 16px 8px ${cat.shadowColor}`)
+              // }
+              // onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
             >
               <img src={cat.imgUrl && cat.imgUrl} alt={cat.name} />
             </div>

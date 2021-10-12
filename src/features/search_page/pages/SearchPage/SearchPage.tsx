@@ -21,12 +21,15 @@ export const SearchPage = () => {
 
   const onFetch = () => request(catalog.searchDevices.action(query));
 
+  const searchData = React.useMemo(() => data, [data]);
+
   return (
     <div className="main-container">
       <div className="gadgets">
         <Header />
         <Categories />
-        <Products products={data} />
+        <Products products={searchData} />
+        {searchData?.length > 4 && <Categories />}
         <Footer />
       </div>
     </div>
