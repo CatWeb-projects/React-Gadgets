@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link, useHistory } from 'estafette-router';
+import { useRequest } from 'estafette';
+import { Link, useHistory, useParams } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
-import { DeviceContext } from 'contexts/Devices-Context';
 import { Button, Icon } from 'ui/atoms';
 
 import './Search.scss';
+import { catalog, DevicesProps } from 'libs/http/api';
 
 export interface Findings {
   id: number;
@@ -15,36 +16,35 @@ export interface Findings {
 }
 
 export const Search = () => {
-  const { devicesData } = React.useContext(DeviceContext);
+  const { request, data: searchDevices } = useRequest<DevicesProps[]>();
 
   const [searchValue, setSearchValue] = React.useState<string>('');
-  const [searchDevices, setSearchDevices] = React.useState<Findings[]>();
 
   const { t } = useIntl();
   const { push } = useHistory();
+  const { link } = useParams<{ link: string }>();
 
   React.useEffect(() => {
-    if (searchValue) {
-      setSearchDevices(
-        devicesData.filter((device) =>
-          device.name.toLowerCase().match(searchValue)
-        )
-      );
-    } else if (searchValue === '' || searchValue.length === 0) {
-      setSearchDevices([]);
-    }
+    onFetch();
 
-    return () => {};
-    // eslint-disable-next-line
-  }, [searchValue]);
+    return () => {
+      catalog.searchDevices.cancel();
+    };
+    //eslint-disable-next-line
+  }, [searchValue, link]);
+
+  const onFetch = () => request(catalog.searchDevices.action(searchValue));
 
   const onSearch = () => {
-    setSearchValue('');
     push('SearchPage', { link: `query=${searchValue}` });
-    window.location.reload();
+    // window.location.reload();
   };
 
-  React.useMemo(() => searchDevices, [searchDevices]);
+  const onSearchChange = (e: any) => {
+    setSearchValue(e.target.value.toLowerCase());
+  };
+
+  console.log(searchDevices);
 
   return (
     <div className="header__search">
@@ -57,10 +57,10 @@ export const Search = () => {
         }
         placeholder={t('search')}
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
+        onChange={onSearchChange}
       />
 
-      <Button onClick={() => onSearch()}>
+      <Button onClick={onSearch}>
         <Icon type="zoom" />
       </Button>
 

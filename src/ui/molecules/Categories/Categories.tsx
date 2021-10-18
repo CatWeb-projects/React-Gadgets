@@ -29,7 +29,8 @@ export const Categories = () => {
         categoriesData.map((cat) => (
           <Link
             className={`categories__card ${cat.link.slice(1)}`}
-            to={cat.link}
+            route="Devices"
+            params={{ link: cat.link.slice(1) }}
             key={cat.id}
             // onMouseOver={(e) =>
             //   (e.currentTarget.style.color = `${cat.shadowColor}`)
