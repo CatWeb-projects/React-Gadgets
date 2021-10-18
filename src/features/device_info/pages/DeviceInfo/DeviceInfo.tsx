@@ -7,7 +7,6 @@ import { catalog, DevicesProps } from 'libs/http/api';
 
 export const DeviceInfo = () => {
   const { link } = useParams<{ link: string }>();
-
   const { request, data } = useRequest<DevicesProps>();
 
   React.useEffect(() => {
@@ -17,19 +16,11 @@ export const DeviceInfo = () => {
       catalog.device.cancel();
     };
     // eslint-disable-next-line
-  }, []);
+  }, [link]);
 
   const onFetch = () => request(catalog.device.action(link));
 
   const deviceData = React.useMemo(() => data, [data]);
-
-  React.useEffect(() => {
-    if (deviceData.link && link !== deviceData.link) {
-      return window.location.reload();
-    }
-
-    return () => {};
-  }, [link, deviceData.link]);
 
   return (
     <div className="main-container">

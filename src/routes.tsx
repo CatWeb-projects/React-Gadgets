@@ -1,11 +1,8 @@
 import {
-  Apple,
   DeviceInfo,
+  Devices,
   Favorites,
-  Gadgets,
-  Laptops,
   MainLayout,
-  Phones,
   Protection,
   SearchPage,
   Tradein
@@ -29,17 +26,11 @@ export const routes: Route[] =
 
     {name: 'Tradein', path: '/tradein', component: Tradein},
 
-    {name: 'Phones', path: '/phones', exact: true, component: Phones},
-
-    {name: 'Laptops', path: '/laptops', component: Laptops},
-    
-    {name: 'Gadgets', path: '/gadgets', component: Gadgets},
-
-    {name: 'Apple', path: '/apple', component: Apple},
-
     {name: 'DeviceInfo', path: '/device/:link', component: DeviceInfo},
 
     {name: 'SearchPage', path: '/search/:link', component: SearchPage},
 
     {name: 'Favorites', path: '/favorites', component: Favorites},
+
+    {name: 'Devices', path: '/categories/:link', component: Devices}, 
   ];
