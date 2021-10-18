@@ -39,7 +39,7 @@ export const Search = () => {
     setSearchValue('');
   };
 
-  const onSearchChange = (e: any) => {
+  const onSearchChange = (e: { target: { value: string } }) => {
     setSearchValue(e.target.value.toLowerCase());
   };
 

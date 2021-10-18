@@ -52,7 +52,6 @@ interface Props {
   devicesData: DevicesProps[];
   favorites: DevicesProps[];
   authVerify: boolean;
-  setDevicesData: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setFavorites: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setAuthVerify: React.Dispatch<React.SetStateAction<boolean>>;
   addFavorites: (product: DevicesProps) => void;
@@ -62,7 +61,6 @@ const defaultValue = {
   devicesData: [],
   favorites: [],
   authVerify: false,
-  setDevicesData: () => {},
   setFavorites: () => {},
   setAuthVerify: () => {},
   addFavorites: () => {}
@@ -71,11 +69,10 @@ const defaultValue = {
 export const DeviceContext = React.createContext<Props>(defaultValue);
 
 export const ProviderContext = (props: ProviderProps) => {
-  const [devicesData, setDevicesData] = React.useState<DevicesProps[]>([]);
   const [favorites, setFavorites] = React.useState<DevicesProps[]>([]);
   const [authVerify, setAuthVerify] = React.useState<boolean>(false);
 
-  const { request, data } = useRequest<DevicesProps[]>();
+  const { request, data: devicesData } = useRequest<DevicesProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -87,12 +84,6 @@ export const ProviderContext = (props: ProviderProps) => {
   }, []);
 
   const onFetch = () => request(catalog.devices.action());
-
-  React.useEffect(() => {
-    setDevicesData(data);
-  }, [data]);
-
-  React.useMemo(() => devicesData, [devicesData]);
 
   React.useEffect(() => {
     const data = localStorage.getItem('favorites');
@@ -123,7 +114,6 @@ export const ProviderContext = (props: ProviderProps) => {
 
   const values = {
     devicesData,
-    setDevicesData,
     authVerify,
     setAuthVerify,
     favorites,
