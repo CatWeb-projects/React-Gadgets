@@ -7,21 +7,17 @@ import { catalog, DevicesProps } from 'libs/http/api';
 
 export const SearchPage = () => {
   const { link } = useParams<{ link: string }>();
-  const { request, data } = useRequest<DevicesProps[]>();
+  const { request, data: searchData } = useRequest<DevicesProps[]>();
   const query = link.substring(6, link.length);
 
   React.useEffect(() => {
     onFetch();
 
-    return () => {
-      catalog.searchDevices.cancel();
-    };
+    return () => {};
     // eslint-disable-next-line
-  }, []);
+  }, [link]);
 
   const onFetch = () => request(catalog.searchDevices.action(query));
-
-  const searchData = React.useMemo(() => data, [data]);
 
   return (
     <div className="main-container">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRequest } from 'estafette';
-import { Link, useHistory, useParams } from 'estafette-router';
+import { Link, useHistory } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { Button, Icon } from 'ui/atoms';
 
@@ -22,7 +22,6 @@ export const Search = () => {
 
   const { t } = useIntl();
   const { push } = useHistory();
-  const { link } = useParams<{ link: string }>();
 
   React.useEffect(() => {
     onFetch();
@@ -31,20 +30,22 @@ export const Search = () => {
       catalog.searchDevices.cancel();
     };
     //eslint-disable-next-line
-  }, [searchValue, link]);
+  }, [searchValue]);
 
   const onFetch = () => request(catalog.searchDevices.action(searchValue));
 
   const onSearch = () => {
     push('SearchPage', { link: `query=${searchValue}` });
-    // window.location.reload();
+    setSearchValue('');
   };
 
   const onSearchChange = (e: any) => {
     setSearchValue(e.target.value.toLowerCase());
   };
 
-  console.log(searchDevices);
+  const clearSearchValue = () => {
+    setSearchValue('');
+  };
 
   return (
     <div className="header__search">
@@ -77,6 +78,7 @@ export const Search = () => {
                   params={{
                     link: finded.link
                   }}
+                  onClick={clearSearchValue}
                   className="finded"
                   key={key}
                 >
