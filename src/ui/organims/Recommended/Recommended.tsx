@@ -15,7 +15,7 @@ export const Recommended: React.FC<Props> = ({ devicesData, cardData }) => {
   return (
     <div className="item-product">
       {cardData && (
-        <Link to={cardData.link}>
+        <Link route="Devices" params={{ link: cardData.link.slice(1) }}>
           <div
             className="item-product__banner"
             style={{ backgroundImage: `url(${cardData.imgUrl})` }}

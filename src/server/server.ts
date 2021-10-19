@@ -8,7 +8,7 @@ import { sliderImages } from './sliderImages';
 import { tags } from './tags';
 import { categoriesTypes } from './categoriesTypes';
 import { promotions } from './promotions';
-import { phonesCard, laptopsCard, gadgetsCard } from './recommended';
+import { devicesCards } from './recommended';
 import { collection } from './collection';
 import { UserController } from './controllers/user-controller';
 
@@ -76,16 +76,8 @@ server.get('/promotions', (request, response) => {
   response.json(promotions);
 });
 
-server.get('/phones-card', (request, response) => {
-  response.json(phonesCard);
-});
-
-server.get('/laptops-card', (request, response) => {
-  response.json(laptopsCard);
-});
-
-server.get('/gadgets-card', (request, response) => {
-  response.json(gadgetsCard);
+server.get('/devices-cards', (request, response) => {
+  response.json(devicesCards);
 });
 
 server.get('/collection', (request, response) => {
