@@ -608,7 +608,7 @@ export const phones = [
     model: 'iPhone 11',
     color: 'Black',
     weight: 194,
-    popularity: 86,
+    popularity: 100,
     manufacturer: 'Apple',
     imageUrl:
       'https://darwin.md/images/product/2020/11/apple_iphone_11_black1a.webp',

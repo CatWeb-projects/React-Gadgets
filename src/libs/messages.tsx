@@ -437,6 +437,11 @@ export const messages = createMessages([
       en: 'USB Conectors',
       ru: 'USB разъёмы',
       ro: 'Conectoare USB'
+    },
+    interface: {
+      en: 'Interface',
+      ru: 'Интерфейс',
+      ro: 'Interfață'
     }
   },
   {

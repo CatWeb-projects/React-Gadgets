@@ -3,6 +3,7 @@ import { useParams } from 'estafette-router';
 import { DeviceContext } from 'contexts/Devices-Context';
 import { Footer, Header, Products } from 'ui/organims';
 import { Categories } from 'ui/molecules';
+import { useScrollToTop } from 'hooks/useScrollToTop';
 
 export const Devices = () => {
   const { devicesData } = React.useContext(DeviceContext);
@@ -17,6 +18,8 @@ export const Devices = () => {
       setFilter(devicesData.filter((item) => item.manufacturer === 'Apple'));
     }
   }, [devicesData, link]);
+
+  useScrollToTop();
 
   return (
     <div className="main-container">

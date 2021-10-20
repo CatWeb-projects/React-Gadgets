@@ -38,4 +38,5 @@ export interface DevicesProps {
   audioFrequency?: string;
   audioFormats?: string[];
   usbConnectors?: number;
+  interface?: string[];
 }

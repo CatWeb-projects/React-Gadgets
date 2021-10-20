@@ -37,6 +37,11 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                         to={
                           deviceData.colors.length === 1
                             ? `/device/${deviceData.link}`
+                            : deviceData.memoryOptions === undefined
+                            ? `/device/${deviceData.link
+                                .split('-')
+                                .slice(0, -1)
+                                .join('-')}-${color}`
                             : `/device/${deviceData.link
                                 .split('-')
                                 .slice(0, -3)
@@ -46,7 +51,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                       >
                         <div
                           className={
-                            color === deviceData.color.toLowerCase()
+                            deviceData.color.toLowerCase().match(color)
                               ? 'device-color is-active'
                               : 'device-color'
                           }
@@ -219,6 +224,11 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 {deviceData.usbConnectors && (
                   <li>
                     {t('usbConnectors')} : {deviceData.usbConnectors}
+                  </li>
+                )}
+                {deviceData.interface && (
+                  <li>
+                    {t('interface')} : {deviceData.interface.join(', ')}
                   </li>
                 )}
               </ul>

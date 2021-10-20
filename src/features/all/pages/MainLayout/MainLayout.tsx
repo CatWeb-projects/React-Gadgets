@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRequest } from 'estafette';
 import { DeviceContext } from 'contexts/Devices-Context';
-import { DevicesCardProps, recommended } from 'libs/http/api';
+import { DevicesCardProps, DevicesProps, recommended } from 'libs/http/api';
 import { SlickSlider, Header, Recommended, Footer } from 'ui/organims';
 import {
   Promotions,
@@ -14,8 +14,14 @@ import {
 
 import './MainLayout.scss';
 
+const CardKeys: { [key: string]: string } = {
+  phones: 'smartphones',
+  laptops: 'laptops',
+  gadgets: 'gadgets'
+};
+
 export const MainLayout = () => {
-  const { devicesData } = React.useContext<any>(DeviceContext);
+  const { devicesData } = React.useContext(DeviceContext);
   const { request, data: devicesCards } = useRequest<DevicesCardProps[]>();
 
   React.useEffect(() => {
@@ -27,7 +33,32 @@ export const MainLayout = () => {
 
   const onFetch = () => request(recommended.devices.action());
 
-  React.useEffect(() => {}, []);
+  // const { phonesCardData, phonesDeviceData } = React.useMemo(
+  //   () => ({
+  //     phonesCardData: devicesCards.find((card: DevicesCardProps) => card.name === 'phones'),
+  //     phonesDeviceData: devicesData.filter(
+  //       (device: DevicesProps) => device.type === 'smartphones'
+  //     )
+  //   }),
+  //   [devicesData, devicesCards]
+  // );
+
+  const filtering = React.useMemo(
+    () =>
+      Object.keys(CardKeys).reduce(
+        (acc, i) => ({
+          ...acc,
+          [`${i}CardData`]: devicesCards.find(
+            (card: DevicesCardProps) => card.name === i
+          ),
+          [`${i}DeviceData`]: devicesData.filter(
+            (device: DevicesProps) => device.type === CardKeys[i]
+          )
+        }),
+        {} as any
+      ),
+    [devicesData, devicesCards]
+  );
 
   return (
     <div className="main-container">
@@ -37,24 +68,18 @@ export const MainLayout = () => {
       <Categories />
       <Promotions />
       <Recommended
-        cardData={devicesCards.find((card: any) => card.name === 'phones')}
-        devicesData={devicesData.filter(
-          (device: any) => device.type === 'smartphones'
-        )}
+        cardData={filtering.phonesCardData}
+        devicesData={filtering.phonesDeviceData}
       />
       <ServiceSection />
       <Recommended
-        cardData={devicesCards.find((card: any) => card.name === 'laptops')}
-        devicesData={devicesData.filter(
-          (device: any) => device.type === 'laptops'
-        )}
+        cardData={filtering.laptopsCardData}
+        devicesData={filtering.laptopsDeviceData}
       />
       <Collection />
       <Recommended
-        cardData={devicesCards.find((card: any) => card.name === 'gadgets')}
-        devicesData={devicesData.filter(
-          (device: any) => device.type === 'gadgets'
-        )}
+        cardData={filtering.gadgetsCardData}
+        devicesData={filtering.gadgetsDeviceData}
       />
       <Features />
       <Footer />
