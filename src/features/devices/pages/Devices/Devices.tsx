@@ -16,6 +16,7 @@ export const Devices = () => {
     if (link === 'apple') {
       setFilter(devicesData.filter((item) => item.manufacturer === 'Apple'));
     }
+    window.scrollTo(0, 0);
   }, [devicesData, link]);
 
   return (
