@@ -272,5 +272,34 @@ export const laptops = [
     videoCard: 'Intel UHD Graphics',
     display: '14"',
     displayType: 'TN'
+  },
+  {
+    id: 111,
+    name: 'Macbook Air 13 2020 (MGN63RU/A), Space Gray',
+    price: 23000,
+    credit: 2300,
+    cashback: 3000,
+    model: '13 (2020)',
+    color: 'Space Gray',
+    weight: 1290,
+    popularity: 100,
+    manufacturer: 'Apple',
+    imageUrl:
+      'https://darwin.md/images/product/2020/11/apple_macbook_air_13_2020_space_gray_1-201125044609-darwin.webp',
+    type: 'laptops',
+    segment: 'Home & Office',
+    link: `macbook-air-13-2020-apple-space-gray-mgn63rua`,
+    colors: ['darkgrey'],
+    chipset: 'M1',
+    cores: 8,
+    chipsetFrequency: '600 - 3200 MHz',
+    resolution: '2560 x 1600',
+    hardDrive: 256,
+    memory: 8,
+    videoCard: 'Integrated',
+    display: '13.3"',
+    displayType: 'IPS',
+    workingTimeHours: 18,
+    usbConnectors: 2
   }
 ];
