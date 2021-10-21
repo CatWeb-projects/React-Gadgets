@@ -1,6 +1,6 @@
 import axios, { Canceler } from 'axios';
 import { baseUrl } from '../baseUrl';
-import { CollectionProps } from './collection.type';
+import { CollectionProps } from './collection.types';
 
 const { CancelToken } = axios;
 

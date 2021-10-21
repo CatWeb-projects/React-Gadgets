@@ -7,7 +7,7 @@ import { catalog, DevicesProps } from 'libs/http/api';
 
 export const DeviceInfo = () => {
   const { link } = useParams<{ link: string }>();
-  const { request, data } = useRequest<DevicesProps>();
+  const { request, data: deviceData } = useRequest<DevicesProps>();
 
   React.useEffect(() => {
     onFetch();
@@ -19,8 +19,6 @@ export const DeviceInfo = () => {
   }, [link]);
 
   const onFetch = () => request(catalog.device.action(link));
-
-  const deviceData = React.useMemo(() => data, [data]);
 
   return (
     <div className="main-container">

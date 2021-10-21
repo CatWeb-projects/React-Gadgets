@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './SlickSlider.scss';
 
 export const SlickSlider = () => {
-  const { request, data } = useRequest<SliderProps[]>({ data: [] });
+  const { request, data: sliderData } = useRequest<SliderProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -21,8 +21,6 @@ export const SlickSlider = () => {
   }, []);
 
   const onFetch = () => request(slider.action());
-
-  const sliderData = React.useMemo(() => data, [data]);
 
   const settings = {
     dots: true,

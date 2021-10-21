@@ -3,20 +3,20 @@ import { useRequest } from 'estafette';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { DeviceContext } from 'contexts/Devices-Context';
-import { auth } from 'libs/http/api';
+import { Auth, auth } from 'libs/http/api';
 import { Search } from 'ui/organims';
 import { Button, Icon } from 'ui/atoms';
 
 import './Header.scss';
 
 export const Header = () => {
-  const { request, data, errors } = useRequest<any>();
-  const { t, locale, setLocale } = useIntl();
-
   const { authVerify, setAuthVerify } = React.useContext(DeviceContext);
   const [profile, setProfile] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
+
+  const { request, data, errors } = useRequest<Auth>();
+  const { t, locale, setLocale } = useIntl();
 
   const onChangeLanguage = (value: string) => {
     setLocale(value);
@@ -52,48 +52,35 @@ export const Header = () => {
   }, [data]);
 
   const onRegistration = (email: string, password: string) => {
-    try {
-      request(
-        auth.registration.action({
-          email,
-          password
-        })
-      );
-      if (authVerify) {
-        setEmail('');
-      }
-      setPassword('');
-    } catch (e) {
-      console.log(e);
+    request(
+      auth.registration.action({
+        email,
+        password
+      })
+    );
+    if (authVerify) {
+      setEmail('');
     }
+    setPassword('');
   };
 
   const onLogin = (email: string, password: string) => {
-    try {
-      request(
-        auth.login.action({
-          email,
-          password
-        })
-      );
-      if (authVerify) {
-        setEmail('');
-      }
-      setPassword('');
-    } catch (e) {
-      console.log(e);
+    request(
+      auth.login.action({
+        email,
+        password
+      })
+    );
+    if (authVerify) {
+      setEmail('');
     }
+    setPassword('');
   };
 
   const onLogout = (refreshToken: string) => {
-    try {
-      request(auth.logout.action(refreshToken));
-      localStorage.removeItem('refresh-token');
-
-      setAuthVerify(false);
-    } catch (e) {
-      console.log(e);
-    }
+    request(auth.logout.action(refreshToken));
+    localStorage.removeItem('refresh-token');
+    setAuthVerify(false);
   };
 
   const user = React.useMemo(() => data.user, [data]);
@@ -143,7 +130,7 @@ export const Header = () => {
           {authVerify ? (
             <div className="header__user">
               <Button
-                onClick={() => onLogout(user?.refreshToken)}
+                onClick={() => onLogout(data?.refreshToken)}
                 className="logged-in"
               >
                 <Icon type="user" />

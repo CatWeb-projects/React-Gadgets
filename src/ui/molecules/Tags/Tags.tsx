@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './Tags.scss';
 
 export const Tags = () => {
-  const { request, data } = useRequest<TagsProps[]>();
+  const { request, data: tagsData } = useRequest<TagsProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -33,8 +33,8 @@ export const Tags = () => {
   return (
     <div className="tags">
       <Slider {...settings}>
-        {data &&
-          data.map((tag) => (
+        {tagsData &&
+          tagsData.map((tag) => (
             <Link to={tag.link} key={tag.id}>
               {tag.tagName}
             </Link>

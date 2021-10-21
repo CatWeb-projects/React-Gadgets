@@ -52,7 +52,7 @@ export const Search = () => {
       <input
         type="text"
         style={
-          searchValue && searchDevices && searchDevices.length !== 0
+          searchValue && searchDevices?.length !== 0
             ? { borderRadius: '8px 8px 0 0' }
             : {}
         }

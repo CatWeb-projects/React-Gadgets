@@ -99,6 +99,16 @@ export const messages = createMessages([
       en: 'Save up to 800$',
       ru: 'Скидки до 14000 лей',
       ro: 'Reduceri până la 14000 lei'
+    },
+    tv: {
+      en: 'Discounts on TVs',
+      ru: 'Скидки на Телевизоры',
+      ro: 'Reduceri la Televizoare'
+    },
+    tv_discounts: {
+      en: 'Best Money Save',
+      ru: 'Лучшая Экономия Денег',
+      ro: 'Salveaza Bugetul'
     }
   },
   {

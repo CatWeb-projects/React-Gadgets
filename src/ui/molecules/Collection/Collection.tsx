@@ -8,7 +8,7 @@ import './Collection.scss';
 
 export const Collection = () => {
   const { t } = useIntl();
-  const { request, data } = useRequest<CollectionProps[]>();
+  const { request, data: collectionData } = useRequest<CollectionProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -20,8 +20,6 @@ export const Collection = () => {
   }, []);
 
   const onFetch = () => request(collection.action());
-
-  const collectionData = React.useMemo(() => data, [data]);
 
   return (
     <div className="collection">

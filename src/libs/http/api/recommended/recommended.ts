@@ -1,6 +1,6 @@
 import axios, { Canceler } from 'axios';
 import { baseUrl } from '../baseUrl';
-import { DevicesCardProps } from './recommended.type';
+import { DevicesCardProps } from './recommended.types';
 
 const { CancelToken } = axios;
 
