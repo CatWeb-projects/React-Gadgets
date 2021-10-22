@@ -4,10 +4,11 @@ import { DeviceContext } from 'contexts/Devices-Context';
 import { Footer, Header, Products } from 'ui/organims';
 import { Categories } from 'ui/molecules';
 import { useScrollToTop } from 'hooks/useScrollToTop';
+import { DevicesProps } from 'libs/http/api';
 
 export const Devices = () => {
   const { devicesData } = React.useContext(DeviceContext);
-  const [filter, setFilter] = React.useState<any>();
+  const [filter, setFilter] = React.useState<DevicesProps[]>([]);
   const { link } = useParams<{ link: string }>();
 
   React.useEffect(() => {

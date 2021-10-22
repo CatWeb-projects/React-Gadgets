@@ -321,7 +321,7 @@ export const gadgets = [
     type: 'gadgets',
     segment: 'Action Camera',
     link: 'gopro-hero-8-black',
-    colors: ['black', 'pink', 'blue', 'orange', 'gray'],
+    colors: ['black'],
     resolution: '3840 x 2160',
     display: '1.65"',
     displayType: 'AMOLED',

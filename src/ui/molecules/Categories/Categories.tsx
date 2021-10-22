@@ -7,8 +7,10 @@ import { categoriesTypes, CategoriesTypesProps } from 'libs/http/api';
 import './Categories.scss';
 
 export const Categories = () => {
+  const { request, data: categoriesData } =
+    useRequest<CategoriesTypesProps[]>();
+
   const { t } = useIntl();
-  const { request, data } = useRequest<CategoriesTypesProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -20,8 +22,6 @@ export const Categories = () => {
   }, []);
 
   const onFetch = () => request(categoriesTypes.action());
-
-  const categoriesData = React.useMemo(() => data, [data]);
 
   return (
     <div className="categories">

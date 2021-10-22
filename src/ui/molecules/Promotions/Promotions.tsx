@@ -8,7 +8,7 @@ import './Promotions.scss';
 
 export const Promotions = () => {
   const { t } = useIntl();
-  const { request, data } = useRequest<PromotionsProps[]>();
+  const { request, data: promotionsData } = useRequest<PromotionsProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -20,8 +20,6 @@ export const Promotions = () => {
   }, []);
 
   const onFetch = () => request(promotions.action());
-
-  const promotionsData = React.useMemo(() => data, [data]);
 
   return (
     <div className="promotions">

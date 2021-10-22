@@ -11,7 +11,7 @@ import {
 export interface Route {
   name: string;
   path: string;
-  component: any;
+  component: React.ReactNode;
   exact?: boolean;
   label?: string;
   parent?: string;

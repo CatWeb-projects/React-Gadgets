@@ -62,7 +62,7 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
                   type="black"
                   className={
                     authVerify &&
-                    favorites.find((item: any) => item.name === product.name)
+                    favorites.find((item) => item.name === product.name)
                       ? 'added-to-favorites'
                       : ''
                   }
