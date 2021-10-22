@@ -12,8 +12,9 @@ interface Props {
 }
 
 export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
-  const { authVerify, favorites, addFavorites } =
+  const { authVerify, favorites, userSave, addFavorites } =
     React.useContext(DeviceContext);
+
   const { t } = useIntl();
 
   return (
@@ -246,7 +247,11 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     size="full-width"
                     className={
                       authVerify &&
-                      favorites.find((item) => item.name === deviceData.name)
+                      favorites.find(
+                        (item) =>
+                          item.name === deviceData.name &&
+                          item.email === userSave
+                      )
                         ? 'added-to-favorites'
                         : ''
                     }

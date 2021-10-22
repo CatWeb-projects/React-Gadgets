@@ -1,6 +1,7 @@
 export interface DevicesProps {
   id: number;
   name: string;
+  email?: string;
   price: number;
   credit?: number;
   cashback?: number;

@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const ProductItem: React.FC<Props> = ({ product }) => {
-  const { authVerify, favorites, addFavorites } =
+  const { authVerify, userSave, favorites, addFavorites } =
     React.useContext(DeviceContext);
   const { t } = useIntl();
 
@@ -62,7 +62,10 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
                   type="black"
                   className={
                     authVerify &&
-                    favorites.find((item) => item.name === product.name)
+                    favorites.find(
+                      (item) =>
+                        item.name === product.name && item.email === userSave
+                    )
                       ? 'added-to-favorites'
                       : ''
                   }
