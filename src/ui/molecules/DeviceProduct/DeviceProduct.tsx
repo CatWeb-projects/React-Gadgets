@@ -56,7 +56,9 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                               ? 'device-color is-active'
                               : 'device-color'
                           }
-                          style={{ backgroundColor: color }}
+                          style={{
+                            backgroundColor: Object.values(color).join('')
+                          }}
                         ></div>
                       </Link>
                     ))}
@@ -230,6 +232,63 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 {deviceData.interface && (
                   <li>
                     {t('interface')} : {deviceData.interface.join(', ')}
+                  </li>
+                )}
+                {deviceData.material && (
+                  <li>
+                    {t('material')} : {t(`${deviceData.material}`)}
+                  </li>
+                )}
+                {deviceData.supportedCapacity && (
+                  <li>
+                    {t('supportedWeight')} : {deviceData.supportedCapacity}
+                    {t('kilogram')}
+                  </li>
+                )}
+                {deviceData.maxSpeed && (
+                  <li>
+                    {t('maxSpeed')} : {deviceData.maxSpeed}km/h
+                  </li>
+                )}
+                {deviceData.batteryType && (
+                  <li>
+                    {t('batteryType')} : {deviceData.batteryType}
+                  </li>
+                )}
+                {deviceData.errorRange && (
+                  <li>
+                    {t('errorRange')} : {deviceData.errorRange}
+                  </li>
+                )}
+                {deviceData.measurementLevel && (
+                  <li>
+                    {t('measurementLevel')} : {deviceData.measurementLevel}
+                  </li>
+                )}
+                {deviceData.sensitivity && (
+                  <li>
+                    {t('sensitivity')} : {deviceData.sensitivity} dB
+                  </li>
+                )}
+                {deviceData.impendance && (
+                  <li>
+                    {t('impendance')} : {deviceData.impendance} Ω
+                  </li>
+                )}
+                {deviceData.microphone && (
+                  <li>
+                    {t('microphone')} :{' '}
+                    {deviceData.microphone === true ? t('true') : t('false')}
+                  </li>
+                )}
+                {deviceData.connectionType && (
+                  <li>
+                    {t('connectionType')} : {t(`${deviceData.connectionType}`)}
+                  </li>
+                )}
+                {deviceData.wireLength && (
+                  <li>
+                    {t('wireLength')} : {deviceData.wireLength}
                   </li>
                 )}
               </ul>

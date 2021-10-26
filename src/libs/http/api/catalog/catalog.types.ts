@@ -40,4 +40,15 @@ export interface DevicesProps {
   audioFormats?: string[];
   usbConnectors?: number;
   interface?: string[];
+  material: string | string[];
+  supportedCapacity: number;
+  maxSpeed: number;
+  batteryType: string;
+  errorRange: string;
+  measurementLevel: string;
+  sensitivity: number;
+  impendance: number;
+  connectionType: string;
+  wireLength: number;
+  microphone: boolean;
 }

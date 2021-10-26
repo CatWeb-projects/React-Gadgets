@@ -118,7 +118,10 @@ export const audio = [
     link: 'hyperx-cloud-alpha-s-hx-hscas-blue',
     colors: ['blue', 'black'],
     audioFrequency: '50 Hz - 18 kHz',
-    interface: ['USB', '3.5 mm jack']
+    interface: ['USB', '3.5 mm jack'],
+    microphone: true,
+    connectionType: 'wired',
+    wireLength: 1.8
   },
   {
     id: 2006,
@@ -138,7 +141,10 @@ export const audio = [
     link: 'hyperx-cloud-alpha-s-hx-hscas-black',
     colors: ['blue', 'black'],
     audioFrequency: '50 Hz - 18 kHz',
-    interface: ['USB', '3.5 mm jack']
+    interface: ['USB', '3.5 mm jack'],
+    microphone: true,
+    connectionType: 'wired',
+    wireLength: 1.8
   },
   {
     id: 2007,
@@ -158,6 +164,76 @@ export const audio = [
     link: 'razer-seiren-mini-black-rz19',
     colors: ['black'],
     audioFrequency: '20 Hz - 20 kHz',
-    interface: ['USB']
+    interface: ['USB'],
+    sensitivity: 110
+  },
+  {
+    id: 2008,
+    name: 'Microfon Gaming HyperX QuadCast S, Black',
+    price: 3400,
+    credit: 340,
+    cashback: 400,
+    model: 'QuadCast S',
+    color: 'Black',
+    weight: 710,
+    popularity: 65,
+    manufacturer: 'HyperX',
+    imageUrl:
+      'https://darwin.md/images/product/2020/11/huperx_quadcast_s_black_1.webp',
+    type: 'audio',
+    segment: 'Microphone',
+    link: 'hyperx-quadcast-s-black',
+    colors: ['black'],
+    audioFrequency: '20 Hz - 20 kHz',
+    interface: ['USB Type-C', 'RGB'],
+    sensitivity: 36,
+    impendance: 32,
+    connectionType: 'wired',
+    wireLength: 3
+  },
+  {
+    id: 2009,
+    name: 'Microfon Gaming HyperX QuadCast, Black',
+    price: 2600,
+    credit: 260,
+    cashback: 300,
+    model: 'QuadCast',
+    color: 'Black',
+    weight: 710,
+    popularity: 90,
+    manufacturer: 'HyperX',
+    imageUrl:
+      'https://darwin.md/images/product/2020/10/hyper_x_quadcast_black_1.webp',
+    type: 'audio',
+    segment: 'Microphone',
+    link: 'hyperx-quadcast-black',
+    colors: ['black'],
+    audioFrequency: '20 Hz - 20 kHz',
+    interface: ['miniUSB'],
+    sensitivity: 36,
+    impendance: 32,
+    connectionType: 'wired',
+    wireLength: 3
+  },
+  {
+    id: 2010,
+    name: 'Microfon Gaming Razer Seiren X, Black',
+    price: 2500,
+    credit: 250,
+    cashback: 250,
+    model: 'Seiren X',
+    color: 'Black',
+    weight: 383,
+    popularity: 87,
+    manufacturer: 'Razer',
+    imageUrl:
+      'https://darwin.md/images/product/2021/02/razer_seiren_x_black_2.webp',
+    type: 'audio',
+    segment: 'Microphone',
+    link: 'gaming-razer-seiren-x-black',
+    colors: ['black', 'white'],
+    audioFrequency: '20 Hz - 20 kHz',
+    interface: ['USB'],
+    sensitivity: 110
   }
 ];
