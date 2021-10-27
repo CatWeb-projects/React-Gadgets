@@ -1,69 +1,33 @@
 import React from 'react';
 import { useRequest } from 'estafette';
-import { catalog } from 'libs/http/api';
+import { catalog, DevicesProps } from 'libs/http/api';
 
 interface ProviderProps {
   children: React.ReactNode;
-}
-
-interface DevicesProps {
-  id: number;
-  name: string;
-  price: number;
-  credit?: number;
-  cashback?: number;
-  model: string;
-  color: string;
-  weight: number;
-  popularity: number;
-  manufacturer: string;
-  imageUrl: string;
-  type: string;
-  link: string;
-  colors: string[];
-  memoryOptions: number[];
-  camera?: number;
-  frontCamera?: number;
-  chipset?: string;
-  resolution?: string;
-  hardDrive?: number;
-  memory?: number;
-  cores?: number;
-  chipsetFrequency?: string;
-  segment?: string;
-  display?: string;
-  displayType?: string;
-  videoCard?: string;
-  videoCardMemory?: string;
-  touchScreen?: boolean;
-  chargingTime?: number;
-  workingTimeDays?: number;
-  workingTimeHours?: number;
-  batteryCapacity?: number;
-  bluetooth?: number;
-  power?: number;
-  workingDistance?: number;
-  audioFrequency?: string;
-  audioFormats?: string[];
-  usbConnectors?: number;
 }
 
 interface Props {
   devicesData: DevicesProps[];
   favorites: DevicesProps[];
   authVerify: boolean;
+  userSave: string;
+  userFavorites: DevicesProps[];
   setFavorites: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setAuthVerify: React.Dispatch<React.SetStateAction<boolean>>;
   addFavorites: (product: DevicesProps) => void;
+  setUserSave: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const defaultValue = {
   devicesData: [],
   favorites: [],
   authVerify: false,
+  userSave: '',
+  userFavorites: [],
   setFavorites: () => {},
   setAuthVerify: () => {},
-  addFavorites: () => {}
+  addFavorites: () => {},
+  setUserSave: () => {}
 };
 
 export const DeviceContext = React.createContext<Props>(defaultValue);
@@ -71,6 +35,7 @@ export const DeviceContext = React.createContext<Props>(defaultValue);
 export const ProviderContext = (props: ProviderProps) => {
   const [favorites, setFavorites] = React.useState<DevicesProps[]>([]);
   const [authVerify, setAuthVerify] = React.useState<boolean>(false);
+  const [userSave, setUserSave] = React.useState<string>('');
 
   const { request, data: devicesData } = useRequest<DevicesProps[]>();
 
@@ -101,15 +66,26 @@ export const ProviderContext = (props: ProviderProps) => {
       if (
         authVerify &&
         product &&
-        favorites.find((item) => product.name === item.name)
+        favorites.find(
+          (item) => product.name === item.name && item.email === userSave
+        )
       ) {
         setFavorites(favorites.filter((item) => product.name !== item.name));
       } else if (authVerify && product) {
-        setFavorites([...favorites, product]);
+        setFavorites([...favorites, { ...product, email: userSave }]);
       }
       // eslint-disable-next-line
     },
-    [authVerify, favorites]
+    [authVerify, favorites, userSave]
+  );
+
+  const { userFavorites } = React.useMemo(
+    () => ({
+      userFavorites: favorites.filter(
+        (favorite: DevicesProps) => favorite.email === userSave
+      )
+    }),
+    [favorites, userSave]
   );
 
   const values = {
@@ -118,7 +94,10 @@ export const ProviderContext = (props: ProviderProps) => {
     setAuthVerify,
     favorites,
     setFavorites,
-    addFavorites
+    addFavorites,
+    userSave,
+    setUserSave,
+    userFavorites
   };
 
   const { children } = props;

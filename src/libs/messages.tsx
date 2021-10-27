@@ -418,6 +418,11 @@ export const messages = createMessages([
       ru: 'Ёмкость аккумулятора',
       ro: 'Capacitate acumulator'
     },
+    batteryType: {
+      en: 'Battery type',
+      ru: 'Тип батареи',
+      ro: 'Tipul bateriei'
+    },
     mah: {
       en: 'mAh',
       ru: 'мАч',
@@ -452,6 +457,91 @@ export const messages = createMessages([
       en: 'Interface',
       ru: 'Интерфейс',
       ro: 'Interfață'
+    },
+    material: {
+      en: 'Material',
+      ru: 'Материал',
+      ro: 'Material'
+    },
+    plastic: {
+      en: 'Plastic',
+      ru: 'Пластик',
+      ro: 'Plastic'
+    },
+    metal: {
+      en: 'Metal',
+      ru: 'Метал',
+      ro: 'Metal'
+    },
+    supportedWeight: {
+      en: 'Maximum supported weight',
+      ru: 'Максимальный вес',
+      ro: 'Greutate maximă suportată'
+    },
+    maxSpeed: {
+      en: 'Max speed',
+      ru: 'Макс скорость',
+      ro: 'Viteza max'
+    },
+    errorRange: {
+      en: 'Measurement error',
+      ru: 'Погрешность измерения',
+      ro: 'Marja de măsurare a erorii'
+    },
+    measurementLevel: {
+      en: 'Measurement level',
+      ru: 'Диапазон измерения',
+      ro: 'Nivelul de măsurare'
+    },
+    sensitivity: {
+      en: 'Sensivity',
+      ru: 'Чувствительность',
+      ro: 'Sensibilitate'
+    },
+    impendance: {
+      en: 'Impendance',
+      ru: 'Сопротивление',
+      ro: 'Impedanța'
+    },
+    connectionType: {
+      en: 'Connection type',
+      ru: 'Тип подключения',
+      ro: 'Tip conectivitate'
+    },
+    wired: {
+      en: 'Wired',
+      ru: 'Проводной',
+      ro: 'Cu fir'
+    },
+    wireLength: {
+      en: 'Wire length, m',
+      ru: 'Длина провода, м',
+      ro: 'Lungime fir, m'
+    },
+    microphone: {
+      en: 'Microphone',
+      ru: 'Микрофон',
+      ro: 'Microfon'
+    },
+    coldAir: {
+      en: 'Cold air',
+      ru: 'Холодный воздух',
+      ro: 'Aer rece'
+    },
+    temperatureLevels: {
+      en: 'Temperature levels',
+      ru: 'Количество температурных режимов',
+      ro: 'Număr nivele de temperatură'
+    },
+    gears: {
+      en: 'Gears',
+      ru: 'Количество скоростей',
+      ro: 'Trepte de viteză'
+    },
+    dimensions: {
+      en: 'Dimensions',
+      ru: 'Размеры',
+      ro: 'Dimensiuni'
     }
   },
   {

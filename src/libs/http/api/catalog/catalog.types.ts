@@ -1,6 +1,7 @@
 export interface DevicesProps {
   id: number;
   name: string;
+  email?: string;
   price: number;
   credit?: number;
   cashback?: number;
@@ -39,4 +40,19 @@ export interface DevicesProps {
   audioFormats?: string[];
   usbConnectors?: number;
   interface?: string[];
+  material: string | string[];
+  supportedWeight: number;
+  maxSpeed: number;
+  batteryType: string;
+  errorRange: string;
+  measurementLevel: string;
+  sensitivity: number;
+  impendance: number;
+  connectionType: string;
+  wireLength: number;
+  microphone: boolean;
+  coldAir: boolean;
+  temperatureLevels: number;
+  gears: number;
+  dimensions: string;
 }

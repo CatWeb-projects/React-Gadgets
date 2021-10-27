@@ -10,7 +10,8 @@ import { Button, Icon } from 'ui/atoms';
 import './Header.scss';
 
 export const Header = () => {
-  const { authVerify, setAuthVerify } = React.useContext(DeviceContext);
+  const { authVerify, setAuthVerify, setUserSave } =
+    React.useContext(DeviceContext);
   const [profile, setProfile] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
@@ -42,12 +43,11 @@ export const Header = () => {
     if (data && data.refreshToken) {
       localStorage.setItem('refresh-token', data.refreshToken);
       setAuthVerify(true);
+      setUserSave(user.email);
       setProfile(false);
     }
 
-    return () => {
-      auth.checkAuth.cancel();
-    };
+    return () => {};
     // eslint-disable-next-line
   }, [data]);
 
@@ -81,6 +81,8 @@ export const Header = () => {
     request(auth.logout.action(refreshToken));
     localStorage.removeItem('refresh-token');
     setAuthVerify(false);
+    setUserSave('');
+    setEmail('');
   };
 
   const user = React.useMemo(() => data.user, [data]);
