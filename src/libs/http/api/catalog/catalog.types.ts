@@ -41,7 +41,7 @@ export interface DevicesProps {
   usbConnectors?: number;
   interface?: string[];
   material: string | string[];
-  supportedCapacity: number;
+  supportedWeight: number;
   maxSpeed: number;
   batteryType: string;
   errorRange: string;
@@ -51,4 +51,8 @@ export interface DevicesProps {
   connectionType: string;
   wireLength: number;
   microphone: boolean;
+  coldAir: boolean;
+  temperatureLevels: number;
+  gears: number;
+  dimensions: string;
 }

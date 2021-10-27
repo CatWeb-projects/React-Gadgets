@@ -522,6 +522,26 @@ export const messages = createMessages([
       en: 'Microphone',
       ru: 'Микрофон',
       ro: 'Microfon'
+    },
+    coldAir: {
+      en: 'Cold air',
+      ru: 'Холодный воздух',
+      ro: 'Aer rece'
+    },
+    temperatureLevels: {
+      en: 'Temperature levels',
+      ru: 'Количество температурных режимов',
+      ro: 'Număr nivele de temperatură'
+    },
+    gears: {
+      en: 'Gears',
+      ru: 'Количество скоростей',
+      ro: 'Trepte de viteză'
+    },
+    dimensions: {
+      en: 'Dimensions',
+      ru: 'Размеры',
+      ro: 'Dimensiuni'
     }
   },
   {

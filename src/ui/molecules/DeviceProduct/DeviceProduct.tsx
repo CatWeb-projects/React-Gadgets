@@ -239,9 +239,9 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('material')} : {t(`${deviceData.material}`)}
                   </li>
                 )}
-                {deviceData.supportedCapacity && (
+                {deviceData.supportedWeight && (
                   <li>
-                    {t('supportedWeight')} : {deviceData.supportedCapacity}
+                    {t('supportedWeight')} : {deviceData.supportedWeight}
                     {t('kilogram')}
                   </li>
                 )}
@@ -291,6 +291,27 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('wireLength')} : {deviceData.wireLength}
                   </li>
                 )}
+                {deviceData.coldAir && (
+                  <li>
+                    {t('coldAir')} :{' '}
+                    {deviceData.coldAir === true ? t('true') : t('false')}
+                  </li>
+                )}
+                {deviceData.temperatureLevels && (
+                  <li>
+                    {t('temperatureLevels')} : {deviceData.temperatureLevels}
+                  </li>
+                )}
+                {deviceData.gears && (
+                  <li>
+                    {t('gears')} : {deviceData.gears}
+                  </li>
+                )}
+                {deviceData.dimensions && (
+                  <li>
+                    {t('dimensions')} : {deviceData.dimensions}
+                  </li>
+                )}
               </ul>
               <div className="options-devices">
                 <div className="compare-devices">
@@ -322,18 +343,24 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
               </div>
             </div>
             <div className="device-product__info-buy">
-              <div className="device-product__info-price">
-                {`${deviceData.price} ${t('lei')}`}
-              </div>
+              {deviceData.price && (
+                <div className="device-product__info-price">
+                  {`${deviceData.price} ${t('lei')}`}
+                </div>
+              )}
               <Link to="/checkout" className="device-product__buy">
                 {t('buy')}
               </Link>
-              <div className="device-product__info-credit">{`${
-                deviceData.credit
-              } ${t('credit')}`}</div>
-              <div className="device-product__info-cashback">{`Cashback ${
-                deviceData.cashback
-              } ${t('lei')}`}</div>
+              {deviceData.credit && (
+                <div className="device-product__info-credit">{`${
+                  deviceData.credit
+                } ${t('credit')}`}</div>
+              )}
+              {deviceData.cashback && (
+                <div className="device-product__info-cashback">{`Cashback ${
+                  deviceData.cashback
+                } ${t('lei')}`}</div>
+              )}
               <Link to="/credit" className="device-product__credit">
                 {t('buy_credit')}
               </Link>
