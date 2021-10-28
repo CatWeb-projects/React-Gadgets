@@ -542,6 +542,51 @@ export const messages = createMessages([
       en: 'Dimensions',
       ru: 'Размеры',
       ro: 'Dimensiuni'
+    },
+    releaseDate: {
+      en: 'Release Date',
+      ru: 'Дата выхода',
+      ro: 'Data lansării'
+    },
+    wheelDiameter: {
+      en: 'Wheel diameter',
+      ru: 'Диаметр колес',
+      ro: 'Diametrul roții'
+    },
+    speedsNumber: {
+      en: 'Number of speeds',
+      ru: 'Количество скоростей',
+      ro: 'Numărul de viteze'
+    },
+    brakeType: {
+      en: 'Brake Type',
+      ru: 'Тип тормоза',
+      ro: 'Tipul frânei'
+    },
+    rimMaterial: {
+      en: 'Rim material',
+      ru: 'Материал обода',
+      ro: 'Material jantă'
+    },
+    aluminium: {
+      en: 'Aluminium',
+      ru: 'Алюминий',
+      ro: 'Aluminiu'
+    },
+    frameMaterial: {
+      en: 'Frame material',
+      ru: 'Материал рамы',
+      ro: 'Material cadru'
+    },
+    steel: {
+      en: 'Steel',
+      ru: 'Сталь',
+      ro: 'Oțel'
+    },
+    frameDiameter: {
+      en: 'Frame Diameter',
+      ru: 'Размер рамы',
+      ro: 'Dimensiune cadru'
     }
   },
   {

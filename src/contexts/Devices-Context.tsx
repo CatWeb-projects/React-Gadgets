@@ -70,7 +70,7 @@ export const ProviderContext = (props: ProviderProps) => {
           (item) => product.name === item.name && item.email === userSave
         )
       ) {
-        setFavorites(favorites.filter((item) => product.name !== item.name));
+        setFavorites(favorites.filter((item) => product.id !== item.id));
       } else if (authVerify && product) {
         setFavorites([...favorites, { ...product, email: userSave }]);
       }

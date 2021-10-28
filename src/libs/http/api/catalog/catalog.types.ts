@@ -55,4 +55,11 @@ export interface DevicesProps {
   temperatureLevels: number;
   gears: number;
   dimensions: string;
+  releaseDate: number;
+  wheelDiameter: number;
+  speedsNumber: number;
+  brakeType: string;
+  rimMaterial: string;
+  frameMaterial: string;
+  frameDiameter: number;
 }

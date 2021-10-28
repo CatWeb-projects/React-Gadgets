@@ -312,6 +312,41 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('dimensions')} : {deviceData.dimensions}
                   </li>
                 )}
+                {deviceData.releaseDate && (
+                  <li>
+                    {t('releaseDate')} : {deviceData.releaseDate}
+                  </li>
+                )}
+                {deviceData.wheelDiameter && (
+                  <li>
+                    {t('wheelDiameter')} : {deviceData.wheelDiameter}"
+                  </li>
+                )}
+                {deviceData.speedsNumber && (
+                  <li>
+                    {t('speedsNumber')} : {deviceData.speedsNumber}
+                  </li>
+                )}
+                {deviceData.brakeType && (
+                  <li>
+                    {t('brakeType')} : {deviceData.brakeType}
+                  </li>
+                )}
+                {deviceData.rimMaterial && (
+                  <li>
+                    {t('rimMaterial')} : {t(`${deviceData.rimMaterial}`)}
+                  </li>
+                )}
+                {deviceData.frameMaterial && (
+                  <li>
+                    {t('frameMaterial')} : {t(`${deviceData.frameMaterial}`)}
+                  </li>
+                )}
+                {deviceData.frameDiameter && (
+                  <li>
+                    {t('frameDiameter')} : {deviceData.frameDiameter}"
+                  </li>
+                )}
               </ul>
               <div className="options-devices">
                 <div className="compare-devices">
@@ -361,9 +396,11 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                   deviceData.cashback
                 } ${t('lei')}`}</div>
               )}
-              <Link to="/credit" className="device-product__credit">
-                {t('buy_credit')}
-              </Link>
+              {deviceData.credit && (
+                <Link to="/credit" className="device-product__credit">
+                  {t('buy_credit')}
+                </Link>
+              )}
             </div>
           </div>
         </div>

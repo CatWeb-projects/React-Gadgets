@@ -132,6 +132,7 @@ export const Header = () => {
           {authVerify ? (
             <div className="header__user">
               <Button
+                size="full-width"
                 onClick={() => onLogout(data?.refreshToken)}
                 className="logged-in"
               >
@@ -145,7 +146,7 @@ export const Header = () => {
             </div>
           ) : (
             <div className="header__user">
-              <Button onClick={() => onProfileClick()}>
+              <Button size="full-width" onClick={() => onProfileClick()}>
                 <Icon type="user" />
                 <span>{t('account')}</span>
               </Button>
