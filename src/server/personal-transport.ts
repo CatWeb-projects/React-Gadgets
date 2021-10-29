@@ -83,7 +83,7 @@ export const personalTransport = [
     popularity: 90,
     manufacturer: 'Xiaomi',
     imageUrl:
-      'https://darwin.md/images/product/2021/06/darwin-trotineta-electrica-xiaomi-mi-pro-2-black-fbc4025gl-2.webp',
+      'https://darwin.md/images/product/2021/06/darwin-trotineta-electrica-xiaomi-mi-pro-2-black-fbc4025gl-0.webp',
     type: 'personal-transport',
     segment: 'Kick Scooter',
     link: 'xiaomi-mijia-pro-2-black',

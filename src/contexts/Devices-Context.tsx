@@ -9,24 +9,32 @@ interface ProviderProps {
 interface Props {
   devicesData: DevicesProps[];
   favorites: DevicesProps[];
+  compare: DevicesProps[];
   authVerify: boolean;
   userSave: string;
   userFavorites: DevicesProps[];
+  userCompare: DevicesProps[];
   setFavorites: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
+  setCompare: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setAuthVerify: React.Dispatch<React.SetStateAction<boolean>>;
   addFavorites: (product: DevicesProps) => void;
+  addToCompare: (product: DevicesProps) => void;
   setUserSave: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const defaultValue = {
   devicesData: [],
   favorites: [],
+  compare: [],
   authVerify: false,
   userSave: '',
   userFavorites: [],
+  userCompare: [],
   setFavorites: () => {},
+  setCompare: () => {},
   setAuthVerify: () => {},
   addFavorites: () => {},
+  addToCompare: () => {},
   setUserSave: () => {}
 };
 
@@ -36,6 +44,7 @@ export const ProviderContext = (props: ProviderProps) => {
   const [favorites, setFavorites] = React.useState<DevicesProps[]>([]);
   const [authVerify, setAuthVerify] = React.useState<boolean>(false);
   const [userSave, setUserSave] = React.useState<string>('');
+  const [compare, setCompare] = React.useState<DevicesProps[]>([]);
 
   const { request, data: devicesData } = useRequest<DevicesProps[]>();
 
@@ -67,7 +76,7 @@ export const ProviderContext = (props: ProviderProps) => {
         authVerify &&
         product &&
         favorites.find(
-          (item) => product.name === item.name && item.email === userSave
+          (item) => product.id === item.id && item.email === userSave
         )
       ) {
         setFavorites(favorites.filter((item) => product.id !== item.id));
@@ -88,6 +97,43 @@ export const ProviderContext = (props: ProviderProps) => {
     [favorites, userSave]
   );
 
+  React.useEffect(() => {
+    const data = localStorage.getItem('compare');
+    if (data) {
+      return setCompare(JSON.parse(data));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('compare', JSON.stringify(compare));
+  }, [compare]);
+
+  const addToCompare = React.useCallback(
+    (product: DevicesProps) => {
+      if (
+        authVerify &&
+        product &&
+        compare.find(
+          (item) => item.id === product.id && item.email === userSave
+        )
+      ) {
+        setCompare(compare.filter((item) => item.id !== product.id));
+      } else if (compare.length > 2) {
+        setCompare((i) => i);
+      } else {
+        setCompare([...compare, { ...product, email: userSave }]);
+      }
+    },
+    [compare, userSave, authVerify]
+  );
+
+  const { userCompare } = React.useMemo(
+    () => ({
+      userCompare: compare.filter((item) => item.email === userSave)
+    }),
+    [compare, userSave]
+  );
+
   const values = {
     devicesData,
     authVerify,
@@ -97,7 +143,11 @@ export const ProviderContext = (props: ProviderProps) => {
     addFavorites,
     userSave,
     setUserSave,
-    userFavorites
+    userFavorites,
+    compare,
+    setCompare,
+    addToCompare,
+    userCompare
   };
 
   const { children } = props;

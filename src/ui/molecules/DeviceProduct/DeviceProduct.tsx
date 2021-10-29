@@ -12,10 +12,32 @@ interface Props {
 }
 
 export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
-  const { authVerify, favorites, userSave, addFavorites } =
-    React.useContext(DeviceContext);
+  const {
+    authVerify,
+    favorites,
+    userSave,
+    addFavorites,
+    addToCompare,
+    compare
+  } = React.useContext(DeviceContext);
 
   const { t } = useIntl();
+
+  const { userFavoritesFind, userCompareFind } = React.useMemo(
+    () => ({
+      userFavoritesFind:
+        authVerify &&
+        favorites.find(
+          (item) => item.id === deviceData?.id && item.email === userSave
+        ),
+      userCompareFind:
+        authVerify &&
+        compare.find(
+          (item) => item.id === deviceData?.id && item.email === userSave
+        )
+    }),
+    [favorites, userSave, deviceData, authVerify, compare]
+  );
 
   return (
     <div className="device-product">
@@ -350,7 +372,12 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
               </ul>
               <div className="options-devices">
                 <div className="compare-devices">
-                  <Button type="black" size="full-width">
+                  <Button
+                    type="black"
+                    size="full-width"
+                    onClick={() => addToCompare(deviceData)}
+                    className={userCompareFind ? 'added-to-compare' : ''}
+                  >
                     <Icon type="compare" />
                     {t('compare')}
                   </Button>
@@ -360,16 +387,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     onClick={() => addFavorites(deviceData)}
                     type="black"
                     size="full-width"
-                    className={
-                      authVerify &&
-                      favorites.find(
-                        (item) =>
-                          item.name === deviceData.name &&
-                          item.email === userSave
-                      )
-                        ? 'added-to-favorites'
-                        : ''
-                    }
+                    className={userFavoritesFind ? 'added-to-favorites' : ''}
                   >
                     <Icon type="heart" />
                     {t('favorites')}
