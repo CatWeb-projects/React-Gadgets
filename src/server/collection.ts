@@ -55,7 +55,7 @@ export const collection = [
     id: 1008,
     name: 'Transport',
     translate: 'transport',
-    link: '/transport',
+    link: 'categories/personal-transport',
     imgUrl:
       'https://gearscoot.com/wp-content/uploads/2017/09/inokim-scooter-singapore.jpg'
   }

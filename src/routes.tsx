@@ -1,4 +1,5 @@
 import {
+  Compare,
   DeviceInfo,
   Devices,
   Favorites,
@@ -33,4 +34,6 @@ export const routes: Route[] =
     {name: 'Favorites', path: '/favorites', component: Favorites},
 
     {name: 'Devices', path: '/categories/:link', component: Devices}, 
+
+    {name: 'Compare', path: '/compare', component: Compare},
   ];

@@ -587,6 +587,16 @@ export const messages = createMessages([
       en: 'Frame Diameter',
       ru: 'Размер рамы',
       ro: 'Dimensiune cadru'
+    },
+    manufacturer: {
+      en: 'Brand',
+      ru: 'Бренд',
+      ro: 'Brand'
+    },
+    model: {
+      en: 'Model',
+      ru: 'Модель',
+      ro: 'Model'
     }
   },
   {

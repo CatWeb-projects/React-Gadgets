@@ -1,0 +1,36 @@
+@import '~styles/mixins';
+@import '~styles/media-queries';
+
+.compare-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-rows: 1fr;
+  grid-gap: 0;
+  color: #fff;
+  font-size: rem(20px);
+  max-width: rem(1400px);
+  margin: rem(16px) auto;
+
+  > div {
+    width: rem(200px);
+    border: 1px solid #ebebeb;
+    border-width: 0 1px 1px 1px;
+    width: 100%;
+
+    > div {
+      border: 1px solid #ebebeb;
+      border-width: 1px 0 0 0;
+      padding: rem(0 10px);
+
+      // &:last-child {
+      //   border-bottom-width: 0;
+      // }
+    }
+  }
+
+  &__cards-image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: rem(50px);
+  }
+}

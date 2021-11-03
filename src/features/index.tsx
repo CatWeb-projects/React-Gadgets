@@ -5,3 +5,4 @@ export { Protection } from './protection/pages/Protection/Protection';
 export { SearchPage } from './search_page/pages/SearchPage/SearchPage';
 export { Tradein } from './tradein/pages/Tradein/Tradein';
 export { Devices } from './devices/pages/Devices/Devices';
+export { Compare } from './compare/pages/Compare/Compare';

@@ -25,6 +25,7 @@
     "mongoose": "^5.12.1",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.7",
+    "rc-table": "^7.19.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-inlinesvg": "^2.2.2",

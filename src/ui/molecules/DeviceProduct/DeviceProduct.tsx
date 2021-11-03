@@ -207,16 +207,16 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('chargingTime')} : {deviceData.chargingTime} {t('hours')}
                   </li>
                 )}
-                {deviceData.workingTimeDays ||
-                  (deviceData.workingTimeHours && (
-                    <li>
-                      {t('workingTime')} :{' '}
-                      {deviceData.workingTimeDays
-                        ? deviceData.workingTimeDays
-                        : deviceData.workingTimeHours}{' '}
-                      {deviceData.workingTimeDays ? t('days') : t('hours')}
-                    </li>
-                  ))}
+                {(deviceData.workingTimeDays ||
+                  deviceData.workingTimeHours) && (
+                  <li>
+                    {t('workingTime')} :{' '}
+                    {deviceData.workingTimeDays
+                      ? deviceData.workingTimeDays
+                      : deviceData.workingTimeHours}{' '}
+                    {deviceData.workingTimeDays ? t('days') : t('hours')}
+                  </li>
+                )}
                 {deviceData.batteryCapacity && (
                   <li>
                     {t('batteryCapacity')} : {deviceData.batteryCapacity}{' '}
