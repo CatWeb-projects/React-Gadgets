@@ -5,9 +5,10 @@ import { DeviceContext } from 'contexts/Devices-Context';
 
 import './CompareProducts.scss';
 
-const productProperty: any = {
+const productProperty = {
   manufacturer: 'manufacturer',
   model: 'model',
+  segment: 'segment',
   workingTimeDays: 'workingTime',
   power: 'power',
   display: 'display',
@@ -45,7 +46,7 @@ export const CompareProducts = () => {
           {activeProperties &&
             activeProperties.map((item, key) => (
               <div className="compare-products__cards-title" key={key}>
-                {t(`${item}`)}
+                {t(`${item === 'workingTimeDays' ? 'workingTime' : item}`)}
               </div>
             ))}
         </div>
@@ -53,31 +54,50 @@ export const CompareProducts = () => {
         {compare &&
           compare.map((item) => (
             <div className="compare-products__wrapper" key={item.id}>
-              {item.manufacturer ? (
+              {item.manufacturer !== undefined ? (
                 <div className="compare-products__cards-info">
                   {item.manufacturer}
                 </div>
+              ) : compare.some((item) => item.manufacturer) ? (
+                <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.model ? (
+              {item.model !== undefined ? (
                 <div className="compare-products__cards-info">{item.model}</div>
+              ) : compare.some((item) => item.model) ? (
+                <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.workingTimeDays !== undefined ? (
+              {item.segment !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.workingTimeDays}
-                  days
+                  {item.segment}
                 </div>
-              ) : item.workingTimeDays === undefined ? (
-                <div className="compare-products__cards-info">- days</div>
+              ) : compare.some((item) => item.segment) ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.workingTimeDays || item.workingTimeHours !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.workingTimeDays
+                    ? item.workingTimeDays
+                    : item.workingTimeHours}{' '}
+                  {item.workingTimeDays ? 'days' : 'hours'}
+                </div>
+              ) : compare.some(
+                  (item) => item.workingTimeDays || item.workingTimeHours
+                ) ? (
+                <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
               {item.power !== undefined ? (
-                <div className="compare-products__cards-info">{item.power}</div>
-              ) : [...compare, { ...item, power: item.power }].length > 0 ? (
+                <div className="compare-products__cards-info">
+                  {item.power} W
+                </div>
+              ) : compare.some((item) => item.power) ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
@@ -86,16 +106,16 @@ export const CompareProducts = () => {
                 <div className="compare-products__cards-info">
                   {item.display}
                 </div>
-              ) : item.display === undefined ? (
+              ) : compare.some((item) => item.display) ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
               {item.batteryCapacity !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.batteryCapacity}
+                  {item.batteryCapacity} {t('mah')}
                 </div>
-              ) : item.batteryCapacity === undefined ? (
+              ) : compare.some((item) => item.batteryCapacity) ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
@@ -104,7 +124,7 @@ export const CompareProducts = () => {
                 <div className="compare-products__cards-info">
                   {item.chipset}
                 </div>
-              ) : item.chipset === undefined ? (
+              ) : compare.some((item) => item.chipset) ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
