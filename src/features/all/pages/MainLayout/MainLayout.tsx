@@ -17,7 +17,8 @@ import './MainLayout.scss';
 const CardKeys: { [key: string]: string } = {
   phones: 'smartphones',
   laptops: 'laptops',
-  gadgets: 'gadgets'
+  gadgets: 'gadgets',
+  audio: 'audio'
 };
 
 export const MainLayout = () => {
@@ -75,6 +76,10 @@ export const MainLayout = () => {
       <Recommended
         cardData={filtering.laptopsCardData}
         devicesData={filtering.laptopsDeviceData}
+      />
+      <Recommended
+        cardData={filtering.audioCardData}
+        devicesData={filtering.audioDeviceData}
       />
       <Collection />
       <Recommended

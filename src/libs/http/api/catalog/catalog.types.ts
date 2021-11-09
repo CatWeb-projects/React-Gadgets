@@ -1,4 +1,5 @@
 export interface DevicesProps {
+  [key: string]: any;
   id: number;
   name: string;
   email?: string;

@@ -9,11 +9,22 @@ const productProperty = {
   manufacturer: 'manufacturer',
   model: 'model',
   segment: 'segment',
+  display: 'display',
+  displayType: 'displayType',
+  resolution: 'resolution',
+  color: 'color',
+  memory: 'ram',
+  hardDrive: 'memory',
   workingTimeDays: 'workingTime',
   power: 'power',
-  display: 'display',
   batteryCapacity: 'batteryCapacity',
-  chipset: 'chipset'
+  chipset: 'chipset',
+  cores: 'cores',
+  camera: 'camera',
+  frontCamera: 'frontCamera',
+  videoCard: 'videoCard',
+  videoCardMemory: 'videoCardMemory',
+  weight: 'weight'
 };
 
 export const CompareProducts = () => {
@@ -23,15 +34,29 @@ export const CompareProducts = () => {
 
   const activeProperties = React.useMemo(() => {
     const key = Object.keys(productProperty).filter((i) => {
-      const findProperties = compare.filter((item: any) => item[i]);
+      const findProperties = compare.filter((item) => item[i]);
       return findProperties.length > 0;
     });
     return key;
   }, [compare]);
 
+  const ProductProps = React.useMemo(
+    () =>
+      Object.keys(productProperty).reduce(
+        (acc, i) => ({
+          ...acc,
+          [`${i}`]: compare.some((item) => item[i])
+        }),
+        {} as any
+      ),
+
+    [compare]
+  );
+
   return (
     <div className="compare-products-main">
       <div className="compare-products-main__image-wrapper">
+        <div></div>
         {compare &&
           compare.map((item) => (
             <div className="compare-products-main__image" key={item.id}>
@@ -58,14 +83,14 @@ export const CompareProducts = () => {
                 <div className="compare-products__cards-info">
                   {item.manufacturer}
                 </div>
-              ) : compare.some((item) => item.manufacturer) ? (
+              ) : ProductProps.manufacturer ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
               {item.model !== undefined ? (
                 <div className="compare-products__cards-info">{item.model}</div>
-              ) : compare.some((item) => item.model) ? (
+              ) : ProductProps.model ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
@@ -74,7 +99,59 @@ export const CompareProducts = () => {
                 <div className="compare-products__cards-info">
                   {item.segment}
                 </div>
-              ) : compare.some((item) => item.segment) ? (
+              ) : ProductProps.segment ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.display !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.display}
+                </div>
+              ) : ProductProps.display ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.displayType !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.displayType}
+                </div>
+              ) : ProductProps.displayType ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.resolution !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.resolution} {t('px')}
+                </div>
+              ) : ProductProps.resolution ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.color !== undefined ? (
+                <div className="compare-products__cards-info">{item.color}</div>
+              ) : ProductProps.color ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.memory !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.memory} GB
+                </div>
+              ) : ProductProps.memory ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.hardDrive !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.hardDrive} GB
+                </div>
+              ) : ProductProps.hardDrive ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
@@ -84,11 +161,10 @@ export const CompareProducts = () => {
                   {item.workingTimeDays
                     ? item.workingTimeDays
                     : item.workingTimeHours}{' '}
-                  {item.workingTimeDays ? 'days' : 'hours'}
+                  {item.workingTimeDays ? t('days') : t('hours')}
                 </div>
-              ) : compare.some(
-                  (item) => item.workingTimeDays || item.workingTimeHours
-                ) ? (
+              ) : ProductProps.workingTimeDays ||
+                ProductProps.workingTimeHours ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
@@ -97,16 +173,7 @@ export const CompareProducts = () => {
                 <div className="compare-products__cards-info">
                   {item.power} W
                 </div>
-              ) : compare.some((item) => item.power) ? (
-                <div className="compare-products__cards-info">-</div>
-              ) : (
-                ''
-              )}
-              {item.display !== undefined ? (
-                <div className="compare-products__cards-info">
-                  {item.display}
-                </div>
-              ) : compare.some((item) => item.display) ? (
+              ) : ProductProps.power ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
@@ -115,7 +182,7 @@ export const CompareProducts = () => {
                 <div className="compare-products__cards-info">
                   {item.batteryCapacity} {t('mah')}
                 </div>
-              ) : compare.some((item) => item.batteryCapacity) ? (
+              ) : ProductProps.batteryCapacity ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
@@ -124,7 +191,64 @@ export const CompareProducts = () => {
                 <div className="compare-products__cards-info">
                   {item.chipset}
                 </div>
-              ) : compare.some((item) => item.chipset) ? (
+              ) : ProductProps.chipset ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.cores !== undefined ? (
+                <div className="compare-products__cards-info">{item.cores}</div>
+              ) : ProductProps.cores ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.camera !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.camera} {t('mpx')}
+                </div>
+              ) : ProductProps.camera ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.frontCamera !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.frontCamera} {t('mpx')}
+                </div>
+              ) : ProductProps.frontCamera ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.videoCard !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.videoCard}
+                </div>
+              ) : ProductProps.videoCard ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.videoCardMemory !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.videoCardMemory} GB
+                </div>
+              ) : ProductProps.videoCardMemory ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {item.weight !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {item.weight.toString().split('').length >= 4
+                    ? (item.weight * 0.001).toFixed(1)
+                    : item.weight}{' '}
+                  {item.weight.toString().split('').length >= 4
+                    ? t('kilogram')
+                    : t('gram')}
+                </div>
+              ) : ProductProps.weight ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''

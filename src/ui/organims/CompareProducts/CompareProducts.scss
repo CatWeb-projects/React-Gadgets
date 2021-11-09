@@ -3,24 +3,24 @@
 
 .compare-products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-template-rows: 1fr;
   grid-gap: 0;
   color: #fff;
-  font-size: rem(20px);
+  font-size: rem(22px);
   max-width: rem(1400px);
   margin: rem(16px) auto;
+  width: 100%;
 
   > div {
-    width: rem(200px);
-    border: 1px solid #ebebeb;
+    border: 1px solid #fff;
     border-width: 0 1px 1px 1px;
     width: 100%;
 
     > div {
-      border: 1px solid #ebebeb;
+      border: 1px solid #fff;
       border-width: 1px 0 0 0;
-      padding: rem(0 10px);
+      padding: rem(5px 10px);
 
       // &:last-child {
       //   border-bottom-width: 0;
@@ -35,18 +35,23 @@
 
   &__image-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-template-rows: 1fr;
     grid-gap: 0;
     max-width: rem(1400px);
     margin: rem(16px) auto;
+    width: 100%;
   }
 
   &__image {
+    display: flex;
+    justify-content: center;
+
     img {
       background-size: contain;
       background-repeat: no-repeat;
-      max-width: 100%;
+      width: 100%;
+      max-width: 400px;
     }
 
     &:first-child {

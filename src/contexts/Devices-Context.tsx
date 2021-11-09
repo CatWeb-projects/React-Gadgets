@@ -118,7 +118,7 @@ export const ProviderContext = (props: ProviderProps) => {
         )
       ) {
         setCompare(compare.filter((item) => item.id !== product.id));
-      } else if (compare.length > 5) {
+      } else if (compare.length > 3) {
         setCompare((i) => i);
       } else {
         setCompare([...compare, { ...product, email: userSave }]);
