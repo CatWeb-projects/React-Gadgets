@@ -233,7 +233,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 )}
                 {deviceData.workingDistance && (
                   <li>
-                    {t('workingDistance')} : {deviceData.workingDistance}m
+                    {t('workingDistance')} : {deviceData.workingDistance}
                   </li>
                 )}
                 {deviceData.audioFrequency && (

@@ -15,16 +15,46 @@ const productProperty = {
   color: 'color',
   memory: 'ram',
   hardDrive: 'memory',
+  chargingTime: 'chargingTime',
   workingTimeDays: 'workingTime',
+  workingTimeHours: 'workingTime',
   power: 'power',
   batteryCapacity: 'batteryCapacity',
+  batteryType: 'batteryType',
   chipset: 'chipset',
   cores: 'cores',
   camera: 'camera',
   frontCamera: 'frontCamera',
   videoCard: 'videoCard',
   videoCardMemory: 'videoCardMemory',
-  weight: 'weight'
+  weight: 'weight',
+  supportedWeight: 'supportedWeight',
+  touchScreen: 'touchScreen',
+  workingDistance: 'workingDistance',
+  audioFrequency: 'audioFrequency',
+  audioFormats: 'audioFormats',
+  usbConnectors: 'usbConnectors',
+  interface: 'interface',
+  material: 'material',
+  maxSpeed: 'maxSpeed',
+  errorRange: 'errorRange',
+  measurementLevel: 'measurementLevel',
+  sensitivity: 'sensitivity',
+  impendance: 'impendance',
+  microphone: 'microphone',
+  connectionType: 'connectionType',
+  wireLength: 'wireLength',
+  coldAir: 'coldAir',
+  temperatureLevels: 'temperatureLevels',
+  gears: 'gears',
+  dimensions: 'dimensions',
+  releaseDate: 'releaseDate',
+  wheelDiameter: 'wheelDiameter',
+  speedsNumber: 'speedsNumber',
+  brakeType: 'brakeType',
+  rimMaterial: 'rimMaterial',
+  frameMaterial: 'frameMaterial',
+  frameDiameter: 'frameDiameter'
 };
 
 export const CompareProducts = () => {
@@ -34,7 +64,7 @@ export const CompareProducts = () => {
 
   const activeProperties = React.useMemo(() => {
     const key = Object.keys(productProperty).filter((i) => {
-      const findProperties = compare.filter((item) => item[i]);
+      const findProperties = compare.filter((device) => device[i]);
       return findProperties.length > 0;
     });
     return key;
@@ -45,7 +75,7 @@ export const CompareProducts = () => {
       Object.keys(productProperty).reduce(
         (acc, i) => ({
           ...acc,
-          [`${i}`]: compare.some((item) => item[i])
+          [`${i}`]: compare.some((device) => device[i])
         }),
         {} as any
       ),
@@ -58,10 +88,10 @@ export const CompareProducts = () => {
       <div className="compare-products-main__image-wrapper">
         <div></div>
         {compare &&
-          compare.map((item) => (
-            <div className="compare-products-main__image" key={item.id}>
-              <Link route="DeviceInfo" params={{ link: item.link }}>
-                <img src={item.imageUrl} alt={item.name} />
+          compare.map((device) => (
+            <div className="compare-products-main__image" key={device.id}>
+              <Link route="DeviceInfo" params={{ link: device.link }}>
+                <img src={device.imageUrl} alt={device.name} />
               </Link>
             </div>
           ))}
@@ -69,99 +99,123 @@ export const CompareProducts = () => {
       <div className="compare-products">
         <div className="compare-products__title-wrapper">
           {activeProperties &&
-            activeProperties.map((item, key) => (
+            activeProperties.map((device, key) => (
               <div className="compare-products__cards-title" key={key}>
-                {t(`${item === 'workingTimeDays' ? 'workingTime' : item}`)}
+                {t(
+                  `${
+                    device === 'workingTimeDays' ||
+                    device === 'workingTimeHours'
+                      ? 'workingTime'
+                      : device
+                  }`
+                )}
               </div>
             ))}
         </div>
 
         {compare &&
-          compare.map((item) => (
-            <div className="compare-products__wrapper" key={item.id}>
-              {item.manufacturer !== undefined ? (
+          compare.map((device) => (
+            <div className="compare-products__wrapper" key={device.id}>
+              {device.manufacturer !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.manufacturer}
+                  {device.manufacturer}
                 </div>
               ) : ProductProps.manufacturer ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.model !== undefined ? (
-                <div className="compare-products__cards-info">{item.model}</div>
+              {device.model !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.model}
+                </div>
               ) : ProductProps.model ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.segment !== undefined ? (
+              {device.segment !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.segment}
+                  {device.segment}
                 </div>
               ) : ProductProps.segment ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.display !== undefined ? (
+              {device.display !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.display}
+                  {device.display}
                 </div>
               ) : ProductProps.display ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.displayType !== undefined ? (
+              {device.displayType !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.displayType}
+                  {device.displayType}
                 </div>
               ) : ProductProps.displayType ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.resolution !== undefined ? (
+              {device.resolution !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.resolution} {t('px')}
+                  {device.resolution} {t('px')}
                 </div>
               ) : ProductProps.resolution ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.color !== undefined ? (
-                <div className="compare-products__cards-info">{item.color}</div>
+              {device.color !== undefined ? (
+                <div
+                  className="compare-products__cards-info"
+                  style={{
+                    backgroundColor: device.color
+                  }}
+                ></div>
               ) : ProductProps.color ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.memory !== undefined ? (
+              {device.memory !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.memory} GB
+                  {device.memory} GB
                 </div>
               ) : ProductProps.memory ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.hardDrive !== undefined ? (
+              {device.hardDrive !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.hardDrive} GB
+                  {device.hardDrive} GB
                 </div>
               ) : ProductProps.hardDrive ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.workingTimeDays || item.workingTimeHours !== undefined ? (
+              {device.chargingTime !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.workingTimeDays
-                    ? item.workingTimeDays
-                    : item.workingTimeHours}{' '}
-                  {item.workingTimeDays ? t('days') : t('hours')}
+                  {device.chargingTime} {t('hours')}
+                </div>
+              ) : ProductProps.chargingTime ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.workingTimeDays ||
+              device.workingTimeHours !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.workingTimeDays
+                    ? device.workingTimeDays
+                    : device.workingTimeHours}{' '}
+                  {device.workingTimeDays ? t('days') : t('hours')}
                 </div>
               ) : ProductProps.workingTimeDays ||
                 ProductProps.workingTimeHours ? (
@@ -169,86 +223,340 @@ export const CompareProducts = () => {
               ) : (
                 ''
               )}
-              {item.power !== undefined ? (
+              {device.power !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.power} W
+                  {device.power} W
                 </div>
               ) : ProductProps.power ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.batteryCapacity !== undefined ? (
+              {device.batteryCapacity !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.batteryCapacity} {t('mah')}
+                  {device.batteryCapacity} {t('mah')}
                 </div>
               ) : ProductProps.batteryCapacity ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.chipset !== undefined ? (
+              {device.batteryType !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.chipset}
+                  {device.batteryType}
+                </div>
+              ) : ProductProps.batteryType ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.chipset !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.chipset}
                 </div>
               ) : ProductProps.chipset ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.cores !== undefined ? (
-                <div className="compare-products__cards-info">{item.cores}</div>
+              {device.cores !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.cores}
+                </div>
               ) : ProductProps.cores ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.camera !== undefined ? (
+              {device.camera !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.camera} {t('mpx')}
+                  {device.camera} {t('mpx')}
                 </div>
               ) : ProductProps.camera ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.frontCamera !== undefined ? (
+              {device.frontCamera !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.frontCamera} {t('mpx')}
+                  {device.frontCamera} {t('mpx')}
                 </div>
               ) : ProductProps.frontCamera ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.videoCard !== undefined ? (
+              {device.videoCard !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.videoCard}
+                  {device.videoCard}
                 </div>
               ) : ProductProps.videoCard ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.videoCardMemory !== undefined ? (
+              {device.videoCardMemory !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.videoCardMemory} GB
+                  {device.videoCardMemory} GB
                 </div>
               ) : ProductProps.videoCardMemory ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''
               )}
-              {item.weight !== undefined ? (
+              {device.weight !== undefined ? (
                 <div className="compare-products__cards-info">
-                  {item.weight.toString().split('').length >= 4
-                    ? (item.weight * 0.001).toFixed(1)
-                    : item.weight}{' '}
-                  {item.weight.toString().split('').length >= 4
+                  {device.weight.toString().split('').length >= 4
+                    ? (device.weight * 0.001).toFixed(1)
+                    : device.weight}{' '}
+                  {device.weight.toString().split('').length >= 4
                     ? t('kilogram')
                     : t('gram')}
                 </div>
               ) : ProductProps.weight ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.supportedWeight !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.supportedWeight} {t('kilogram')}
+                </div>
+              ) : ProductProps.supportedWeight ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.touchScreen !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.touchScreen === true ? t('true') : t('false')}
+                </div>
+              ) : ProductProps.touchScreen ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.material !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {t(`${device.material}`)}
+                </div>
+              ) : ProductProps.material ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.maxSpeed !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.maxSpeed}km/h
+                </div>
+              ) : ProductProps.maxSpeed ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.errorRange !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.errorRange}
+                </div>
+              ) : ProductProps.errorRange ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.measurementLevel !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.measurementLevel}
+                </div>
+              ) : ProductProps.measurementLevel ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.workingDistance !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.workingDistance}
+                </div>
+              ) : ProductProps.workingDistance ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.audioFrequency !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.audioFrequency}
+                </div>
+              ) : ProductProps.audioFrequency ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.audioFormats !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.audioFormats.join(', ')}
+                </div>
+              ) : ProductProps.audioFormats ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.usbConnectors !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.usbConnectors}
+                </div>
+              ) : ProductProps.usbConnectors ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.interface !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.interface.join(', ')}
+                </div>
+              ) : ProductProps.interface ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.sensitivity !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.sensitivity} dB
+                </div>
+              ) : ProductProps.sensitivity ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.impendance !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.impendance} Ω
+                </div>
+              ) : ProductProps.impendance ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.microphone !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.microphone === true ? t('true') : t('false')}
+                </div>
+              ) : ProductProps.microphone ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.connectionType !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {t(`${device.connectionType}`)}
+                </div>
+              ) : ProductProps.connectionType ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.wireLength !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.wireLength}
+                </div>
+              ) : ProductProps.wireLength ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.coldAir !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.coldAir === true ? t('true') : t('false')}
+                </div>
+              ) : ProductProps.coldAir ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.temperatureLevels !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.temperatureLevels}
+                </div>
+              ) : ProductProps.temperatureLevels ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.gears !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.gears}
+                </div>
+              ) : ProductProps.gears ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.dimensions !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.dimensions}
+                </div>
+              ) : ProductProps.dimensions ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.releaseDate !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.releaseDate}
+                </div>
+              ) : ProductProps.releaseDate ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.wheelDiameter !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.wheelDiameter}"
+                </div>
+              ) : ProductProps.wheelDiameter ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.speedsNumber !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.speedsNumber}
+                </div>
+              ) : ProductProps.speedsNumber ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.brakeType !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.brakeType}
+                </div>
+              ) : ProductProps.brakeType ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.rimMaterial !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {t(`${device.rimMaterial}`)}
+                </div>
+              ) : ProductProps.rimMaterial ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.frameMaterial !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {t(`${device.frameMaterial}`)}
+                </div>
+              ) : ProductProps.frameMaterial ? (
+                <div className="compare-products__cards-info">-</div>
+              ) : (
+                ''
+              )}
+              {device.frameDiameter !== undefined ? (
+                <div className="compare-products__cards-info">
+                  {device.frameDiameter}"
+                </div>
+              ) : ProductProps.frameDiameter ? (
                 <div className="compare-products__cards-info">-</div>
               ) : (
                 ''

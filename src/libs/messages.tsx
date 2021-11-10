@@ -434,9 +434,9 @@ export const messages = createMessages([
       ro: 'Putere'
     },
     workingDistance: {
-      en: 'Working Distance',
-      ru: 'Рабочее расстояние',
-      ro: 'Distanta de lucru'
+      en: 'Working Distance (m)',
+      ru: 'Рабочее расстояние (м)',
+      ro: 'Distanta de lucru (m)'
     },
     audioFrequency: {
       en: 'Audio Frequency',
@@ -514,9 +514,9 @@ export const messages = createMessages([
       ro: 'Cu fir'
     },
     wireLength: {
-      en: 'Wire length, m',
-      ru: 'Длина провода, м',
-      ro: 'Lungime fir, m'
+      en: 'Wire length (m)',
+      ru: 'Длина провода (м)',
+      ro: 'Lungime fir (m)'
     },
     microphone: {
       en: 'Microphone',
