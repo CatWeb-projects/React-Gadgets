@@ -609,6 +609,11 @@ export const messages = createMessages([
       en: 'Add to favorites',
       ru: 'Добавить в избранное',
       ro: 'Adaugă în favorite'
+    },
+    delete: {
+      en: 'Delete',
+      ru: 'Удалить',
+      ro: 'Șterge'
     }
   }
 ]);

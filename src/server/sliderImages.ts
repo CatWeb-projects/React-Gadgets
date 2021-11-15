@@ -32,5 +32,11 @@ export const sliderImages = [
       'https://darwin.md/images/slider/2021/10/beneficiu_rasunator_1400x520_ro.webp',
     link: '/categories/audio',
     altName: 'Soundbar'
+  },
+  {
+    id: 108,
+    imgUrl: '/images/future.jpg',
+    link: '/categories/sport-and-health',
+    altName: 'Future'
   }
 ];

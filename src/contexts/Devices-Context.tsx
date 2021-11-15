@@ -74,13 +74,24 @@ export const ProviderContext = (props: ProviderProps) => {
     (product: DevicesProps) => {
       if (
         authVerify &&
-        product &&
         favorites.find(
           (item) => product.id === item.id && item.email === userSave
         )
       ) {
-        setFavorites(favorites.filter((item) => product.id !== item.id));
-      } else if (authVerify && product) {
+        setFavorites(
+          favorites.filter((item) => {
+            if (item.email === userSave && item.id !== product.id) {
+              return true;
+            } else if (item.email !== userSave) {
+              return [
+                ...favorites,
+                { ...item, email: item.email !== userSave }
+              ];
+            }
+            return null;
+          })
+        );
+      } else if (authVerify) {
         setFavorites([...favorites, { ...product, email: userSave }]);
       }
       // eslint-disable-next-line
@@ -108,30 +119,40 @@ export const ProviderContext = (props: ProviderProps) => {
     localStorage.setItem('compare', JSON.stringify(compare));
   }, [compare]);
 
+  const { userCompare } = React.useMemo(
+    () => ({
+      userCompare: compare.filter(
+        (device: DevicesProps) => device.email === userSave
+      )
+    }),
+    [compare, userSave]
+  );
+
   const addToCompare = React.useCallback(
     (product: DevicesProps) => {
       if (
         authVerify &&
-        product &&
         compare.find(
-          (item) => item.id === product.id && item.email === userSave
+          (item) => item.email === userSave && item.id === product.id
         )
       ) {
-        setCompare(compare.filter((item) => item.id !== product.id));
-      } else if (compare.length > 3) {
+        setCompare(
+          compare.filter((item) => {
+            if (item.email === userSave && item.id !== product.id) {
+              return true;
+            } else if (item.email !== userSave) {
+              return [...compare, { ...item, email: item.email !== userSave }];
+            }
+            return null;
+          })
+        );
+      } else if (authVerify && userCompare.length > 3) {
         setCompare((i) => i);
-      } else {
+      } else if (authVerify) {
         setCompare([...compare, { ...product, email: userSave }]);
       }
     },
-    [compare, userSave, authVerify]
-  );
-
-  const { userCompare } = React.useMemo(
-    () => ({
-      userCompare: compare.filter((item) => item.email === userSave)
-    }),
-    [compare, userSave]
+    [compare, userSave, authVerify, userCompare]
   );
 
   const values = {
