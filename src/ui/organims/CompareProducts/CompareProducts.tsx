@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link, useHistory } from 'estafette-router';
+import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { DeviceContext } from 'contexts/Devices-Context';
 import { Button } from 'ui/atoms';
 
 import './CompareProducts.scss';
 
-const productProperty = {
+const productProperty: { [key: string]: string } = {
   manufacturer: 'manufacturer',
   model: 'model',
   segment: 'segment',
@@ -62,13 +62,14 @@ export const CompareProducts = () => {
   const { userCompare, addToCompare } = React.useContext(DeviceContext);
 
   const { t } = useIntl();
-  const { push } = useHistory();
 
   const activeProperties = React.useMemo(() => {
-    const key = Object.keys(productProperty).filter((i) => {
-      const findProperties = userCompare.filter((device) => device[i]);
-      return findProperties.length > 0;
-    });
+    const key = Object.keys(productProperty)
+      .filter((i) => {
+        const findProperties = userCompare.filter((device) => device[i]);
+        return findProperties.length > 0;
+      })
+      .map((x) => productProperty[x]);
     return key;
   }, [userCompare]);
 
@@ -84,15 +85,6 @@ export const CompareProducts = () => {
 
     [userCompare]
   );
-
-  React.useEffect(() => {
-    if (userCompare?.length === 0) {
-      return push('Main');
-    }
-
-    return () => {};
-    // eslint-disable-next-line
-  }, [userCompare]);
 
   return (
     <>
