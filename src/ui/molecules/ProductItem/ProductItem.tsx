@@ -10,9 +10,32 @@ interface Props {
 }
 
 export const ProductItem: React.FC<Props> = ({ product }) => {
-  const { authVerify, userSave, favorites, addFavorites } =
-    React.useContext(DeviceContext);
+  const {
+    authVerify,
+    userSave,
+    favorites,
+    addFavorites,
+    addToCompare,
+    compare
+  } = React.useContext(DeviceContext);
+
   const { t } = useIntl();
+
+  const { userFavoritesFind, userCompareFind } = React.useMemo(
+    () => ({
+      userFavoritesFind:
+        authVerify &&
+        favorites.find(
+          (item) => item.id === product?.id && item.email === userSave
+        ),
+      userCompareFind:
+        authVerify &&
+        compare.find(
+          (item) => item.id === product?.id && item.email === userSave
+        )
+    }),
+    [favorites, userSave, product, authVerify, compare]
+  );
 
   return (
     <div className="item-product__item">
@@ -49,7 +72,11 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
             </div>
             <div className="options-devices">
               <div className="compare-devices">
-                <Button type="black">
+                <Button
+                  type="black"
+                  onClick={() => addToCompare(product)}
+                  className={userCompareFind ? 'added-to-compare' : ''}
+                >
                   <Icon type="compare" />
                 </Button>
                 <div className="options-devices-info compare-info">
@@ -60,15 +87,7 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
                 <Button
                   onClick={() => addFavorites(product)}
                   type="black"
-                  className={
-                    authVerify &&
-                    favorites.find(
-                      (item) =>
-                        item.name === product.name && item.email === userSave
-                    )
-                      ? 'added-to-favorites'
-                      : ''
-                  }
+                  className={userFavoritesFind ? 'added-to-favorites' : ''}
                 >
                   <Icon type="heart" />
                 </Button>

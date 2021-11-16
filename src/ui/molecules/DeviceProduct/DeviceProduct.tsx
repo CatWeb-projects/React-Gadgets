@@ -12,10 +12,32 @@ interface Props {
 }
 
 export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
-  const { authVerify, favorites, userSave, addFavorites } =
-    React.useContext(DeviceContext);
+  const {
+    authVerify,
+    favorites,
+    userSave,
+    addFavorites,
+    addToCompare,
+    compare
+  } = React.useContext(DeviceContext);
 
   const { t } = useIntl();
+
+  const { userFavoritesFind, userCompareFind } = React.useMemo(
+    () => ({
+      userFavoritesFind:
+        authVerify &&
+        favorites.find(
+          (item) => item.id === deviceData?.id && item.email === userSave
+        ),
+      userCompareFind:
+        authVerify &&
+        compare.find(
+          (item) => item.id === deviceData?.id && item.email === userSave
+        )
+    }),
+    [favorites, userSave, deviceData, authVerify, compare]
+  );
 
   return (
     <div className="device-product">
@@ -185,16 +207,16 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('chargingTime')} : {deviceData.chargingTime} {t('hours')}
                   </li>
                 )}
-                {deviceData.workingTimeDays ||
-                  (deviceData.workingTimeHours && (
-                    <li>
-                      {t('workingTime')} :{' '}
-                      {deviceData.workingTimeDays
-                        ? deviceData.workingTimeDays
-                        : deviceData.workingTimeHours}{' '}
-                      {deviceData.workingTimeDays ? t('days') : t('hours')}
-                    </li>
-                  ))}
+                {(deviceData.workingTimeDays ||
+                  deviceData.workingTimeHours) && (
+                  <li>
+                    {t('workingTime')} :{' '}
+                    {deviceData.workingTimeDays
+                      ? deviceData.workingTimeDays
+                      : deviceData.workingTimeHours}{' '}
+                    {deviceData.workingTimeDays ? t('days') : t('hours')}
+                  </li>
+                )}
                 {deviceData.batteryCapacity && (
                   <li>
                     {t('batteryCapacity')} : {deviceData.batteryCapacity}{' '}
@@ -211,7 +233,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 )}
                 {deviceData.workingDistance && (
                   <li>
-                    {t('workingDistance')} : {deviceData.workingDistance}m
+                    {t('workingDistance')} : {deviceData.workingDistance}
                   </li>
                 )}
                 {deviceData.audioFrequency && (
@@ -312,10 +334,50 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('dimensions')} : {deviceData.dimensions}
                   </li>
                 )}
+                {deviceData.releaseDate && (
+                  <li>
+                    {t('releaseDate')} : {deviceData.releaseDate}
+                  </li>
+                )}
+                {deviceData.wheelDiameter && (
+                  <li>
+                    {t('wheelDiameter')} : {deviceData.wheelDiameter}"
+                  </li>
+                )}
+                {deviceData.speedsNumber && (
+                  <li>
+                    {t('speedsNumber')} : {deviceData.speedsNumber}
+                  </li>
+                )}
+                {deviceData.brakeType && (
+                  <li>
+                    {t('brakeType')} : {deviceData.brakeType}
+                  </li>
+                )}
+                {deviceData.rimMaterial && (
+                  <li>
+                    {t('rimMaterial')} : {t(`${deviceData.rimMaterial}`)}
+                  </li>
+                )}
+                {deviceData.frameMaterial && (
+                  <li>
+                    {t('frameMaterial')} : {t(`${deviceData.frameMaterial}`)}
+                  </li>
+                )}
+                {deviceData.frameDiameter && (
+                  <li>
+                    {t('frameDiameter')} : {deviceData.frameDiameter}"
+                  </li>
+                )}
               </ul>
               <div className="options-devices">
                 <div className="compare-devices">
-                  <Button type="black" size="full-width">
+                  <Button
+                    type="black"
+                    size="full-width"
+                    onClick={() => addToCompare(deviceData)}
+                    className={userCompareFind ? 'added-to-compare' : ''}
+                  >
                     <Icon type="compare" />
                     {t('compare')}
                   </Button>
@@ -325,16 +387,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     onClick={() => addFavorites(deviceData)}
                     type="black"
                     size="full-width"
-                    className={
-                      authVerify &&
-                      favorites.find(
-                        (item) =>
-                          item.name === deviceData.name &&
-                          item.email === userSave
-                      )
-                        ? 'added-to-favorites'
-                        : ''
-                    }
+                    className={userFavoritesFind ? 'added-to-favorites' : ''}
                   >
                     <Icon type="heart" />
                     {t('favorites')}
@@ -361,9 +414,11 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                   deviceData.cashback
                 } ${t('lei')}`}</div>
               )}
-              <Link to="/credit" className="device-product__credit">
-                {t('buy_credit')}
-              </Link>
+              {deviceData.credit && (
+                <Link to="/credit" className="device-product__credit">
+                  {t('buy_credit')}
+                </Link>
+              )}
             </div>
           </div>
         </div>

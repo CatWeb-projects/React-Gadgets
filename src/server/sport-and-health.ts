@@ -90,7 +90,7 @@ export const sportAndHealth = [
     color: 'Gray',
     weight: 3300,
     popularity: 65,
-    manufacturer: 'Greentest',
+    manufacturer: 'Xiaomi',
     imageUrl:
       'https://darwin.md/images/product/2021/09/xiaomi_walking_machine_r1_pro_black_5.webp',
     type: 'sport-and-health',

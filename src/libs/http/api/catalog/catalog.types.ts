@@ -1,4 +1,5 @@
 export interface DevicesProps {
+  [key: string]: any;
   id: number;
   name: string;
   email?: string;
@@ -55,4 +56,11 @@ export interface DevicesProps {
   temperatureLevels: number;
   gears: number;
   dimensions: string;
+  releaseDate: number;
+  wheelDiameter: number;
+  speedsNumber: number;
+  brakeType: string;
+  rimMaterial: string;
+  frameMaterial: string;
+  frameDiameter: number;
 }

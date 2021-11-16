@@ -434,9 +434,9 @@ export const messages = createMessages([
       ro: 'Putere'
     },
     workingDistance: {
-      en: 'Working Distance',
-      ru: 'Рабочее расстояние',
-      ro: 'Distanta de lucru'
+      en: 'Working Distance (m)',
+      ru: 'Рабочее расстояние (м)',
+      ro: 'Distanta de lucru (m)'
     },
     audioFrequency: {
       en: 'Audio Frequency',
@@ -514,9 +514,9 @@ export const messages = createMessages([
       ro: 'Cu fir'
     },
     wireLength: {
-      en: 'Wire length, m',
-      ru: 'Длина провода, м',
-      ro: 'Lungime fir, m'
+      en: 'Wire length (m)',
+      ru: 'Длина провода (м)',
+      ro: 'Lungime fir (m)'
     },
     microphone: {
       en: 'Microphone',
@@ -542,6 +542,61 @@ export const messages = createMessages([
       en: 'Dimensions',
       ru: 'Размеры',
       ro: 'Dimensiuni'
+    },
+    releaseDate: {
+      en: 'Release Date',
+      ru: 'Дата выхода',
+      ro: 'Data lansării'
+    },
+    wheelDiameter: {
+      en: 'Wheel diameter',
+      ru: 'Диаметр колес',
+      ro: 'Diametrul roții'
+    },
+    speedsNumber: {
+      en: 'Number of speeds',
+      ru: 'Количество скоростей',
+      ro: 'Numărul de viteze'
+    },
+    brakeType: {
+      en: 'Brake Type',
+      ru: 'Тип тормоза',
+      ro: 'Tipul frânei'
+    },
+    rimMaterial: {
+      en: 'Rim material',
+      ru: 'Материал обода',
+      ro: 'Material jantă'
+    },
+    aluminium: {
+      en: 'Aluminium',
+      ru: 'Алюминий',
+      ro: 'Aluminiu'
+    },
+    frameMaterial: {
+      en: 'Frame material',
+      ru: 'Материал рамы',
+      ro: 'Material cadru'
+    },
+    steel: {
+      en: 'Steel',
+      ru: 'Сталь',
+      ro: 'Oțel'
+    },
+    frameDiameter: {
+      en: 'Frame Diameter',
+      ru: 'Размер рамы',
+      ro: 'Dimensiune cadru'
+    },
+    manufacturer: {
+      en: 'Brand',
+      ru: 'Бренд',
+      ro: 'Brand'
+    },
+    model: {
+      en: 'Model',
+      ru: 'Модель',
+      ro: 'Model'
     }
   },
   {
@@ -554,6 +609,11 @@ export const messages = createMessages([
       en: 'Add to favorites',
       ru: 'Добавить в избранное',
       ro: 'Adaugă în favorite'
+    },
+    delete: {
+      en: 'Delete',
+      ru: 'Удалить',
+      ro: 'Șterge'
     }
   }
 ]);

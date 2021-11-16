@@ -4,3 +4,4 @@ export { Recommended } from './Recommended/Recommended';
 export { Footer } from './Footer/Footer';
 export { Products } from './Products/Products';
 export { Search } from './Search/Search';
+export { CompareProducts } from './CompareProducts/CompareProducts';

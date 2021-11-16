@@ -10,7 +10,7 @@ import { Button, Icon } from 'ui/atoms';
 import './Header.scss';
 
 export const Header = () => {
-  const { authVerify, setAuthVerify, setUserSave } =
+  const { authVerify, setAuthVerify, setUserSave, userCompare } =
     React.useContext(DeviceContext);
   const [profile, setProfile] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>('');
@@ -104,6 +104,14 @@ export const Header = () => {
         <Search />
 
         <div className="header__main-menu">
+          {authVerify && userCompare?.length !== 0 && (
+            <div className="compare-devices">
+              <Link to="/compare">
+                <Icon type="compare" />
+              </Link>
+            </div>
+          )}
+
           <div className="header__favorites">
             <Link to="/favorites">
               <Icon type="heart" />
@@ -132,6 +140,7 @@ export const Header = () => {
           {authVerify ? (
             <div className="header__user">
               <Button
+                size="full-width"
                 onClick={() => onLogout(data?.refreshToken)}
                 className="logged-in"
               >
@@ -145,7 +154,7 @@ export const Header = () => {
             </div>
           ) : (
             <div className="header__user">
-              <Button onClick={() => onProfileClick()}>
+              <Button size="full-width" onClick={() => onProfileClick()}>
                 <Icon type="user" />
                 <span>{t('account')}</span>
               </Button>
