@@ -65,7 +65,7 @@ export const Search = () => {
         <Icon type="zoom" />
       </Button>
 
-      {searchValue && searchDevices && searchDevices.length !== 0 && (
+      {searchValue && searchDevices?.length !== 0 && (
         <div className="finded-wrapper">
           <h3>{t('products')}</h3>
 

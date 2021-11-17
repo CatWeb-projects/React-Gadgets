@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'estafette-router';
+import { Link, useHistory } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { DeviceContext } from 'contexts/Devices-Context';
 import { Button } from 'ui/atoms';
@@ -60,8 +60,10 @@ const productProperty: { [key: string]: string } = {
 
 export const CompareProducts = () => {
   const { userCompare, addToCompare } = React.useContext(DeviceContext);
+  const [loading, setLoading] = React.useState<boolean>(true);
 
   const { t } = useIntl();
+  const { push } = useHistory();
 
   const activeProperties = React.useMemo(() => {
     const key = Object.keys(productProperty)
@@ -69,7 +71,8 @@ export const CompareProducts = () => {
         const findProperties = userCompare.filter((device) => device[i]);
         return findProperties.length > 0;
       })
-      .map((x) => productProperty[x]);
+      .map((x) => productProperty[x])
+      .filter((elem, index, self) => index === self.indexOf(elem));
     return key;
   }, [userCompare]);
 
@@ -85,6 +88,17 @@ export const CompareProducts = () => {
 
     [userCompare]
   );
+
+  React.useEffect(() => {
+    if (userCompare.length === 0 && loading === false) {
+      return push('Main');
+    }
+
+    return () => {
+      setLoading(false);
+    };
+    // eslint-disable-next-line
+  }, [userCompare.length, loading]);
 
   return (
     <>
