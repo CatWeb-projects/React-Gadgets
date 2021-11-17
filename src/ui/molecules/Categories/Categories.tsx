@@ -30,7 +30,7 @@ export const Categories = () => {
           <Link
             className={`categories__card ${cat.link.slice(1)}`}
             route="Devices"
-            params={{ link: cat.link.slice(1) }}
+            params={{ link: cat?.link.slice(1) }}
             key={cat.id}
             // onMouseOver={(e) =>
             //   (e.currentTarget.style.color = `${cat.shadowColor}`)
@@ -44,7 +44,7 @@ export const Categories = () => {
               // }
               // onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
             >
-              <img src={cat.imgUrl && cat.imgUrl} alt={cat.name} />
+              <img src={cat?.imgUrl} alt={cat.name} />
             </div>
             <div className="categories__title">
               <span>{t(`${cat.translate}`)}</span>

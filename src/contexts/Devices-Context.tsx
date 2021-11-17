@@ -14,6 +14,7 @@ interface Props {
   userSave: string;
   userFavorites: DevicesProps[];
   userCompare: DevicesProps[];
+  loading: boolean | undefined;
   setFavorites: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setCompare: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setAuthVerify: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,6 +31,7 @@ const defaultValue = {
   userSave: '',
   userFavorites: [],
   userCompare: [],
+  loading: undefined,
   setFavorites: () => {},
   setCompare: () => {},
   setAuthVerify: () => {},
@@ -46,7 +48,7 @@ export const ProviderContext = (props: ProviderProps) => {
   const [userSave, setUserSave] = React.useState<string>('');
   const [compare, setCompare] = React.useState<DevicesProps[]>([]);
 
-  const { request, data: devicesData } = useRequest<DevicesProps[]>();
+  const { request, data: devicesData, loading } = useRequest<DevicesProps[]>();
 
   React.useEffect(() => {
     onFetch();
@@ -168,7 +170,8 @@ export const ProviderContext = (props: ProviderProps) => {
     compare,
     setCompare,
     addToCompare,
-    userCompare
+    userCompare,
+    loading
   };
 
   const { children } = props;
