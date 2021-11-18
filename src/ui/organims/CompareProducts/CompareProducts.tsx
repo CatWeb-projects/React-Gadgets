@@ -32,12 +32,13 @@ const productProperty: { [key: string]: string } = {
   supportedWeight: 'supportedWeight',
   touchScreen: 'touchScreen',
   workingDistance: 'workingDistance',
+  material: 'material',
+  maxSpeed: 'maxSpeed',
   audioFrequency: 'audioFrequency',
   audioFormats: 'audioFormats',
   usbConnectors: 'usbConnectors',
+  hdmi: 'hdmi',
   interface: 'interface',
-  material: 'material',
-  maxSpeed: 'maxSpeed',
   errorRange: 'errorRange',
   measurementLevel: 'measurementLevel',
   sensitivity: 'sensitivity',
@@ -55,7 +56,12 @@ const productProperty: { [key: string]: string } = {
   brakeType: 'brakeType',
   rimMaterial: 'rimMaterial',
   frameMaterial: 'frameMaterial',
-  frameDiameter: 'frameDiameter'
+  frameDiameter: 'frameDiameter',
+  memoryCard: 'memoryCard',
+  diaphragm: 'diaphragm',
+  focalDistance: 'focalDistance',
+  opticalZoom: 'opticalZoom',
+  refreshRate: 'refreshRate'
 };
 
 export const CompareProducts = () => {
@@ -125,7 +131,7 @@ export const CompareProducts = () => {
               {activeProperties &&
                 activeProperties.map((device, key) => (
                   <div className="compare-products__cards-title" key={key}>
-                    {t(`${device}`)}
+                    {device === 'hdmi' ? 'HDMI' : t(`${device}`)}
                   </div>
                 ))}
             </div>
@@ -425,6 +431,15 @@ export const CompareProducts = () => {
                   ) : (
                     ''
                   )}
+                  {device.hdmi !== undefined ? (
+                    <div className="compare-products__cards-info">
+                      {device.hdmi}
+                    </div>
+                  ) : ProductProps.hdmi ? (
+                    <div className="compare-products__cards-info">-</div>
+                  ) : (
+                    ''
+                  )}
                   {device.interface !== undefined ? (
                     <div className="compare-products__cards-info">
                       {device.interface.join(', ')}
@@ -574,6 +589,51 @@ export const CompareProducts = () => {
                       {device.frameDiameter}"
                     </div>
                   ) : ProductProps.frameDiameter ? (
+                    <div className="compare-products__cards-info">-</div>
+                  ) : (
+                    ''
+                  )}
+                  {device.memoryCard !== undefined ? (
+                    <div className="compare-products__cards-info">
+                      {device.memoryCard.join(', ')}
+                    </div>
+                  ) : ProductProps.memoryCard ? (
+                    <div className="compare-products__cards-info">-</div>
+                  ) : (
+                    ''
+                  )}
+                  {device.diaphragm !== undefined ? (
+                    <div className="compare-products__cards-info">
+                      {device.diaphragm}
+                    </div>
+                  ) : ProductProps.diaphragm ? (
+                    <div className="compare-products__cards-info">-</div>
+                  ) : (
+                    ''
+                  )}
+                  {device.focalDistance !== undefined ? (
+                    <div className="compare-products__cards-info">
+                      {device.focalDistance}
+                    </div>
+                  ) : ProductProps.focalDistance ? (
+                    <div className="compare-products__cards-info">-</div>
+                  ) : (
+                    ''
+                  )}
+                  {device.opticalZoom !== undefined ? (
+                    <div className="compare-products__cards-info">
+                      x{device.opticalZoom}
+                    </div>
+                  ) : ProductProps.opticalZoom ? (
+                    <div className="compare-products__cards-info">-</div>
+                  ) : (
+                    ''
+                  )}
+                  {device.refreshRate !== undefined ? (
+                    <div className="compare-products__cards-info">
+                      {device.refreshRate}
+                    </div>
+                  ) : ProductProps.refreshRate ? (
                     <div className="compare-products__cards-info">-</div>
                   ) : (
                     ''

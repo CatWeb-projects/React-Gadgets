@@ -251,6 +251,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('usbConnectors')} : {deviceData.usbConnectors}
                   </li>
                 )}
+                {deviceData.hdmi && <li>HDMI : {deviceData.hdmi}</li>}
                 {deviceData.interface && (
                   <li>
                     {t('interface')} : {deviceData.interface.join(', ')}
@@ -367,6 +368,31 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 {deviceData.frameDiameter && (
                   <li>
                     {t('frameDiameter')} : {deviceData.frameDiameter}"
+                  </li>
+                )}
+                {deviceData.memoryCard && (
+                  <li>
+                    {t('memoryCard')} : {deviceData.memoryCard.join(', ')}
+                  </li>
+                )}
+                {deviceData.diaphragm && (
+                  <li>
+                    {t('diaphragm')} : {deviceData.diaphragm}
+                  </li>
+                )}
+                {deviceData.focalDistance && (
+                  <li>
+                    {t('focalDistance')} : {deviceData.focalDistance}
+                  </li>
+                )}
+                {deviceData.opticalZoom && (
+                  <li>
+                    {t('opticalZoom')} : x{deviceData.opticalZoom}
+                  </li>
+                )}
+                {deviceData.refreshRate && (
+                  <li>
+                    {t('refreshRate')} : {deviceData.refreshRate}
                   </li>
                 )}
               </ul>

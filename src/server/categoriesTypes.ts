@@ -57,7 +57,7 @@ export const categoriesTypes = [
   },
   {
     id: 108,
-    link: '/tv-foto',
+    link: '/tv-photo-optics',
     name: 'TV, Photo and Optics',
     imgUrl: '/images/tv_optica.png',
     shadowColor: '#2146c1',
