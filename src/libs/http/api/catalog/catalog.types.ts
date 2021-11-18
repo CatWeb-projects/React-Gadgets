@@ -35,11 +35,12 @@ export interface DevicesProps {
   workingTimeHours?: number;
   batteryCapacity?: number;
   bluetooth?: number;
-  power?: number;
+  power?: number | string;
   workingDistance?: number;
   audioFrequency?: string;
   audioFormats?: string[];
   usbConnectors?: number;
+  hdmi?: number;
   interface?: string[];
   material: string | string[];
   supportedWeight: number;
@@ -63,4 +64,9 @@ export interface DevicesProps {
   rimMaterial: string;
   frameMaterial: string;
   frameDiameter: number;
+  memoryCard: string[];
+  diaphragm: string;
+  focalDistance: string;
+  opticalZoom: number;
+  refreshRate: string;
 }

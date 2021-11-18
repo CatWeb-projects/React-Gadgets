@@ -597,6 +597,31 @@ export const messages = createMessages([
       en: 'Model',
       ru: 'Модель',
       ro: 'Model'
+    },
+    memoryCard: {
+      en: 'Memory card',
+      ru: 'Карта памяти',
+      ro: 'Card memorie'
+    },
+    diaphragm: {
+      en: 'Diafragm',
+      ru: 'Диафрагма',
+      ro: 'Diafragma'
+    },
+    focalDistance: {
+      en: 'Focal Distance',
+      ru: 'Фокусное Расстояние',
+      ro: 'Distanta Focala'
+    },
+    opticalZoom: {
+      en: 'Optical zoom',
+      ru: 'Oптический zoom',
+      ro: 'Zoom optic'
+    },
+    refreshRate: {
+      en: 'Refresh rate',
+      ru: 'Частота',
+      ro: 'Frecvenţă'
     }
   },
   {
