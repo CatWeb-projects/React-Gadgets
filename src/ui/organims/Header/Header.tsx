@@ -104,7 +104,7 @@ export const Header = () => {
         <Search />
 
         <div className="header__main-menu">
-          {authVerify && userCompare?.length !== 0 && (
+          {authVerify && userCompare?.length > 0 && (
             <div className="compare-devices">
               <Link to="/compare">
                 <Icon type="compare" />

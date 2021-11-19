@@ -604,7 +604,7 @@ export const messages = createMessages([
       ro: 'Card memorie'
     },
     diaphragm: {
-      en: 'Diafragm',
+      en: 'Diaphragm',
       ru: 'Диафрагма',
       ro: 'Diafragma'
     },
@@ -622,6 +622,12 @@ export const messages = createMessages([
       en: 'Refresh rate',
       ru: 'Частота',
       ro: 'Frecvenţă'
+    },
+    // eslint-disable-next-line
+    ['Electric Range']: {
+      en: 'Electric Range',
+      ru: 'Автономный пробег',
+      ro: 'Autonomia de parcurgere'
     }
   },
   {

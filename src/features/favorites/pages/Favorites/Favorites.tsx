@@ -11,7 +11,7 @@ export const Favorites = () => {
       <div className="favorites">
         <Header />
         <Categories />
-        {authVerify && userFavorites?.length !== 0 ? (
+        {authVerify && userFavorites?.length > 0 ? (
           <>
             <Products products={userFavorites} />
             {userFavorites?.length > 4 && <Categories />}

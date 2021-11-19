@@ -395,6 +395,11 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                     {t('refreshRate')} : {deviceData.refreshRate}
                   </li>
                 )}
+                {deviceData.electricRange && (
+                  <li>
+                    {t('Electric Range')} : {deviceData.electricRange}km/h
+                  </li>
+                )}
               </ul>
               <div className="options-devices">
                 <div className="compare-devices">

@@ -21,7 +21,7 @@ export const Recommended: React.FC<Props> = ({ devicesData, cardData }) => {
             style={{ backgroundImage: `url(${cardData.imgUrl})` }}
           >
             {cardData.name && <h4>{t(`${cardData.name}`)}</h4>}
-            {devicesData && devicesData.length !== 0 && (
+            {devicesData && devicesData.length > 0 && (
               <span>
                 {devicesData.length}+ {t('products')}
               </span>
