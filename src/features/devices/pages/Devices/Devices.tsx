@@ -9,7 +9,7 @@ import { DevicesProps } from 'libs/http/api';
 export const Devices = () => {
   const { devicesData } = React.useContext(DeviceContext);
   const [filter, setFilter] = React.useState<DevicesProps[]>([]);
-  const { link } = useParams<{ link: string }>();
+  const { link, brand } = useParams<{ link: string; brand: string }>();
 
   React.useEffect(() => {
     if (link) {
@@ -18,7 +18,15 @@ export const Devices = () => {
     if (link === 'apple') {
       setFilter(devicesData.filter((item) => item.manufacturer === 'Apple'));
     }
-  }, [devicesData, link]);
+    if (devicesData.find((item) => item.manufacturer.toLowerCase() === brand)) {
+      setFilter(
+        devicesData.filter(
+          (item) =>
+            item.manufacturer.toLowerCase() === brand && item.type.match(link)
+        )
+      );
+    }
+  }, [devicesData, link, brand]);
 
   useScrollToTop();
 

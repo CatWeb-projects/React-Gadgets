@@ -122,15 +122,45 @@ export const Header = () => {
                     }`}
                     route="Devices"
                     onClick={() => setHeaderHover(false)}
-                    params={{ link: category?.link.slice(1) }}
+                    params={{ link: category?.link.slice(1), brand: 'all' }}
                     key={category.id}
                   >
                     {category.name}
                   </Link>
                 ))}
             </div>
-            <div className="menu__quicklinks">
-              <div>quicklink</div>
+            <div
+              className={`menu__quicklinks ${
+                headerHover === false ? 'display-none' : ''
+              }`}
+            >
+              <div>
+                <Link
+                  route="Devices"
+                  params={{ link: 'phones', brand: 'xiaomi' }}
+                  onClick={() => setHeaderHover(false)}
+                >
+                  Xiaomi
+                </Link>
+              </div>
+              <div>
+                <Link
+                  route="Devices"
+                  params={{ link: 'laptops', brand: 'lenovo' }}
+                  onClick={() => setHeaderHover(false)}
+                >
+                  Lenovo
+                </Link>
+              </div>
+              <div>
+                <Link
+                  route="Devices"
+                  params={{ link: 'gadgets', brand: 'xiaomi' }}
+                  onClick={() => setHeaderHover(false)}
+                >
+                  Xiaomi Gadgets
+                </Link>
+              </div>
             </div>
           </div>
         </div>
