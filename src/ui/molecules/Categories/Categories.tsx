@@ -1,27 +1,14 @@
 import React from 'react';
-import { useRequest } from 'estafette';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
-import { categoriesTypes, CategoriesTypesProps } from 'libs/http/api';
+import { DeviceContext } from 'contexts/Devices-Context';
 
 import './Categories.scss';
 
 export const Categories = () => {
-  const { request, data: categoriesData } =
-    useRequest<CategoriesTypesProps[]>();
+  const { categoriesData } = React.useContext(DeviceContext);
 
   const { t } = useIntl();
-
-  React.useEffect(() => {
-    onFetch();
-
-    return () => {
-      categoriesTypes.cancel();
-    };
-    //eslint-disable-next-line
-  }, []);
-
-  const onFetch = () => request(categoriesTypes.action());
 
   return (
     <div className="categories">

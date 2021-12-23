@@ -1,6 +1,11 @@
 import React from 'react';
 import { useRequest } from 'estafette';
-import { catalog, DevicesProps } from 'libs/http/api';
+import {
+  catalog,
+  categoriesTypes,
+  CategoriesTypesProps,
+  DevicesProps
+} from 'libs/http/api';
 
 interface ProviderProps {
   children: React.ReactNode;
@@ -15,6 +20,7 @@ interface Props {
   userFavorites: DevicesProps[];
   userCompare: DevicesProps[];
   loading: boolean | undefined;
+  categoriesData: CategoriesTypesProps[];
   setFavorites: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setCompare: React.Dispatch<React.SetStateAction<DevicesProps[]>>;
   setAuthVerify: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,6 +38,7 @@ const defaultValue = {
   userFavorites: [],
   userCompare: [],
   loading: undefined,
+  categoriesData: [],
   setFavorites: () => {},
   setCompare: () => {},
   setAuthVerify: () => {},
@@ -49,9 +56,12 @@ export const ProviderContext = (props: ProviderProps) => {
   const [compare, setCompare] = React.useState<DevicesProps[]>([]);
 
   const { request, data: devicesData, loading } = useRequest<DevicesProps[]>();
+  const { request: requestCategories, data: categoriesData } =
+    useRequest<CategoriesTypesProps[]>();
 
   React.useEffect(() => {
     onFetch();
+    onFetchCategories();
 
     return () => {
       catalog.devices.cancel();
@@ -60,6 +70,7 @@ export const ProviderContext = (props: ProviderProps) => {
   }, []);
 
   const onFetch = () => request(catalog.devices.action());
+  const onFetchCategories = () => requestCategories(categoriesTypes.action());
 
   React.useEffect(() => {
     const data = localStorage.getItem('favorites');
@@ -171,7 +182,8 @@ export const ProviderContext = (props: ProviderProps) => {
     setCompare,
     addToCompare,
     userCompare,
-    loading
+    loading,
+    categoriesData
   };
 
   const { children } = props;

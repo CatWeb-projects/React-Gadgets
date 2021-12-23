@@ -10,11 +10,17 @@ import { Button, Icon } from 'ui/atoms';
 import './Header.scss';
 
 export const Header = () => {
-  const { authVerify, setAuthVerify, setUserSave, userCompare } =
-    React.useContext(DeviceContext);
+  const {
+    authVerify,
+    setAuthVerify,
+    setUserSave,
+    userCompare,
+    categoriesData
+  } = React.useContext(DeviceContext);
   const [profile, setProfile] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
+  const [headerHover, setHeaderHover] = React.useState<boolean>(false);
 
   const { request, data, errors } = useRequest<Auth>();
   const { t, locale, setLocale } = useIntl();
@@ -89,16 +95,44 @@ export const Header = () => {
 
   return (
     <div className="header">
-      <div className="header-container">
+      <div
+        className="header__container"
+        style={headerHover ? { borderRadius: '16px 16px 0 0' } : {}}
+      >
         <div className="header__logo">
           <Link to="/">
             <Icon type="logo" />
           </Link>
         </div>
 
-        <div className="header__menu">
+        <div
+          className="header__menu"
+          onMouseOver={() => setHeaderHover(true)}
+          onMouseOut={() => setHeaderHover(false)}
+        >
           <Icon type="menu" />
           {t('categories')}
+          <div className="menu">
+            <div className="menu__categories">
+              {categoriesData &&
+                categoriesData.map((category) => (
+                  <Link
+                    className={`menu__category ${category.link.slice(1)} ${
+                      headerHover === false ? 'display-none' : ''
+                    }`}
+                    route="Devices"
+                    onClick={() => setHeaderHover(false)}
+                    params={{ link: category?.link.slice(1) }}
+                    key={category.id}
+                  >
+                    {category.name}
+                  </Link>
+                ))}
+            </div>
+            <div className="menu__quicklinks">
+              <div>quicklink</div>
+            </div>
+          </div>
         </div>
 
         <Search />
