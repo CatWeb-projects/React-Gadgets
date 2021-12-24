@@ -231,7 +231,7 @@ export const audio = [
     type: 'audio',
     segment: 'Microphone',
     link: 'gaming-razer-seiren-x-black',
-    colors: ['black', 'white'],
+    colors: ['black'],
     audioFrequency: '20 Hz - 20 kHz',
     interface: ['USB'],
     sensitivity: 110
