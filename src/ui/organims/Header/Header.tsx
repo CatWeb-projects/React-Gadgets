@@ -21,6 +21,7 @@ export const Header = () => {
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
   const [headerHover, setHeaderHover] = React.useState<boolean>(false);
+  const [showQuicklinks, setShowQuicklinks] = React.useState<string>('');
 
   const { request, data, errors } = useRequest<Auth>();
   const { t, locale, setLocale } = useIntl();
@@ -112,29 +113,37 @@ export const Header = () => {
         >
           <Icon type="menu" />
           {t('categories')}
-          <div className="menu">
+
+          <div
+            className="menu"
+            style={headerHover === false ? { display: 'none' } : {}}
+          >
             <div className="menu__categories">
               {categoriesData &&
                 categoriesData.map((category) => (
-                  <Link
-                    className={`menu__category ${category.link.slice(1)} ${
-                      headerHover === false ? 'display-none' : ''
-                    }`}
-                    route="Devices"
-                    onClick={() => setHeaderHover(false)}
-                    params={{ link: category?.link.slice(1), brand: 'all' }}
+                  <div
+                    className="menu__category"
+                    onMouseOver={() =>
+                      setShowQuicklinks(`${category.link.slice(1)}`)
+                    }
                     key={category.id}
                   >
-                    {category.name}
-                  </Link>
+                    <Link
+                      route="Devices"
+                      onClick={() => setHeaderHover(false)}
+                      params={{ link: category?.link.slice(1), brand: 'all' }}
+                    >
+                      {category.name}
+                    </Link>
+                  </div>
                 ))}
             </div>
-            <div
-              className={`menu__quicklinks ${
-                headerHover === false ? 'display-none' : ''
-              }`}
-            >
-              <div>
+
+            <div className="menu__quicklinks">
+              <div
+                className="quicklinks"
+                style={showQuicklinks === 'phones' ? { display: 'flex' } : {}}
+              >
                 <Link
                   route="Devices"
                   params={{ link: 'phones', brand: 'xiaomi' }}
@@ -143,7 +152,11 @@ export const Header = () => {
                   Xiaomi
                 </Link>
               </div>
-              <div>
+
+              <div
+                className="quicklinks"
+                style={showQuicklinks === 'laptops' ? { display: 'flex' } : {}}
+              >
                 <Link
                   route="Devices"
                   params={{ link: 'laptops', brand: 'lenovo' }}
@@ -152,13 +165,30 @@ export const Header = () => {
                   Lenovo
                 </Link>
               </div>
-              <div>
+
+              <div
+                className="quicklinks"
+                style={showQuicklinks === 'gadgets' ? { display: 'flex' } : {}}
+              >
                 <Link
                   route="Devices"
                   params={{ link: 'gadgets', brand: 'xiaomi' }}
                   onClick={() => setHeaderHover(false)}
                 >
                   Xiaomi Gadgets
+                </Link>
+              </div>
+
+              <div
+                className="quicklinks"
+                style={showQuicklinks === 'audio' ? { display: 'flex' } : {}}
+              >
+                <Link
+                  route="Devices"
+                  params={{ link: 'audio', brand: 'hyperx' }}
+                  onClick={() => setHeaderHover(false)}
+                >
+                  Hyperx Audio
                 </Link>
               </div>
             </div>
