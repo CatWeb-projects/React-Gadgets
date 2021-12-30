@@ -11,6 +11,7 @@ import { promotions } from './promotions';
 import { devicesCards } from './recommended';
 import { collection } from './collection';
 import { UserController } from './controllers/user-controller';
+import { quicklinks } from './quicklinks';
 
 const uri =
   'mongodb+srv://user:user@users.jrmay.mongodb.net/React-Gadgets?retryWrites=true&w=majority';
@@ -82,6 +83,10 @@ server.get('/devices-cards', (request, response) => {
 
 server.get('/collection', (request, response) => {
   response.json(collection);
+});
+
+server.get('/quicklinks', (request, response) => {
+  response.json(quicklinks);
 });
 
 router.post(

@@ -3,7 +3,7 @@ import { useRequest } from 'estafette';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { DeviceContext } from 'contexts/Devices-Context';
-import { Auth, auth } from 'libs/http/api';
+import { Auth, auth, quicklinks } from 'libs/http/api';
 import { Search } from 'ui/organims';
 import { Button, Icon } from 'ui/atoms';
 
@@ -24,6 +24,8 @@ export const Header = () => {
   const [showQuicklinks, setShowQuicklinks] = React.useState<string>('');
 
   const { request, data, errors } = useRequest<Auth>();
+  const { request: requestQuicklinks, data: quicklinksData } =
+    useRequest<any>();
   const { t, locale, setLocale } = useIntl();
 
   const onChangeLanguage = (value: string) => {
@@ -57,6 +59,17 @@ export const Header = () => {
     return () => {};
     // eslint-disable-next-line
   }, [data]);
+
+  React.useEffect(() => {
+    onFetchQuicklinks();
+
+    return () => {
+      quicklinks.cancel();
+    };
+    // eslint-disable-next-line
+  }, []);
+
+  const onFetchQuicklinks = () => requestQuicklinks(quicklinks.action());
 
   const onRegistration = (email: string, password: string) => {
     request(
@@ -131,66 +144,62 @@ export const Header = () => {
                     <Link
                       route="Devices"
                       onClick={() => setHeaderHover(false)}
-                      params={{ link: category?.link.slice(1), brand: 'all' }}
+                      params={{
+                        link: category?.link.slice(1),
+                        properties: 'all'
+                      }}
                     >
-                      {category.name}
+                      {t(`${category.translate}`)}
                     </Link>
                   </div>
                 ))}
             </div>
 
             <div className="menu__quicklinks">
-              <div
-                className="quicklinks"
-                style={showQuicklinks === 'phones' ? { display: 'flex' } : {}}
-              >
-                <Link
-                  route="Devices"
-                  params={{ link: 'phones', brand: 'xiaomi' }}
-                  onClick={() => setHeaderHover(false)}
-                >
-                  Xiaomi
-                </Link>
-              </div>
-
-              <div
-                className="quicklinks"
-                style={showQuicklinks === 'laptops' ? { display: 'flex' } : {}}
-              >
-                <Link
-                  route="Devices"
-                  params={{ link: 'laptops', brand: 'lenovo' }}
-                  onClick={() => setHeaderHover(false)}
-                >
-                  Lenovo
-                </Link>
-              </div>
-
-              <div
-                className="quicklinks"
-                style={showQuicklinks === 'gadgets' ? { display: 'flex' } : {}}
-              >
-                <Link
-                  route="Devices"
-                  params={{ link: 'gadgets', brand: 'xiaomi' }}
-                  onClick={() => setHeaderHover(false)}
-                >
-                  Xiaomi Gadgets
-                </Link>
-              </div>
-
-              <div
-                className="quicklinks"
-                style={showQuicklinks === 'audio' ? { display: 'flex' } : {}}
-              >
-                <Link
-                  route="Devices"
-                  params={{ link: 'audio', brand: 'hyperx' }}
-                  onClick={() => setHeaderHover(false)}
-                >
-                  Hyperx Audio
-                </Link>
-              </div>
+              {quicklinksData &&
+                quicklinksData.map((quicklink: any) => (
+                  <div
+                    className="quicklinks"
+                    style={
+                      showQuicklinks === quicklink.name
+                        ? { display: 'flex' }
+                        : {}
+                    }
+                    key={quicklink.name}
+                  >
+                    <div className="categories-wrapper">
+                      {quicklink?.subCategories?.map((subCategory: any) => (
+                        <div
+                          className="properties"
+                          key={subCategory.quicklinksName}
+                        >
+                          <div className="properties-title">
+                            {subCategory.quicklinksName}
+                          </div>
+                          {subCategory?.links?.map(
+                            (linked: any, key: number) => (
+                              <Link
+                                route="Devices"
+                                params={{
+                                  link: linked?.catergoryLink
+                                    ? linked.catergoryLink
+                                    : quicklink?.name,
+                                  properties: linked?.properties
+                                    ? linked.properties
+                                    : linked.toLowerCase()
+                                }}
+                                onClick={() => setHeaderHover(false)}
+                                key={key}
+                              >
+                                {linked?.title ? linked.title : linked}
+                              </Link>
+                            )
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
