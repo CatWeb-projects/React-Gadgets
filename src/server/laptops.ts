@@ -284,8 +284,7 @@ export const laptops = [
     weight: 1290,
     popularity: 100,
     manufacturer: 'Apple',
-    imageUrl:
-      'https://darwin.md/images/product/2020/11/apple_macbook_air_13_2020_space_gray_1-201125044609-darwin.webp',
+    imageUrl: '/images/macbook-air-silver.png',
     type: 'laptops',
     segment: 'Home & Office',
     link: `macbook-air-13-2020-apple-space-gray-mgn63rua`,

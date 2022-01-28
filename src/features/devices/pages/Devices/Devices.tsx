@@ -13,22 +13,28 @@ export const Devices = () => {
     useParams<{ link: string; properties: string }>();
 
   React.useEffect(() => {
-    if (link) {
+    if (devicesData && link) {
       setFilter(devicesData.filter((item) => item.type.match(link)));
     }
-    if (link === 'apple') {
+    if (devicesData && link === 'apple') {
       setFilter(devicesData.filter((item) => item.manufacturer === 'Apple'));
     }
     if (
-      devicesData.find((item) => item.manufacturer.toLowerCase() === properties)
-    ) {
-      setFilter(
-        devicesData.filter(
-          (item) =>
-            item.manufacturer.toLowerCase() === properties &&
-            item.type.match(link)
+      devicesData.find((item) =>
+        Object.values(item).some((prop: any) =>
+          prop.toString().match(properties)
         )
-      );
+      )
+    ) {
+      const meta = devicesData.filter((item) => {
+        const x = Object.values(item);
+        const y = x.some(
+          (i) => item.type.match(link) && i.toString().match(properties)
+        );
+        return y;
+      });
+      setFilter(meta);
+      console.log(meta);
     }
   }, [devicesData, link, properties]);
 

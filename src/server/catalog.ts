@@ -1,4 +1,5 @@
 import { phones } from './phones';
+import { tablets } from './tablets';
 import { laptops } from './laptops';
 import { gadgets } from './gadgets';
 import { audio } from './audio';
@@ -8,6 +9,7 @@ import { Optics } from './optics';
 
 export const devices = Array.prototype.concat(
   phones,
+  tablets,
   laptops,
   gadgets,
   audio,

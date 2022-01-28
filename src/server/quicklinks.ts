@@ -22,11 +22,15 @@ export const quicklinks = [
             properties: 'all',
             catergoryLink: 'tablets'
           },
-          'Apple',
+          {
+            title: 'Apple',
+            properties: 'apple',
+            catergoryLink: 'tablets'
+          },
           {
             title: 'iPad 2021',
             properties: 'ipad-2021',
-            catergoryLink: 'tablets'
+            DirectLink: 'tablets'
           }
         ]
       },

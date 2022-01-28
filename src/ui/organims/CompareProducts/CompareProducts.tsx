@@ -79,7 +79,7 @@ export const CompareProducts = () => {
         return findProperties.length > 0;
       })
       .map((x) => productProperty[x])
-      .filter((elem, index, self) => index === self.indexOf(elem));
+      .filter((elem, index, self) => index === self.indexOf(elem)); //filtering duplicates
     return key;
   }, [userCompare]);
 
