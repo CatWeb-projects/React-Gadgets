@@ -109,7 +109,7 @@ export const sportAndHealth = [
     credit: 45,
     cashback: 50,
     model: 'Oclean F1',
-    color: 'Light Blue',
+    color: 'LightBlue',
     weight: 98,
     popularity: 64,
     manufacturer: 'Greentest',

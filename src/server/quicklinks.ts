@@ -51,7 +51,7 @@ export const quicklinks = [
             properties: 'all'
           },
           'Gaming',
-          { title: 'Home & Office', properties: 'home-and-office' },
+          { title: 'Home & Office', properties: 'home-&-office' },
           'Apple',
           'Lenovo',
           'Asus'

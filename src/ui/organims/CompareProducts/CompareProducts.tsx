@@ -198,7 +198,7 @@ export const CompareProducts = () => {
                     <div
                       className="compare-products__cards-info"
                       style={{
-                        backgroundColor: device.color
+                        backgroundColor: device.color.toLocaleLowerCase()
                       }}
                     ></div>
                   ) : ProductProps.color ? (
