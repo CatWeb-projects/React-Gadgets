@@ -61,7 +61,8 @@ const productProperty: { [key: string]: string } = {
   diaphragm: 'diaphragm',
   focalDistance: 'focalDistance',
   opticalZoom: 'opticalZoom',
-  refreshRate: 'refreshRate'
+  refreshRate: 'refreshRate',
+  electricRange: 'Electric Range'
 };
 
 export const CompareProducts = () => {
@@ -78,7 +79,7 @@ export const CompareProducts = () => {
         return findProperties.length > 0;
       })
       .map((x) => productProperty[x])
-      .filter((elem, index, self) => index === self.indexOf(elem));
+      .filter((elem, index, self) => index === self.indexOf(elem)); //filtering duplicates
     return key;
   }, [userCompare]);
 
@@ -108,7 +109,7 @@ export const CompareProducts = () => {
 
   return (
     <>
-      {userCompare?.length !== 0 && (
+      {userCompare?.length > 0 && (
         <div className="compare-products-main">
           <div className="compare-products-main__image-wrapper">
             <div></div>
@@ -197,7 +198,7 @@ export const CompareProducts = () => {
                     <div
                       className="compare-products__cards-info"
                       style={{
-                        backgroundColor: device.color
+                        backgroundColor: device.color.toLocaleLowerCase()
                       }}
                     ></div>
                   ) : ProductProps.color ? (
@@ -634,6 +635,15 @@ export const CompareProducts = () => {
                       {device.refreshRate}
                     </div>
                   ) : ProductProps.refreshRate ? (
+                    <div className="compare-products__cards-info">-</div>
+                  ) : (
+                    ''
+                  )}
+                  {device.electricRange !== undefined ? (
+                    <div className="compare-products__cards-info">
+                      {device.electricRange}km/h
+                    </div>
+                  ) : ProductProps.electricRange ? (
                     <div className="compare-products__cards-info">-</div>
                   ) : (
                     ''

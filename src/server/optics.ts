@@ -230,8 +230,7 @@ export const Optics = [
     weight: 6900,
     popularity: 50,
     manufacturer: 'Hisense',
-    imageUrl:
-      'https://darwin.md/images/product/2020/09/hisense_75a7100f_black1-200915094627-darwin.webp',
+    imageUrl: '/images/43a7100_new.webp',
     type: 'tv-photo-optics',
     segment: 'Smart TV',
     link: `hisense-43a7100f-black`,

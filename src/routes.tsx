@@ -33,7 +33,7 @@ export const routes: Route[] =
 
     {name: 'Favorites', path: '/favorites', component: Favorites},
 
-    {name: 'Devices', path: '/categories/:link', component: Devices}, 
+    {name: 'Devices', path: '/categories/:link/:properties', component: Devices}, 
 
     {name: 'Compare', path: '/compare', component: Compare},
   ];

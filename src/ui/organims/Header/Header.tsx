@@ -3,20 +3,29 @@ import { useRequest } from 'estafette';
 import { Link } from 'estafette-router';
 import { useIntl } from 'estafette-intl';
 import { DeviceContext } from 'contexts/Devices-Context';
-import { Auth, auth } from 'libs/http/api';
+import { Auth, auth, quicklinks } from 'libs/http/api';
 import { Search } from 'ui/organims';
 import { Button, Icon } from 'ui/atoms';
 
 import './Header.scss';
 
 export const Header = () => {
-  const { authVerify, setAuthVerify, setUserSave, userCompare } =
-    React.useContext(DeviceContext);
+  const {
+    authVerify,
+    setAuthVerify,
+    setUserSave,
+    userCompare,
+    categoriesData
+  } = React.useContext(DeviceContext);
   const [profile, setProfile] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
+  const [headerHover, setHeaderHover] = React.useState<boolean>(false);
+  const [showQuicklinks, setShowQuicklinks] = React.useState<string>('');
 
   const { request, data, errors } = useRequest<Auth>();
+  const { request: requestQuicklinks, data: quicklinksData } =
+    useRequest<any>();
   const { t, locale, setLocale } = useIntl();
 
   const onChangeLanguage = (value: string) => {
@@ -50,6 +59,17 @@ export const Header = () => {
     return () => {};
     // eslint-disable-next-line
   }, [data]);
+
+  React.useEffect(() => {
+    onFetchQuicklinks();
+
+    return () => {
+      quicklinks.cancel();
+    };
+    // eslint-disable-next-line
+  }, []);
+
+  const onFetchQuicklinks = () => requestQuicklinks(quicklinks.action());
 
   const onRegistration = (email: string, password: string) => {
     request(
@@ -89,22 +109,105 @@ export const Header = () => {
 
   return (
     <div className="header">
-      <div className="header-container">
+      <div
+        className="header__container"
+        style={headerHover ? { borderRadius: '16px 16px 0 0' } : {}}
+      >
         <div className="header__logo">
           <Link to="/">
             <Icon type="logo" />
           </Link>
         </div>
 
-        <div className="header__menu">
+        <div
+          className="header__menu"
+          onMouseOver={() => setHeaderHover(true)}
+          onMouseOut={() => setHeaderHover(false)}
+        >
           <Icon type="menu" />
           {t('categories')}
+
+          <div
+            className="menu"
+            style={headerHover === false ? { display: 'none' } : {}}
+          >
+            <div className="menu__categories">
+              {categoriesData &&
+                categoriesData.map((category) => (
+                  <div
+                    className="menu__category"
+                    onMouseOver={() =>
+                      setShowQuicklinks(`${category.link.slice(1)}`)
+                    }
+                    key={category.id}
+                  >
+                    <Link
+                      route="Devices"
+                      onClick={() => setHeaderHover(false)}
+                      params={{
+                        link: category?.link.slice(1),
+                        properties: 'all'
+                      }}
+                    >
+                      {t(`${category.translate}`)}
+                    </Link>
+                  </div>
+                ))}
+            </div>
+
+            <div className="menu__quicklinks">
+              {quicklinksData &&
+                quicklinksData.map((quicklink: any) => (
+                  <div
+                    className="quicklinks"
+                    style={
+                      showQuicklinks === quicklink.name
+                        ? { display: 'flex' }
+                        : {}
+                    }
+                    key={quicklink.name}
+                  >
+                    <div className="categories-wrapper">
+                      {quicklink?.subCategories?.map((subCategory: any) => (
+                        <div
+                          className="properties"
+                          key={subCategory.quicklinksName}
+                        >
+                          <div className="properties-title">
+                            {subCategory.quicklinksName}
+                          </div>
+                          {subCategory?.links?.map(
+                            (linked: any, key: number) => (
+                              <Link
+                                route="Devices"
+                                params={{
+                                  link: linked?.catergoryLink
+                                    ? linked.catergoryLink
+                                    : quicklink?.name,
+                                  properties: linked?.properties
+                                    ? linked.properties
+                                    : linked.toLowerCase()
+                                }}
+                                onClick={() => setHeaderHover(false)}
+                                key={key}
+                              >
+                                {linked?.title ? linked.title : linked}
+                              </Link>
+                            )
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
         </div>
 
         <Search />
 
         <div className="header__main-menu">
-          {authVerify && userCompare?.length !== 0 && (
+          {authVerify && userCompare?.length > 0 && (
             <div className="compare-devices">
               <Link to="/compare">
                 <Icon type="compare" />

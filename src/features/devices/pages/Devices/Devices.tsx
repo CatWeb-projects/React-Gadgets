@@ -9,16 +9,34 @@ import { DevicesProps } from 'libs/http/api';
 export const Devices = () => {
   const { devicesData } = React.useContext(DeviceContext);
   const [filter, setFilter] = React.useState<DevicesProps[]>([]);
-  const { link } = useParams<{ link: string }>();
+  const { link, properties } =
+    useParams<{ link: string; properties: string }>();
 
   React.useEffect(() => {
-    if (link) {
+    if (devicesData && link) {
       setFilter(devicesData.filter((item) => item.type.match(link)));
     }
-    if (link === 'apple') {
+    if (devicesData && link === 'apple') {
       setFilter(devicesData.filter((item) => item.manufacturer === 'Apple'));
     }
-  }, [devicesData, link]);
+    if (
+      devicesData.find((item) =>
+        Object.values(item).some((prop: any) =>
+          prop.toString().match(properties)
+        )
+      )
+    ) {
+      const meta = devicesData.filter((item) => {
+        const x = Object.values(item);
+        const y = x.some(
+          (i) => item.type.match(link) && i.toString().match(properties)
+        );
+        return y;
+      });
+      setFilter(meta);
+      console.log(meta);
+    }
+  }, [devicesData, link, properties]);
 
   useScrollToTop();
 

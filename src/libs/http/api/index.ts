@@ -6,6 +6,7 @@ export { promotions } from './promotions/promotions';
 export { recommended } from './recommended/recommended';
 export { collection } from './collection/collection';
 export { auth } from './auth/auth';
+export { quicklinks } from './quicklinks/quicklinks';
 
 export type { SliderProps } from './slider/slider.types';
 export type { TagsProps } from './tags/tags.types';

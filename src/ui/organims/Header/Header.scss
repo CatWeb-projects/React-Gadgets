@@ -4,6 +4,18 @@
 .header {
   padding-top: rem(46px);
 
+  &__container {
+    max-width: rem(1400px);
+    margin: 0 auto;
+    background-color: #101010;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: rem(72px);
+    border-radius: rem(16px);
+    position: relative;
+  }
+
   &__logo {
     padding-left: rem(16px);
 
@@ -19,6 +31,8 @@
     white-space: nowrap;
     cursor: pointer;
     font-size: rem(18px);
+    align-items: center;
+    height: 100%;
 
     svg {
       fill: #fff;
@@ -198,17 +212,6 @@
   }
 }
 
-.header-container {
-  max-width: rem(1400px);
-  margin: 0 auto;
-  background-color: #101010;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: rem(72px);
-  border-radius: rem(16px);
-}
-
 .profile {
   position: absolute;
   top: 0;
@@ -292,4 +295,87 @@
   font-weight: 800;
   color: #f44336;
   margin-top: rem(16px);
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  color: #fff;
+  font-size: rem(20px);
+  width: 100%;
+  overflow: hidden;
+  border: none;
+  cursor: default;
+  border-radius: rem(0 0 16px 16px);
+
+  &__categories {
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    width: rem(360px);
+  }
+
+  &__category {
+    > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: rem(18px 20px);
+
+      &:hover {
+        background: rgb(38, 38, 38);
+        color: #fff;
+      }
+    }
+  }
+
+  &__quicklinks {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(16px);
+  }
+}
+
+.header__menu:hover .menu {
+  transition: all 0.3s;
+  display: flex;
+}
+
+.display-none,
+.quicklinks {
+  display: none;
+}
+
+.quicklinks {
+  justify-content: center;
+  margin-top: rem(10px);
+}
+
+.categories-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  justify-content: space-between;
+}
+
+.properties {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > a {
+    margin-bottom: rem(8px);
+  }
+}
+
+.properties-title {
+  margin-bottom: rem(16px);
+  padding: rem(8px 16px);
+  border-radius: rem(25px);
+  background-color: #fff;
+  color: #262626;
+  font-weight: 800;
 }

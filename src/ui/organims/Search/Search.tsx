@@ -52,7 +52,7 @@ export const Search = () => {
       <input
         type="text"
         style={
-          searchValue && searchDevices?.length !== 0
+          searchValue && searchDevices?.length > 0
             ? { borderRadius: '8px 8px 0 0' }
             : {}
         }
@@ -65,7 +65,7 @@ export const Search = () => {
         <Icon type="zoom" />
       </Button>
 
-      {searchValue && searchDevices?.length !== 0 && (
+      {searchValue && searchDevices?.length > 0 && (
         <div className="finded-wrapper">
           <h3>{t('products')}</h3>
 
