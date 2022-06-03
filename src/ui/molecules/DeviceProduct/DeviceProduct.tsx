@@ -342,7 +342,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 )}
                 {deviceData.wheelDiameter && (
                   <li>
-                    {t('wheelDiameter')} : {deviceData.wheelDiameter}"
+                    {t('wheelDiameter')} : {deviceData.wheelDiameter}&quot;
                   </li>
                 )}
                 {deviceData.speedsNumber && (
@@ -367,7 +367,7 @@ export const DeviceProduct: React.FC<Props> = ({ deviceData }) => {
                 )}
                 {deviceData.frameDiameter && (
                   <li>
-                    {t('frameDiameter')} : {deviceData.frameDiameter}"
+                    {t('frameDiameter')} : {deviceData.frameDiameter}&quot;
                   </li>
                 )}
                 {deviceData.memoryCard && (

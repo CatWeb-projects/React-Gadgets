@@ -111,8 +111,7 @@ export const audio = [
     weight: 310,
     popularity: 70,
     manufacturer: 'HyperX',
-    imageUrl:
-      'https://darwin.md/images/product/2021/02/coud_alpha_s_black_2d.webp',
+    imageUrl: '/images/coud_alpha_s_black-blue.webp',
     type: 'audio',
     segment: 'Gaming Headphones',
     link: 'hyperx-cloud-alpha-s-hx-hscas-blue',
@@ -134,8 +133,7 @@ export const audio = [
     weight: 310,
     popularity: 72,
     manufacturer: 'HyperX',
-    imageUrl:
-      'https://darwin.md/images/product/2021/05/hyperx_cloud_alpha_s_black5.webp',
+    imageUrl: '/images/coud_alpha_s_black.webp',
     type: 'audio',
     segment: 'Gaming Headphones',
     link: 'hyperx-cloud-alpha-s-hx-hscas-black',
@@ -226,8 +224,7 @@ export const audio = [
     weight: 383,
     popularity: 87,
     manufacturer: 'Razer',
-    imageUrl:
-      'https://darwin.md/images/product/2021/02/razer_seiren_x_black_2.webp',
+    imageUrl: '/images/razer_seiren_x_black_1.webp',
     type: 'audio',
     segment: 'Microphone',
     link: 'gaming-razer-seiren-x-black',

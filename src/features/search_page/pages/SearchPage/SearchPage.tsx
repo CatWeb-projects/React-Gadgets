@@ -8,7 +8,7 @@ import { catalog, DevicesProps } from 'libs/http/api';
 export const SearchPage = () => {
   const { link } = useParams<{ link: string }>();
   const { request, data: searchData } = useRequest<DevicesProps[]>();
-  const query = link.substring(6, link.length);
+  const query = link?.substring(6, link.length);
 
   React.useEffect(() => {
     onFetch();
@@ -17,7 +17,7 @@ export const SearchPage = () => {
     // eslint-disable-next-line
   }, [link]);
 
-  const onFetch = () => request(catalog.searchDevices.action(query));
+  const onFetch = () => query && request(catalog.searchDevices.action(query));
 
   return (
     <div className="main-container">

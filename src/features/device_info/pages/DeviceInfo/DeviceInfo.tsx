@@ -18,7 +18,7 @@ export const DeviceInfo = () => {
     // eslint-disable-next-line
   }, [link]);
 
-  const onFetch = () => request(catalog.device.action(link));
+  const onFetch = () => link && request(catalog.device.action(link));
 
   return (
     <div className="main-container">

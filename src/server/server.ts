@@ -18,7 +18,7 @@ const uri =
 const server = express();
 server.use(cookieParser());
 server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded({ extended: true }));
 server.use(
   cors({
     credentials: true,
@@ -30,10 +30,7 @@ const port = 3005;
 
 const start = async () => {
   try {
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    await mongoose.connect(uri, {});
   } catch (e) {
     console.log(e);
   }
