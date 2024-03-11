@@ -22,7 +22,7 @@ export const SlickSlider = () => {
 
   const onFetch = () => request(slider.action());
 
-  const settings = {
+  const settings: any = {
     dots: true,
     infinite: true,
     speed: 500,
