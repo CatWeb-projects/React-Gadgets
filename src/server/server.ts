@@ -13,12 +13,11 @@ import { collection } from './collection';
 import { UserController } from './controllers/user-controller';
 import { quicklinks } from './quicklinks';
 
-const uri =
-  'mongodb+srv://user:user@users.jrmay.mongodb.net/React-Gadgets?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://user:jrMay@cluster0.wzrz2qs.mongodb.net/';
 const server = express();
 server.use(cookieParser());
 server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded({ extended: true }));
 server.use(
   cors({
     credentials: true,
@@ -30,10 +29,8 @@ const port = 3005;
 
 const start = async () => {
   try {
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    await mongoose.connect(uri, {});
+    console.log('mongo db connected');
   } catch (e) {
     console.log(e);
   }

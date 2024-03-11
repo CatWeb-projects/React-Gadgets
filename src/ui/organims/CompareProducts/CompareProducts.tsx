@@ -542,7 +542,7 @@ export const CompareProducts = () => {
                   )}
                   {device.wheelDiameter !== undefined ? (
                     <div className="compare-products__cards-info">
-                      {device.wheelDiameter}"
+                      {device.wheelDiameter}&quot;
                     </div>
                   ) : ProductProps.wheelDiameter ? (
                     <div className="compare-products__cards-info">-</div>
@@ -587,7 +587,7 @@ export const CompareProducts = () => {
                   )}
                   {device.frameDiameter !== undefined ? (
                     <div className="compare-products__cards-info">
-                      {device.frameDiameter}"
+                      {device.frameDiameter}&quot;
                     </div>
                   ) : ProductProps.frameDiameter ? (
                     <div className="compare-products__cards-info">-</div>

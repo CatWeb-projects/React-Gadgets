@@ -12,11 +12,19 @@ $mq-breakpoints: (
   desktop: 1024px,
   wide: 1280px,
   extra-wide: 1366px,
-  extra-extra-wide: 1400px,
+  extra-extra-wide: 1400px
 ) !default;
 
 $mq-static-breakpoint: desktop !default;
-$mq-show-breakpoints: (mobile, small-tablet, tablet, small-desktop, desktop, wide, extra-wide) !default;
+$mq-show-breakpoints: (
+  mobile,
+  small-tablet,
+  tablet,
+  small-desktop,
+  desktop,
+  wide,
+  extra-wide
+) !default;
 $mq-media-type: all !default;
 
 @function mq-px2em($px, $base-font-size: $mq-base-font-size) {
@@ -26,7 +34,7 @@ $mq-media-type: all !default;
   } @else if unit($px) ==em {
     @return $px;
   }
-  @return ($px / $base-font-size) * 1em;
+  @return calc($px / $base-font-size) * 1em;
 }
 
 @function mq-get-breakpoint-width($name, $breakpoints: $mq-breakpoints) {
@@ -60,14 +68,25 @@ $mq-media-type: all !default;
     @if type-of($until) ==number {
       $max-width: mq-px2em($until);
     } @else {
-      $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - 0.01em;
+      $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) -
+        0.01em;
     }
   } // Responsive support is disabled, rasterize the output outside @media blocks
   // The browser will rely on the cascade itself.
   @if $responsive==false {
-    $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
-    $target-width: mq-px2em($static-breakpoint-width); // Output only rules that start at or span our target width
-    @if ($and==false and $min-width <=$target-width and ($until==false or $max-width >=$target-width)) {
+    $static-breakpoint-width: mq-get-breakpoint-width(
+      $static-breakpoint,
+      $breakpoints
+    );
+    $target-width: mq-px2em(
+      $static-breakpoint-width
+    ); // Output only rules that start at or span our target width
+    @if (
+      $and==false and
+        $min-width
+        <=$target-width and
+        ($until==false or $max-width >=$target-width)
+    ) {
       @content;
     }
   }
@@ -94,12 +113,15 @@ $mq-media-type: all !default;
 
 @mixin mq-add-breakpoint($name, $width) {
   $new-breakpoint: (
-    $name: $width,
+    $name: $width
   );
   $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
 }
 
-@mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
+@mixin mq-show-breakpoints(
+  $show-breakpoints: $mq-show-breakpoints,
+  $breakpoints: $mq-breakpoints
+) {
   body:before {
     background-color: #fcf8e3;
     border-bottom: rem(1px) solid #fbeed5;

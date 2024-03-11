@@ -9,8 +9,10 @@ import { DevicesProps } from 'libs/http/api';
 export const Devices = () => {
   const { devicesData } = React.useContext(DeviceContext);
   const [filter, setFilter] = React.useState<DevicesProps[]>([]);
-  const { link, properties } =
-    useParams<{ link: string; properties: string }>();
+  const { link, properties } = useParams<{
+    link: string;
+    properties: string;
+  }>();
 
   React.useEffect(() => {
     if (devicesData && link) {
@@ -29,7 +31,7 @@ export const Devices = () => {
       const meta = devicesData.filter((item) => {
         const x = Object.values(item);
         const y = x.some(
-          (i) => item.type.match(link) && i.toString().match(properties)
+          (i) => link && item.type.match(link) && i.toString().match(properties)
         );
         return y;
       });

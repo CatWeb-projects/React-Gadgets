@@ -22,19 +22,19 @@
 
     &:hover {
       .support-first {
-        background-image: url('/images/check-hover.png');
+        background-image: url('/../public/images/check-hover.png');
       }
 
       .support-second {
-        background-image: url('/images/delivery-hover.png');
+        background-image: url('/../public/images/delivery-hover.png');
       }
 
       .support-third {
-        background-image: url('/images/security-hover.png');
+        background-image: url('/../public/images/security-hover.png');
       }
 
       .support-fourth {
-        background-image: url('/images/cash-hover.png');
+        background-image: url('/../public/images/cash-hover.png');
       }
     }
   }
@@ -66,17 +66,17 @@
 }
 
 .support-first {
-  background-image: url('/images/check.png');
+  background-image: url('/../public/images/check.png');
 }
 
 .support-second {
-  background-image: url('/images/delivery.png');
+  background-image: url('/../public/images/delivery.png');
 }
 
 .support-third {
-  background-image: url('/images/security.png');
+  background-image: url('/../public/images/security.png');
 }
 
 .support-fourth {
-  background-image: url('/images/cash.png');
+  background-image: url('/../public/images/cash.png');
 }
