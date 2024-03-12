@@ -4,13 +4,13 @@ export const sliderImages = [
   {
     id: 103,
     imgUrl: '/images/smartphones.jpg',
-    link: '/categories/phones',
+    link: '/categories/phones/all',
     altName: 'Smartphones'
   },
   {
     id: 104,
     imgUrl: '/images/work-gadgets.jpg',
-    link: '/categories/gadgets',
+    link: '/categories/gadgets/all',
     altName: 'Work Gadgets'
   },
   {
@@ -30,13 +30,13 @@ export const sliderImages = [
     id: 107,
     imgUrl:
       'https://darwin.md/images/slider/2021/10/beneficiu_rasunator_1400x520_ro.webp',
-    link: '/categories/audio',
+    link: '/categories/audio/all',
     altName: 'Soundbar'
   },
   {
     id: 108,
     imgUrl: '/images/future.jpg',
-    link: '/categories/sport-and-health',
+    link: '/categories/sport-and-health/all',
     altName: 'Future'
   }
 ];
