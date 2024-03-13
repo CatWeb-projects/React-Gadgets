@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build" },
+    { "src": "/src/server/server.ts", "use": "@vercel/node" }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/src/server/server.ts" },
+    { "source": "(.*)", "destination": "/index.html" }
+  ]
+}
